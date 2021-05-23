@@ -17,7 +17,7 @@ class Crawler:
         "2,1": "http://results.jntuh.ac.in/jsp/SearchResult.jsp?degree=btech&examCode=1391&etype=r17&type=grade17",
         "2,2": "http://results.jntuh.ac.in/jsp/SearchResult.jsp?degree=btech&examCode=1437&etype=r17&type=intgrade",
     }
-    driver_file = "geckodriver" if platform.system() == "Linux" else "geckodriver.exe"
+    driver_file = "drivers/geckodriver" if platform.system() == "Linux" else "drivers/geckodriver.exe"
     driver = None
     firefox_options = webdriver.FirefoxOptions()
 
