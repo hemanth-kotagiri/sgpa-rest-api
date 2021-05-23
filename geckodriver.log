@@ -320,3 +320,36 @@ Exiting due to channel error.
 [GFX1-]: Receive IPC close with reason=AbnormalShutdown
 Exiting due to channel error.
 Exiting due to channel error.
+1621756261002	geckodriver	INFO	Listening on 127.0.0.1:46875
+1621756261006	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--headless" "--no-sandbox" "--disable-dev-shm-usage" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilemoU9WN"
+*** You are running in headless mode.
+[GFX1-]: glxtest: Could not connect to wayland socket
+
+(/usr/lib/firefox/firefox:97050): GLib-GObject-CRITICAL **: 13:21:01.700: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+
+(/usr/lib/firefox/firefox:97067): GLib-GObject-CRITICAL **: 13:21:01.807: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1621756262373	Marionette	INFO	Listening on port 44865
+1621756262425	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:97177): GLib-GObject-CRITICAL **: 13:21:02.699: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1621756276716	geckodriver	INFO	Listening on 127.0.0.1:58669
+1621756276719	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--headless" "--no-sandbox" "--disable-dev-shm-usage" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileDetLrE"
+*** You are running in headless mode.
+[GFX1-]: glxtest: Could not connect to wayland socket
+
+(/usr/lib/firefox/firefox:97678): GLib-GObject-CRITICAL **: 13:21:17.397: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+
+(/usr/lib/firefox/firefox:97695): GLib-GObject-CRITICAL **: 13:21:17.534: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1621756278096	Marionette	INFO	Listening on port 42635
+1621756278140	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:97804): GLib-GObject-CRITICAL **: 13:21:18.435: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+Exiting due to channel error.
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+Exiting due to channel error.
+Exiting due to channel error.
