@@ -9,14 +9,21 @@ app = Flask(__name__)
 
 
 @app.route("/<hallticket>/<dob>/<year>")
-def index(hallticket, dob, year):
-
-    # hallticket = request.args.get("hallticket")
-    # dob = request.args.get("dob")
-    # year = request.args.get("year")
+def routing_path(hallticket, dob, year):
 
     result = scrapper.get_result(hallticket, dob, year)
-    # print(result)
+    return Response(json.dumps(result),  mimetype='application/json')
+
+
+@app.route("/result")
+def request_param_path():
+
+    hallticket = request.args.get("hallticket")
+    dob = request.args.get("dob")
+    year = request.args.get("year")
+
+    result = scrapper.get_result(hallticket, dob, year)
+
     return Response(json.dumps(result),  mimetype='application/json')
 
 
