@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 import platform
 
-# TODO : Crawler class which consists of all the methods
+# TODO : Initialize the driver without window
 
 
 class Crawler:
@@ -107,7 +107,6 @@ class Crawler:
 
             results.append(subject_object)
 
-        for subject in results:
-            print(subject)
-
         self.driver.back()
+
+        return results

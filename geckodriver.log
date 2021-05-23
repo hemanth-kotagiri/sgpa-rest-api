@@ -77,3 +77,47 @@ console.warn: SearchSettings: "get: No settings file exists, new profile?" (new 
 1621748315158	Marionette	INFO	Listening on port 46017
 1621748315223	Marionette	WARN	TLS certificate errors will be ignored for this session
 1621748334585	Marionette	INFO	Stopped listening on port 46017
+1621748878497	geckodriver	INFO	Listening on 127.0.0.1:50659
+1621748878501	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilenDLOma"
+[GFX1-]: glxtest: Could not connect to wayland socket
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1621748880356	Marionette	INFO	Listening on port 39541
+1621748880421	Marionette	WARN	TLS certificate errors will be ignored for this session
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1621748907926	geckodriver	INFO	Listening on 127.0.0.1:47041
+1621748907930	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofiledq9IIH"
+[GFX1-]: glxtest: Could not connect to wayland socket
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1621748909822	Marionette	INFO	Listening on port 37775
+1621748909851	Marionette	WARN	TLS certificate errors will be ignored for this session
+1621748928364	Marionette	INFO	Stopped listening on port 37775
+1621748961530	geckodriver	INFO	Listening on 127.0.0.1:57821
+1621748961533	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileQw4wZm"
+[GFX1-]: glxtest: Could not connect to wayland socket
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1621748963410	Marionette	INFO	Listening on port 38321
+1621748963463	Marionette	WARN	TLS certificate errors will be ignored for this session
+Exiting due to channel error.
+Exiting due to channel error.
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+Exiting due to channel error.
+1621748983915	geckodriver	INFO	Listening on 127.0.0.1:56325
+1621748983919	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilecyNtUP"
+[GFX1-]: glxtest: Could not connect to wayland socket
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1621748985752	Marionette	INFO	Listening on port 41641
+1621748985838	Marionette	WARN	TLS certificate errors will be ignored for this session
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1621749035851	geckodriver	INFO	Listening on 127.0.0.1:58921
+1621749035854	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilefQ2Qxg"
+[GFX1-]: glxtest: Could not connect to wayland socket
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1621749037689	Marionette	INFO	Listening on port 39401
+1621749037777	Marionette	WARN	TLS certificate errors will be ignored for this session
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
