@@ -22,22 +22,23 @@ batch 2018. Soon, I would leverage this to other regulations as well.
 Below is a response object containing a 4 tuple schema.
 
 ```json
-{
-  [
+[
+  {
     "subject_code": "15105",
     "subject_name": "ENGINEERING WORKSHOP",
     "grade_earned": "A+",
     "subject_credits": "2.5"
-  ]
+  }
+]
+
 ```
 
-}
 
 And, this is a response object containing an 8 tuple schema.
 
 ```json
-{
-  [
+[
+  {
   "subject_code": "15408",
   "subject_name": "DATABASE MANAGEMENT SYSTEMS LAB",
   "internal_marks": "25",
@@ -45,8 +46,8 @@ And, this is a response object containing an 8 tuple schema.
   "total_marks": "98",
   "grade_earned": "O",
   "subject_credits": "1.5"
-  ]
-}
+  }
+]
 ```
 
 ##### Note that depending on the servers, the number of tuples are determined.
@@ -65,9 +66,12 @@ And, this is a response object containing an 8 tuple schema.
 ### Example
 
 You could use Postman or any other service as you wish to test the RestAPI.
-By triggering the endpoint:
+
+Copy and paste this url in a new tab:
 
 `https://results-restapi.herokuapp.com/185U1A0565/2001-04-03/1,1`
+
+and it shall trigger the endpoint.
 
 You would obtain the response object as follows:
 
