@@ -8,14 +8,14 @@ scrapper = Crawler()
 app = Flask(__name__)
 
 
-@app.route("/<hallticket>/<dob>/<year>")
+@app.route("/<hallticket>/<dob>/<year>", methods=["GET"])
 def routing_path(hallticket, dob, year):
 
     result = scrapper.get_result(hallticket, dob, year)
     return Response(json.dumps(result),  mimetype='application/json')
 
 
-@app.route("/result")
+@app.route("/result", methods=["GET"])
 def request_param_path():
 
     hallticket = request.args.get("hallticket")
