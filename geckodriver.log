@@ -1,0 +1,79 @@
+1621747509407	geckodriver	INFO	Listening on 127.0.0.1:33119
+1621747509412	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile836i5j"
+[GFX1-]: glxtest: Could not connect to wayland socket
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1621747512203	Marionette	INFO	Listening on port 33829
+1621747512240	Marionette	WARN	TLS certificate errors will be ignored for this session
+1621747516017	Marionette	INFO	Stopped listening on port 33829
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1621747826574	geckodriver	INFO	Listening on 127.0.0.1:38447
+1621747826578	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileXLjGWV"
+[GFX1-]: glxtest: Could not connect to wayland socket
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1621747828429	Marionette	INFO	Listening on port 36735
+1621747828499	Marionette	WARN	TLS certificate errors will be ignored for this session
+1621747881995	geckodriver	INFO	Listening on 127.0.0.1:37773
+1621747881999	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile3WHrvm"
+[GFX1-]: glxtest: Could not connect to wayland socket
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1621747883846	Marionette	INFO	Listening on port 34937
+1621747883921	Marionette	WARN	TLS certificate errors will be ignored for this session
+1621747886243	Marionette	INFO	Stopped listening on port 36735
+1621747940800	Marionette	INFO	Stopped listening on port 34937
+1621747951775	geckodriver	INFO	Listening on 127.0.0.1:43959
+1621747951779	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileqlknro"
+[GFX1-]: glxtest: Could not connect to wayland socket
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1621747953629	Marionette	INFO	Listening on port 46423
+1621747953703	Marionette	WARN	TLS certificate errors will be ignored for this session
+1621748012879	Marionette	INFO	Stopped listening on port 46423
+1621748018014	geckodriver	INFO	Listening on 127.0.0.1:41545
+1621748018018	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile4V3wtu"
+[GFX1-]: glxtest: Could not connect to wayland socket
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1621748019875	Marionette	INFO	Listening on port 36209
+1621748019943	Marionette	WARN	TLS certificate errors will be ignored for this session
+1621748063315	geckodriver	INFO	Listening on 127.0.0.1:40267
+1621748063319	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile54rdRo"
+[GFX1-]: glxtest: Could not connect to wayland socket
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1621748065180	Marionette	INFO	Listening on port 34371
+1621748065239	Marionette	WARN	TLS certificate errors will be ignored for this session
+1621748067311	Marionette	INFO	Stopped listening on port 36209
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1621748071085	Marionette	INFO	Stopped listening on port 34371
+1621748073483	geckodriver	INFO	Listening on 127.0.0.1:44977
+1621748073487	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileqWctGl"
+[GFX1-]: glxtest: Could not connect to wayland socket
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1621748075338	Marionette	INFO	Listening on port 45365
+1621748075410	Marionette	WARN	TLS certificate errors will be ignored for this session
+1621748088473	Marionette	INFO	Stopped listening on port 45365
+1621748115279	geckodriver	INFO	Listening on 127.0.0.1:51763
+1621748115283	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileWd2qpM"
+[GFX1-]: glxtest: Could not connect to wayland socket
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1621748117119	Marionette	INFO	Listening on port 37959
+1621748117204	Marionette	WARN	TLS certificate errors will be ignored for this session
+1621748144866	Marionette	INFO	Stopped listening on port 37959
+1621748149336	geckodriver	INFO	Listening on 127.0.0.1:45287
+1621748149340	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileraviyH"
+[GFX1-]: glxtest: Could not connect to wayland socket
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1621748151188	Marionette	INFO	Listening on port 38991
+1621748151262	Marionette	WARN	TLS certificate errors will be ignored for this session
+1621748304427	Marionette	INFO	Stopped listening on port 38991
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1621748313299	geckodriver	INFO	Listening on 127.0.0.1:44205
+1621748313304	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile5YtR1i"
+[GFX1-]: glxtest: Could not connect to wayland socket
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1621748315158	Marionette	INFO	Listening on port 46017
+1621748315223	Marionette	WARN	TLS certificate errors will be ignored for this session
+1621748334585	Marionette	INFO	Stopped listening on port 46017
