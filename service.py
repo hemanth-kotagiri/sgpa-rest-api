@@ -19,12 +19,17 @@ class Crawler:
     }
     driver_file = "geckodriver" if platform.system() == "Linux" else "geckodriver.exe"
     driver = None
+    firefox_options = webdriver.FirefoxOptions()
 
     def __init__(self):
+        # Specifying the driver options
+        self.firefox_options.add_argument("--headless")
+        self.firefox_options.add_argument("--no-sandbox")
+        self.firefox_options.add_argument("--disable-dev-shm-usage")
 
         # Starting the driver
         self.driver = webdriver.Firefox(
-            executable_path=os.path.join(os.getcwd(), self.driver_file))
+            executable_path=os.path.join(os.getcwd(), self.driver_file), firefox_options=self.firefox_options)
 
     def get_result(self, hallticket, dob, year):
 
