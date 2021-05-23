@@ -68,10 +68,11 @@ And, this is a response object containing an 8 tuple schema.
 You could use Postman or any other service as you wish to test the RestAPI.
 
 Copy and paste this url in a new tab:
+ ```
+   https://results-restapi.herokuapp.com/185U1A0565/2001-04-03/1,1
+```
 
-`https://results-restapi.herokuapp.com/185U1A0565/2001-04-03/1,1`
-
-and it shall trigger the endpoint.
+and it shall trigger the endpoint with the below response. Now, all you need to do is change the hallticket-number and the date-of-brith to trigger the endpoint to fetch the specific results.
 
 You would obtain the response object as follows:
 
@@ -127,8 +128,6 @@ You would obtain the response object as follows:
   }
 ]
 ```
-
-Now, all you need to do is change the hallticket-number and the date-of-brith to trigger the endpoint to fetch the specific results.
 
 
 [MIT License](LICENSE) - Copyright (c) 2021 Hemanth Kotagiri
