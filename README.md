@@ -129,3 +129,9 @@ You would obtain the response object as follows:
 ```
 
 Now, all you need to do is change the hallticket-number and the date-of-brith to trigger the endpoint to fetch the specific results.
+
+
+[MIT License](LICENSE) - Copyright (c) 2021 Hemanth Kotagiri
+
+
+Made with ❤️ by Hemanth
