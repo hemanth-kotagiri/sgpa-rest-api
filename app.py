@@ -8,6 +8,11 @@ scrapper = Crawler()
 app = Flask(__name__)
 
 
+@app.route("/")
+def index():
+    return "Hello, working"
+
+
 @app.route("/<hallticket>/<dob>/<year>", methods=["GET"])
 def routing_path(hallticket, dob, year):
 
