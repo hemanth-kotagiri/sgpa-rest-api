@@ -1,5 +1,6 @@
 import time
 import os
+import stat
 import requests
 import urllib3
 from bs4 import BeautifulSoup
@@ -26,6 +27,10 @@ class Crawler:
         self.firefox_options.add_argument("--headless")
         self.firefox_options.add_argument("--no-sandbox")
         self.firefox_options.add_argument("--disable-dev-shm-usage")
+
+        st = os.stat(os.path.join(os.getcwd(), self.driver_file))
+        os.chmod(os.path.join(os.getcwd(), self.driver_file),
+                 st.st_mode | stat.S_IEXEC)
 
         # Starting the driver
         self.driver = webdriver.Firefox(
