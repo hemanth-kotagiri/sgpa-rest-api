@@ -1,10 +1,10 @@
 # RestAPI for [SGPA-Calcluator](https://github.com/hemanth-kotagiri/sgpa-calculator)
 
-This has been specifically built to suppliment the mobile application that I am
+<p align="center">This has been specifically built to suppliment the mobile application that I am
 developing. Feel free to use this irrespective of the mobile-app, with which
 you can integrate into your own applications/projects to get the data. As of
 now, this RestAPI provides the resluts of all R18 regulation students of the
-batch 2018. Soon, I would leverage this to other regulations as well.
+batch 2018. Soon, I would leverage this to other regulations as well.</p>
 
 **Note that the response is in the form of JSON only.**
 
@@ -14,7 +14,6 @@ batch 2018. Soon, I would leverage this to other regulations as well.
 1. Hallticker Number
 2. Date of Birth (YEAR-MONTH-DAY)
 3. Year and Semester (YEAR,SEMESTER)
-
 ```
 
 ### Sample Response format
@@ -48,7 +47,7 @@ And, this is a response object containing an 8 tuple schema.
 ]
 ```
 
-##### Note that depending on the servers, the number of tuples are determined.
+Note that depending on the servers, the number of tuples are determined.
 
 ### Usage
 
@@ -128,6 +127,6 @@ You would obtain the response object as follows:
 ]
 ```
 
-[MIT License](LICENSE) - Copyright (c) 2021 Hemanth Kotagiri
+[MIT License](https://github.com/hemanth-kotagiri/sgpa-rest-api/blob/master/LICENSE) - Copyright (c) 2021 Hemanth Kotagiri
 
 Made with ❤️ by Hemanth
