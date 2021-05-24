@@ -1,5 +1,7 @@
 from service import Crawler
 import json
+import markdown, markdown.extensions.fenced_code
+from pygments.formatters import HtmlFormatter
 from flask import Flask, Response, request
 
 # Initializing the Crawler object from service
@@ -10,7 +12,16 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return "Hello, working"
+
+    formatter = HtmlFormatter(full=True,cssclass="codehilite")
+    css_string = formatter.get_style_defs()
+    readme = open("README_PAGE.md", "r")
+    md_template = markdown.markdown(
+        readme.read(), extensions=["fenced_code", "codehilite"]
+    )
+    md_css_string = "<style>" + css_string + "</style>"
+    md_template = md_css_string + md_template
+    return md_template
 
 
 @app.route("/<hallticket>/<dob>/<year>", methods=["GET"])
