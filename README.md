@@ -8,13 +8,20 @@ batch 2018. Soon, I would leverage this to other regulations as well.
 
 **Note that the response is in the form of JSON only.**
 
+### Endpoints
+
+```
+- /          - This is where you are right now.
+- /result    - A query parameter specific endpoint.
+- /calculate - Fetch the SGPA along with other details.
+```
+
 ### Input Parameters
 
 ```
 1. Hallticker Number
 2. Date of Birth (YEAR-MONTH-DAY)
 3. Year and Semester (YEAR,SEMESTER)
-
 ```
 
 ### Sample Response format
@@ -78,10 +85,10 @@ You would obtain the response object as follows:
 ```json
 [
   {
-  "HTNO": "Hallticket Number",
-  "NAME": "Student Name",
-  "FATHER NAME": "Student's Father Name",
-  "COLLEGE CODE": "Code"
+    "HTNO": "Hallticket Number",
+    "NAME": "Student Name",
+    "FATHER NAME": "Student's Father Name",
+    "COLLEGE CODE": "Code"
   },
   [
     {
@@ -134,6 +141,20 @@ You would obtain the response object as follows:
     }
   ]
 ]
+```
+
+In the case of the calculate endpoint, form the url as such:
+
+```
+https://results-restapi.herokuapp.com/calculate/hallticket-number/date-of-birth/year
+```
+
+This will add an additional object as such:
+
+```json
+{
+  "SGPA": "Value"
+}
 ```
 
 [MIT License](LICENSE) - Copyright (c) 2021 Hemanth Kotagiri
