@@ -1,4 +1,4 @@
-# RestAPI for [SGPA-Calcluator](https://github.com/hemanth-kotagiri/sgpa-calculator)
+<h1 align="center">RestAPI for <a href="https://github.com/hemanth-kotagiri/sgpa-calculator" target="_blank">SGPA-Calcluator</a></h1>
 
 <p align="center">This has been specifically built to suppliment the mobile application that I am
 developing. Feel free to use this irrespective of the mobile-app, with which
