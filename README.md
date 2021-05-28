@@ -78,53 +78,61 @@ You would obtain the response object as follows:
 ```json
 [
   {
-    "subject_code": "15105",
-    "subject_name": "ENGINEERING WORKSHOP",
-    "grade_earned": "A+",
-    "subject_credits": "2.5"
+  "HTNO": "Hallticket Number",
+  "NAME": "Student Name",
+  "FATHER NAME": "Student's Father Name",
+  "COLLEGE CODE": "Code"
   },
-  {
-    "subject_code": "15106",
-    "subject_name": "ENGINEERING CHEMISTRY LAB",
-    "grade_earned": "A+",
-    "subject_credits": "1.5"
-  },
-  {
-    "subject_code": "15107",
-    "subject_name": "ENGLISH LANGUAGE AND COMMUNICATION SKILLS LAB",
-    "grade_earned": "O",
-    "subject_credits": "1"
-  },
-  {
-    "subject_code": "15108",
-    "subject_name": "BASIC ELECTRICAL ENGINEERING LAB",
-    "grade_earned": "O",
-    "subject_credits": "1"
-  },
-  {
-    "subject_code": "151AA",
-    "subject_name": "MATHEMATICS  I",
-    "grade_earned": "B+",
-    "subject_credits": "4"
-  },
-  {
-    "subject_code": "151AF",
-    "subject_name": "CHEMISTRY",
-    "grade_earned": "C",
-    "subject_credits": "4"
-  },
-  {
-    "subject_code": "151AG",
-    "subject_name": "BASIC ELECTRICAL ENGINEERING",
-    "grade_earned": "A",
-    "subject_credits": "3"
-  },
-  {
-    "subject_code": "151AH",
-    "subject_name": "ENGLISH",
-    "grade_earned": "A",
-    "subject_credits": "2"
-  }
+  [
+    {
+      "subject_code": "15105",
+      "subject_name": "ENGINEERING WORKSHOP",
+      "grade_earned": "A+",
+      "subject_credits": "2.5"
+    },
+    {
+      "subject_code": "15106",
+      "subject_name": "ENGINEERING CHEMISTRY LAB",
+      "grade_earned": "A+",
+      "subject_credits": "1.5"
+    },
+    {
+      "subject_code": "15107",
+      "subject_name": "ENGLISH LANGUAGE AND COMMUNICATION SKILLS LAB",
+      "grade_earned": "O",
+      "subject_credits": "1"
+    },
+    {
+      "subject_code": "15108",
+      "subject_name": "BASIC ELECTRICAL ENGINEERING LAB",
+      "grade_earned": "O",
+      "subject_credits": "1"
+    },
+    {
+      "subject_code": "151AA",
+      "subject_name": "MATHEMATICS  I",
+      "grade_earned": "B+",
+      "subject_credits": "4"
+    },
+    {
+      "subject_code": "151AF",
+      "subject_name": "CHEMISTRY",
+      "grade_earned": "C",
+      "subject_credits": "4"
+    },
+    {
+      "subject_code": "151AG",
+      "subject_name": "BASIC ELECTRICAL ENGINEERING",
+      "grade_earned": "A",
+      "subject_credits": "3"
+    },
+    {
+      "subject_code": "151AH",
+      "subject_name": "ENGLISH",
+      "grade_earned": "A",
+      "subject_credits": "2"
+    }
+  ]
 ]
 ```
 
