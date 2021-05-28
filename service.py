@@ -88,6 +88,19 @@ class Crawler:
 
         # Gathering the student information
 
+        data = []
+        for element in list(tables[0].tbody):
+            for row in element:
+                for td in row:
+                    for b in td:
+                        if type(b) != str:
+                            data.append(str(b.string).replace("\n", "").strip())
+
+        student = dict(zip([data[i].replace(":", "") for i in range(len(data))
+                            if i % 2 == 0], [data[j] for j in range(1,
+                                                                    len(data))
+                                             if j % 2 != 0]))
+
         results = []
 
         for element in list(tables[1].tbody)[1:]:
@@ -121,4 +134,4 @@ class Crawler:
 
         self.driver.back()
 
-        return results
+        return [student, results]
