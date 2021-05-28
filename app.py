@@ -1,6 +1,7 @@
 from service import Crawler
 import json
-import markdown, markdown.extensions.fenced_code
+import markdown
+import markdown.extensions.fenced_code
 from pygments.formatters import HtmlFormatter
 from flask import Flask, Response, request
 
@@ -13,7 +14,7 @@ app = Flask(__name__)
 @app.route("/")
 def index():
 
-    formatter = HtmlFormatter(full=True,cssclass="codehilite")
+    formatter = HtmlFormatter(full=True, cssclass="codehilite")
     css_string = formatter.get_style_defs()
     readme = open("README_PAGE.md", "r")
     md_template = markdown.markdown(
@@ -28,6 +29,34 @@ def index():
 def routing_path(hallticket, dob, year):
 
     result = scrapper.get_result(hallticket, dob, year)
+    return Response(json.dumps(result),  mimetype='application/json')
+
+
+@app.route("/calculate/<hallticket>/<dob>/<year>", methods=["GET"])
+def calculate(hallticket, dob, year):
+    grades = {
+        "O": 10,
+        "A+": 9,
+        "A": 8,
+        "B+": 7,
+        "B": 6,
+        "C": 5,
+        "F": 0
+    }
+    result = scrapper.get_result(hallticket, dob, year)
+    # Calculating the result
+    sgpa = 0
+    total_credits = 0
+    for subject in result[1]:
+        total_credits += float(subject["subject_credits"])
+        if subject["grade_earned"] == "F":
+            sgpa = 0
+            break
+        sgpa += grades[subject["grade_earned"]] * \
+            float(subject["subject_credits"])
+
+    sgpa = round(sgpa/total_credits, 2)
+    result.insert(0, {"SGPA": sgpa if sgpa else "FAIL"})
     return Response(json.dumps(result),  mimetype='application/json')
 
 

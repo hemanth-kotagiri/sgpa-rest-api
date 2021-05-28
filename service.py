@@ -21,8 +21,19 @@ class Crawler:
     driver_file = "drivers/geckodriver" if platform.system() == "Linux" else "drivers/geckodriver.exe"
     driver = None
     chrome_options = webdriver.ChromeOptions()
+    # firefox_options = webdriver.FirefoxOptions()
 
     def __init__(self):
+
+        # Arguments for Firefox driver
+        # self.firefox_options.add_argument("--headless")
+        # self.firefox_options.add_argument("--no-sandbox")
+        # self.firefox_options.add_argument("--disable-dev-shm-usage")
+
+        # Firefox Driver
+        # self.driver = webdriver.Firefox(
+        # executable_path=os.path.join(os.getcwd(), self.driver_file), firefox_options=self.firefox_options)
+
         # Specifying the driver options
         self.chrome_options.add_argument("--headless")
         self.chrome_options.add_argument("--no-sandbox")
@@ -94,7 +105,8 @@ class Crawler:
                 for td in row:
                     for b in td:
                         if type(b) != str:
-                            data.append(str(b.string).replace("\n", "").strip())
+                            data.append(
+                                str(b.string).replace("\n", "").strip())
 
         student = dict(zip([data[i].replace(":", "") for i in range(len(data))
                             if i % 2 == 0], [data[j] for j in range(1,
