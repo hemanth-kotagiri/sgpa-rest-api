@@ -16,13 +16,29 @@ batch 2018. Soon, I would leverage this to other regulations as well.</p>
 - /calculate - Fetch the SGPA along with other details.
 ```
 
-### Input Parameters
+### API Reference
 
+##### Get results and student details
+
+```http
+  GET /hallticket/dob/year
 ```
-1. Hallticker Number
-2. Date of Birth (YEAR-MONTH-DAY)
-3. Year and Semester (YEAR,SEMESTER)
+##### Query parameter specific endpoint
+```http
+  GET /result?hallticket&dob&year
 ```
+##### Endpoint to calculate the sgpa
+
+```http
+  GET /calculate/hallticket/dob/year
+```
+
+| Parameter    | Type     | Description                                        |
+| :--------    | :------- | :--------------------------------------------------|
+| `Hallticket` | `string` | **Required**: Your Hallticket Number               |
+| `dob`        | `string` | **Required**: Your Date of Birth (YYYY-MM-DD)      |
+| `Year`       | `string` | **Required**: Desired Year and Semester (year,sem) |
+
 
 ### Sample Response format
 
