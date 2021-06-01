@@ -3,8 +3,8 @@
 This has been specifically built to suppliment the mobile application that I am
 developing. Feel free to use this irrespective of the mobile-app, with which
 you can integrate into your own applications/projects to get the data. As of
-now, this RestAPI provides the resluts of all R18 regulation students of the
-batch 2018. Soon, I would leverage this to other regulations as well.
+now, this RestAPI provides the regular resluts of all R18 regulation students of the
+batch 2018. Soon, I would leverage this to other regulations and supplementary exams as well.
 
 **Note that the response is in the form of JSON only.**
 
@@ -16,13 +16,30 @@ batch 2018. Soon, I would leverage this to other regulations as well.
 - /calculate - Fetch the SGPA along with other details.
 ```
 
-### Input Parameters
 
+### API Reference
+
+#### Get results and student details
+
+```http
+  GET /hallticket/dob/year
 ```
-1. Hallticker Number
-2. Date of Birth (YEAR-MONTH-DAY)
-3. Year and Semester (YEAR,SEMESTER)
+#### Query parameter specific endpoint.
+```http
+  GET /result?hallticket&dob&year
 ```
+#### Endpoint to calculate the sgpa.
+
+```http
+  GET /calculate/hallticket/dob/year
+```
+
+| Parameter    | Type     | Description                                        |
+| :--------    | :------- | :--------------------------------------------------|
+| `Hallticket` | `string` | **Required**: Your Hallticket Number               |
+| `dob`        | `string` | **Required**: Your Date of Birth (YYYY-MM-DD)      |
+| `Year`       | `string` | **Required**: Desired Year and Semester (year,sem) |
+
 
 ### Sample Response format
 
