@@ -136,11 +136,11 @@ class Crawler:
             else:
                 subject_object["subject_code"] = current_subject[0]
                 subject_object["subject_name"] = current_subject[1]
-                subject_object["internal_marks"] = current_subject[2]
-                subject_object["external_marks"] = current_subject[3]
-                subject_object["total_marks"] = current_subject[4]
-                subject_object["grade_earned"] = current_subject[5]
-                subject_object["subject_credits"] = current_subject[6]
+                subject_object["grade_earned"] = current_subject[2]
+                subject_object["subject_credits"] = current_subject[3]
+                subject_object["internal_marks"] = current_subject[4]
+                subject_object["external_marks"] = current_subject[5]
+                subject_object["total_marks"] = current_subject[6]
 
             results.append(subject_object)
 
