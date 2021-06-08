@@ -46,11 +46,11 @@ And, this is a response object containing an 8 tuple schema.
   {
     "subject_code": "15408",
     "subject_name": "DATABASE MANAGEMENT SYSTEMS LAB",
+    "grade_earned": "O",
+    "subject_credits": "1.5",
     "internal_marks": "25",
     "external_marks": "73",
-    "total_marks": "98",
-    "grade_earned": "O",
-    "subject_credits": "1.5"
+    "total_marks": "98"
   }
 ]
 ```

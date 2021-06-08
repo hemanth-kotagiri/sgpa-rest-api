@@ -16,7 +16,6 @@ batch 2018. Soon, I would leverage this to other regulations and supplementary e
 - /calculate - Fetch the SGPA along with other details.
 ```
 
-
 ### API Reference
 
 #### Get results and student details
@@ -24,10 +23,13 @@ batch 2018. Soon, I would leverage this to other regulations and supplementary e
 ```http
   GET /hallticket/dob/year
 ```
+
 #### Query parameter specific endpoint.
+
 ```http
   GET /result?hallticket&dob&year
 ```
+
 #### Endpoint to calculate the sgpa.
 
 ```http
@@ -35,11 +37,10 @@ batch 2018. Soon, I would leverage this to other regulations and supplementary e
 ```
 
 | Parameter    | Type     | Description                                        |
-| :--------    | :------- | :--------------------------------------------------|
+| :----------- | :------- | :------------------------------------------------- |
 | `Hallticket` | `string` | **Required**: Your Hallticket Number               |
 | `dob`        | `string` | **Required**: Your Date of Birth (YYYY-MM-DD)      |
 | `Year`       | `string` | **Required**: Desired Year and Semester (year,sem) |
-
 
 ### Sample Response format
 
@@ -63,11 +64,11 @@ And, this is a response object containing an 8 tuple schema.
   {
     "subject_code": "15408",
     "subject_name": "DATABASE MANAGEMENT SYSTEMS LAB",
+    "grade_earned": "O",
+    "subject_credits": "1.5",
     "internal_marks": "25",
     "external_marks": "73",
-    "total_marks": "98",
-    "grade_earned": "O",
-    "subject_credits": "1.5"
+    "total_marks": "98"
   }
 ]
 ```
@@ -83,7 +84,8 @@ And, this is a response object containing an 8 tuple schema.
    https://results-restapi.herokuapp.com/hallticket-number/date-of-birth/year
    ```
 
-3. Substitute your identification values in the above parameters and the RestAPI is triggered.
+3. Substitute your identification values in the above parameters and the
+   RestAPI is triggered.
 
 ### Example
 
@@ -95,7 +97,9 @@ Copy and paste this url in a new tab:
   https://results-restapi.herokuapp.com/185U1A0565/2001-04-03/1,1
 ```
 
-and it shall trigger the endpoint with the below response. Now, all you need to do is change the hallticket-number and the date-of-brith to trigger the endpoint to fetch the specific results.
+and it shall trigger the endpoint with the below response. Now, all you need to
+do is change the hallticket-number and the date-of-brith to trigger the
+endpoint to fetch the specific results.
 
 You would obtain the response object as follows:
 
