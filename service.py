@@ -7,10 +7,8 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 import platform
 
-# TODO : Initialize the driver without window
 
-
-class Crawler:
+class Service:
 
     urls = {
         "1,1": "http://results.jntuh.ac.in/jsp/SearchResult.jsp?degree=btech&examCode=1323&etype=r16&type=grade16",
@@ -34,7 +32,7 @@ class Crawler:
         # self.driver = webdriver.Firefox(
         # executable_path=os.path.join(os.getcwd(), self.driver_file), firefox_options=self.firefox_options)
 
-        # Specifying the driver options
+        # Specifying the driver options for chrome
         self.chrome_options.add_argument("--headless")
         self.chrome_options.add_argument("--no-sandbox")
         self.chrome_options.add_argument("--disable-dev-shm-usage")

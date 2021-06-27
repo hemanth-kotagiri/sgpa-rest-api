@@ -1,4 +1,4 @@
-from service import Crawler
+from service import Service
 import json
 import markdown
 import markdown.extensions.fenced_code
@@ -6,7 +6,7 @@ from pygments.formatters import HtmlFormatter
 from flask import Flask, Response, request
 
 # Initializing the Crawler object from service
-scrapper = Crawler()
+scrapper = Service()
 
 app = Flask(__name__)
 
