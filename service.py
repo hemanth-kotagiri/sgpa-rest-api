@@ -15,6 +15,7 @@ class Service:
         "1,2": "http://results.jntuh.ac.in/jsp/SearchResult.jsp?degree=btech&examCode=1356&etype=r16&type=grade16",
         "2,1": "http://results.jntuh.ac.in/jsp/SearchResult.jsp?degree=btech&examCode=1391&etype=r17&type=grade17",
         "2,2": "http://results.jntuh.ac.in/jsp/SearchResult.jsp?degree=btech&examCode=1437&etype=r17&type=intgrade",
+        "3,1": "http://results.jntuh.ac.in/jsp/SearchResult.jsp?degree=btech&examCode=1454&etype=r17&type=intgrade",
     }
     driver_file = "drivers/geckodriver" if platform.system() == "Linux" else "drivers/geckodriver.exe"
     driver = None
@@ -39,9 +40,9 @@ class Service:
         self.chrome_options.binary_location = os.environ.get(
             "GOOGLE_CHROME_BIN")
 
-        st = os.stat(os.path.join(os.getcwd(), self.driver_file))
-        os.chmod(os.path.join(os.getcwd(), self.driver_file),
-                 st.st_mode | stat.S_IEXEC)
+        # st = os.stat(os.path.join(os.getcwd(), self.driver_file))
+        # os.chmod(os.path.join(os.getcwd(), self.driver_file),
+        # st.st_mode | stat.S_IEXEC)
 
         # Starting the driver
         self.driver = webdriver.Chrome(
