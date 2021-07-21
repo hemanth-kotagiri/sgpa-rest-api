@@ -49,7 +49,7 @@ def calculate(hallticket, dob, year):
     total_credits = 0
     for subject in result[1]:
         total_credits += float(subject["subject_credits"])
-        if subject["grade_earned"] == "F":
+        if subject["grade_earned"] == "F" or subject["grade_earned"] == "-":
             sgpa = 0
             break
         sgpa += grades[subject["grade_earned"]] * \
