@@ -11,11 +11,11 @@ import platform
 class Service:
 
     urls = {
-        "1,1": "http://results.jntuh.ac.in/jsp/SearchResult.jsp?degree=btech&examCode=1323&etype=r16&type=grade16",
-        "1,2": "http://results.jntuh.ac.in/jsp/SearchResult.jsp?degree=btech&examCode=1356&etype=r16&type=grade16",
-        "2,1": "http://results.jntuh.ac.in/jsp/SearchResult.jsp?degree=btech&examCode=1391&etype=r17&type=grade17",
-        "2,2": "http://results.jntuh.ac.in/jsp/SearchResult.jsp?degree=btech&examCode=1437&etype=r17&type=intgrade",
-        "3,1": "http://results.jntuh.ac.in/jsp/SearchResult.jsp?degree=btech&examCode=1454&etype=r17&type=intgrade",
+        "1,1": "http://202.63.105.184/results/jsp/SearchResult.jsp?degree=btech&examCode=1323&etype=r16&type=grade16",
+        "1,2": "http://202.63.105.184/results/jsp/SearchResult.jsp?degree=btech&examCode=1356&etype=r16&type=grade16",
+        "2,1": "http://202.63.105.184/results/jsp/SearchResult.jsp?degree=btech&examCode=1391&etype=r17&type=grade17",
+        "2,2": "http://202.63.105.184/results/jsp/SearchResult.jsp?degree=btech&examCode=1437&etype=r17&type=intgrade",
+        "3,1": "http://202.63.105.184/results/jsp/SearchResult.jsp?degree=btech&examCode=1454&etype=r17&type=intgrade",
     }
     driver_file = "drivers/geckodriver" if platform.system() == "Linux" else "drivers/geckodriver.exe"
     driver = None
