@@ -180,4 +180,8 @@ This will add an additional object as such:
 
 [MIT License](LICENSE) - Copyright (c) 2021 Hemanth Kotagiri
 
-Made with ❤️ by Hemanth
+This Project has been solely developed by me without any external influence
+whatsoever, and if in the case of any upcoming contributions, they are also
+equally regarded as developers of this project.
+
+Made with ❤️ by Hemanth.
