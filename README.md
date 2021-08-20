@@ -183,6 +183,6 @@ This will add an additional object as such:
 This project has been solely developed by me without any external influence by
 a person or an organization or university whatsoever, and if in the case of any
 upcoming contributions, they are also equally regarded as developers of this
-project.
+project. Feel free to pick up tasks from the project section and raise a PR.
 
 Made with ❤️ by Hemanth.
