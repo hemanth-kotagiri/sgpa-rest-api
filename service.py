@@ -17,6 +17,15 @@ class Service:
         "2,2": "http://202.63.105.184/results/jsp/SearchResult.jsp?degree=btech&examCode=1437&etype=r17&type=intgrade",
         "3,1": "http://202.63.105.184/results/jsp/SearchResult.jsp?degree=btech&examCode=1454&etype=r17&type=intgrade",
     }
+
+    urls2 = {
+        "1,1": "http://results.jntuh.ac.in/results/jsp/SearchResult.jsp?degree=btech&examCode=1323&etype=r16&type=grade16",
+        "1,2": "http://results.jntuh.ac.in/results/jsp/SearchResult.jsp?degree=btech&examCode=1356&etype=r16&type=grade16",
+        "2,1": "http://results.jntuh.ac.in/results/jsp/SearchResult.jsp?degree=btech&examCode=1391&etype=r17&type=grade17",
+        "2,2": "http://results.jntuh.ac.in/results/jsp/SearchResult.jsp?degree=btech&examCode=1437&etype=r17&type=intgrade",
+        "3,1": "http://results.jntuh.ac.in/results/jsp/SearchResult.jsp?degree=btech&examCode=1454&etype=r17&type=intgrade",
+
+    }
     driver_file = "drivers/geckodriver" if platform.system() == "Linux" else "drivers/geckodriver.exe"
     driver = None
     chrome_options = webdriver.ChromeOptions()
@@ -53,17 +62,32 @@ class Service:
         hallticket = hallticket.upper()
         url = self.urls[year]
         # Returns the json object of results
-        self.driver.get(url)
+        try:
+            self.driver.get(url)
 
-        # Getting the captcha value
-        captcha_val = self.driver.execute_script(
-            "return document.getElementById('txtCaptcha').value")
-        hall_pass = "document.getElementById('htno').value = '{}'".format(
-            hallticket)
-        date_pass = "document.getElementById('datepicker').value = '{}'".format(
-            dob)
-        pass_str = "document.getElementById('txtInput').value = '{}'".format(
-            captcha_val)
+            # Getting the captcha value
+            captcha_val = self.driver.execute_script(
+                "return document.getElementById('txtCaptcha').value")
+            hall_pass = "document.getElementById('htno').value = '{}'".format(
+                hallticket)
+            date_pass = "document.getElementById('datepicker').value = '{}'".format(
+                dob)
+            pass_str = "document.getElementById('txtInput').value = '{}'".format(
+                captcha_val)
+        except Exception as e:
+            print("Previous URL : ", url)
+            url = self.urls2[year]
+            print("Now: ", url)
+            self.driver.get(url)
+            # Getting the captcha value
+            captcha_val = self.driver.execute_script(
+                "return document.getElementById('txtCaptcha').value")
+            hall_pass = "document.getElementById('htno').value = '{}'".format(
+                hallticket)
+            date_pass = "document.getElementById('datepicker').value = '{}'".format(
+                dob)
+            pass_str = "document.getElementById('txtInput').value = '{}'".format(
+                captcha_val)
 
         self.driver.execute_script(pass_str)
         self.driver.execute_script(date_pass)
