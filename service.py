@@ -16,6 +16,7 @@ class Service:
         "2,1": "http://202.63.105.184/results/jsp/SearchResult.jsp?degree=btech&examCode=1391&etype=r17&type=grade17",
         "2,2": "http://202.63.105.184/results/jsp/SearchResult.jsp?degree=btech&examCode=1437&etype=r17&type=intgrade",
         "3,1": "http://202.63.105.184/results/jsp/SearchResult.jsp?degree=btech&examCode=1454&etype=r17&type=intgrade",
+        "3,2": "http://202.63.105.184/results/jsp/SearchResult.jsp?degree=btech&examCode=1502&etype=r17&type=intgrade",
     }
 
     urls2 = {
@@ -24,6 +25,7 @@ class Service:
         "2,1": "http://results.jntuh.ac.in/results/jsp/SearchResult.jsp?degree=btech&examCode=1391&etype=r17&type=grade17",
         "2,2": "http://results.jntuh.ac.in/results/jsp/SearchResult.jsp?degree=btech&examCode=1437&etype=r17&type=intgrade",
         "3,1": "http://results.jntuh.ac.in/results/jsp/SearchResult.jsp?degree=btech&examCode=1454&etype=r17&type=intgrade",
+        "3,2": "http://results.jntuh.ac.in/results/jsp/SearchResult.jsp?degree=btech&examCode=1502&etype=r17&type=intgrade",
 
     }
     driver_file = "drivers/geckodriver" if platform.system() == "Linux" else "drivers/geckodriver.exe"
