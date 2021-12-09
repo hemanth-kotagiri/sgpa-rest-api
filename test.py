@@ -1,21 +1,20 @@
 from bs4 import BeautifulSoup
+from selenium import webdriver
 import os
+import platform
 
-with open("result.html", "r", encoding="utf-16") as f:
-    soup = BeautifulSoup(f.read(), "html.parser")
+driver_file = "drivers/geckodriver" if platform.system() == "Linux" else "drivers/geckodriver.exe"
+firefox_options = webdriver.FirefoxOptions()
 
-tables = soup.find_all('table')
-# print(tables[0].tbody)
-data = []
+firefox_options.add_argument("--headless")
+firefox_options.add_argument("--no-sandbox")
+firefox_options.add_argument("--disable-dev-shm-usage")
+firefox_options.add_argument("--disable-javascript")
 
-for element in list(tables[0].tbody):
-    for row in element:
-        for td in row:
-            for b in td:
-                if type(b) != str:
-                    data.append(str(b.string).replace("\n", "").strip())
+driver = webdriver.Firefox(
+    executable_path=os.path.join(os.getcwd(), driver_file), firefox_options=firefox_options)
 
-student = dict(zip([data[i].replace(":", "") for i in range(len(data)) if i % 2 == 0], [data[j] for j in range(1, len(data)) if j % 2 != 0]))
+driver.get("http://results.jntuh.ac.in/")
 
-for key, value in student.items():
-    print(key, value)
+print("DOING...")
+print(driver.execute_script("return document.documentElement.outerHTML"))
