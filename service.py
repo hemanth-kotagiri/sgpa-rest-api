@@ -1,11 +1,9 @@
-import time
+import logging
 import os
-import stat
-import requests
-import urllib3
+import platform
+
 from bs4 import BeautifulSoup
 from selenium import webdriver
-import platform
 
 
 class Service:
@@ -26,8 +24,8 @@ class Service:
         "2,2": "http://results.jntuh.ac.in/results/jsp/SearchResult.jsp?degree=btech&examCode=1437&etype=r17&type=intgrade",
         "3,1": "http://results.jntuh.ac.in/results/jsp/SearchResult.jsp?degree=btech&examCode=1454&etype=r17&type=intgrade",
         "3,2": "http://results.jntuh.ac.in/results/jsp/SearchResult.jsp?degree=btech&examCode=1502&etype=r17&type=intgrade",
-
     }
+
     driver_file = "drivers/geckodriver" if platform.system() == "Linux" else "drivers/geckodriver.exe"
     driver = None
     chrome_options = webdriver.ChromeOptions()
@@ -59,37 +57,19 @@ class Service:
         self.driver = webdriver.Chrome(
             executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=self.chrome_options)
 
-    def get_result(self, hallticket, dob, year):
+    def helper(self, url, hallticket, dob):
 
-        hallticket = hallticket.upper()
-        url = self.urls[year]
-        # Returns the json object of results
-        try:
-            self.driver.get(url)
+        self.driver.get(url)
 
-            # Getting the captcha value
-            captcha_val = self.driver.execute_script(
-                "return document.getElementById('txtCaptcha').value")
-            hall_pass = "document.getElementById('htno').value = '{}'".format(
-                hallticket)
-            date_pass = "document.getElementById('datepicker').value = '{}'".format(
-                dob)
-            pass_str = "document.getElementById('txtInput').value = '{}'".format(
-                captcha_val)
-        except Exception as e:
-            print("Previous URL : ", url)
-            url = self.urls2[year]
-            print("Now: ", url)
-            self.driver.get(url)
-            # Getting the captcha value
-            captcha_val = self.driver.execute_script(
-                "return document.getElementById('txtCaptcha').value")
-            hall_pass = "document.getElementById('htno').value = '{}'".format(
-                hallticket)
-            date_pass = "document.getElementById('datepicker').value = '{}'".format(
-                dob)
-            pass_str = "document.getElementById('txtInput').value = '{}'".format(
-                captcha_val)
+        # Getting the captcha value
+        captcha_val = self.driver.execute_script(
+            "return document.getElementById('txtCaptcha').value")
+        hall_pass = "document.getElementById('htno').value = '{}'".format(
+            hallticket)
+        date_pass = "document.getElementById('datepicker').value = '{}'".format(
+            dob)
+        pass_str = "document.getElementById('txtInput').value = '{}'".format(
+            captcha_val)
 
         self.driver.execute_script(pass_str)
         self.driver.execute_script(date_pass)
@@ -100,27 +80,39 @@ class Service:
         submit = self.driver.find_element_by_xpath(submit_button_xpath)
         submit.click()
 
-        # After submitting the form
-        next_url = self.driver.current_url
-
-        # print(next_url)
-
+        # Creating the soup object for the result page
         sel_html = self.driver.execute_script(
             "return document.documentElement.outerHTML")
 
-        # print(sel_html)
         sel_soup = BeautifulSoup(sel_html, 'html.parser')
 
-        result = (sel_soup.prettify())
+        # Calling get student and results functions
+        student = self.get_student_info(sel_soup)
+        results = self.get_results_info(sel_soup)
+        self.driver.back()
 
-        subjects = []
-        grades = []
-        name = ""
+        return [student, results]
+
+    def get_result(self, hallticket, dob, year):
+        """Returns the json object of results"""
+
+        hallticket = hallticket.upper()
+        url = self.urls[year]
+        try:
+            return self.helper(url, hallticket, dob)
+
+        except Exception as e:
+            logging.exception(f"Exception occoured: {e}")
+            logging.info("Previous URL : ", url)
+            logging.info("Scrapping : ", url)
+
+            return self.helper(self.urls2[year], hallticket, dob)
+
+    def get_student_info(self, sel_soup):
+        """ Returns the student information """
+        """ tables[0] consists the information regarding the student """
 
         tables = sel_soup.find_all('table')
-
-        """ tables[0] consists the information regarding the student """
-        """ tables[1] consists the subject code, subject name, grade and credits"""
 
         # Gathering the student information
 
@@ -138,6 +130,12 @@ class Service:
                                                                     len(data))
                                              if j % 2 != 0]))
 
+        return student
+
+    def get_results_info(self, sel_soup):
+        """ tables[1] consists the subject code, subject name, grade and credits"""
+
+        tables = sel_soup.find_all('table')
         results = []
 
         for element in list(tables[1].tbody)[1:]:
@@ -169,6 +167,4 @@ class Service:
 
             results.append(subject_object)
 
-        self.driver.back()
-
-        return [student, results]
+        return results
