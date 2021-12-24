@@ -56,6 +56,7 @@ class Service:
         # Starting the driver
         self.driver = webdriver.Chrome(
             executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=self.chrome_options)
+        self.driver.set_page_load_timeout(5)
 
     def helper(self, url, hallticket, dob):
 
