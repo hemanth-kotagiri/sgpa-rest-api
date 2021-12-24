@@ -178,7 +178,7 @@ This will add an additional object as such:
 }
 ```
 
-[MIT License](LICENSE) - Copyright (c) 2021 Hemanth Kotagiri
+[GNU GPLv3](LICENSE) - Copyright (c) 2021 Hemanth Kotagiri
 
 This project has been solely developed by me without any external influence by
 a person or an organization or university whatsoever, and if in the case of any
