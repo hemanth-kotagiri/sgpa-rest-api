@@ -29,34 +29,38 @@ class Service:
     driver_file = "drivers/geckodriver" if platform.system() == "Linux" else "drivers/geckodriver.exe"
     driver = None
     chrome_options = webdriver.ChromeOptions()
-    # firefox_options = webdriver.FirefoxOptions()
+    firefox_options = webdriver.FirefoxOptions()
 
-    def __init__(self):
-
+    def _init_firefox_driver(self):
         # Arguments for Firefox driver
-        # self.firefox_options.add_argument("--headless")
-        # self.firefox_options.add_argument("--no-sandbox")
-        # self.firefox_options.add_argument("--disable-dev-shm-usage")
+        self.firefox_options.add_argument("--headless")
+        self.firefox_options.add_argument("--no-sandbox")
+        self.firefox_options.add_argument("--disable-dev-shm-usage")
 
         # Firefox Driver
-        # self.driver = webdriver.Firefox(
-        # executable_path=os.path.join(os.getcwd(), self.driver_file), firefox_options=self.firefox_options)
+        self.driver = webdriver.Firefox(
+            executable_path=os.path.join(os.getcwd(), self.driver_file), firefox_options=self.firefox_options)
 
+    def _init_chrome_driver(self):
         # Specifying the driver options for chrome
         self.chrome_options.add_argument("--headless")
         self.chrome_options.add_argument("--no-sandbox")
         self.chrome_options.add_argument("--disable-dev-shm-usage")
         self.chrome_options.binary_location = os.environ.get(
             "GOOGLE_CHROME_BIN")
+        # Starting the driver
+        self.driver = webdriver.Chrome(
+            executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=self.chrome_options)
+
+    def __init__(self):
 
         # st = os.stat(os.path.join(os.getcwd(), self.driver_file))
         # os.chmod(os.path.join(os.getcwd(), self.driver_file),
         # st.st_mode | stat.S_IEXEC)
 
-        # Starting the driver
-        self.driver = webdriver.Chrome(
-            executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=self.chrome_options)
-        self.driver.set_page_load_timeout(5)
+        # self._init_firefox_driver()
+        self._init_chrome_driver()
+        self.driver.set_page_load_timeout(10)
 
     def helper(self, url, hallticket, dob):
 

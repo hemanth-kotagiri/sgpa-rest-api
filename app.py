@@ -35,13 +35,14 @@ def routing_path(hallticket, dob, year):
 @app.route("/calculate/<hallticket>/<dob>/<year>", methods=["GET"])
 def calculate(hallticket, dob, year):
     grades = {
-        "O": 10,
+        "O":  10,
         "A+": 9,
-        "A": 8,
+        "A":  8,
         "B+": 7,
-        "B": 6,
-        "C": 5,
-        "F": 0
+        "B":  6,
+        "C":  5,
+        "F":  0,
+        "Ab": 0,
     }
     result = scrapper.get_result(hallticket, dob, year)
     # Calculating the result
@@ -50,6 +51,9 @@ def calculate(hallticket, dob, year):
     for subject in result[1]:
         total_credits += float(subject["subject_credits"])
         if subject["grade_earned"] == "F" or subject["grade_earned"] == "-":
+            sgpa = 0
+            break
+        if not subject["grade_earned"] in grades.keys():
             sgpa = 0
             break
         sgpa += grades[subject["grade_earned"]] * \
