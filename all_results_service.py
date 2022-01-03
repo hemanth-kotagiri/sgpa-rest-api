@@ -40,14 +40,14 @@ class AllResults:
         self.driver = webdriver.Chrome(
             executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=self.chrome_options)
 
-    def __init__(self):
+    def __init__(self, driver):
 
         # st = os.stat(os.path.join(os.getcwd(), self.driver_file))
         # os.chmod(os.path.join(os.getcwd(), self.driver_file),
         # st.st_mode | stat.S_IEXEC)
 
         # self._init_firefox_driver()
-        self._init_chrome_driver()
+        self.driver = driver
         self.driver.set_page_load_timeout(10)
 
     def get_table_attribute(self):

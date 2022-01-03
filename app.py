@@ -1,14 +1,53 @@
-from service import Service
-from all_results_service import AllResults
 import json
+import os
+import platform
+
+from flask import Flask, Response, request
 import markdown
 import markdown.extensions.fenced_code
 from pygments.formatters import HtmlFormatter
-from flask import Flask, Response, request
+from selenium import webdriver
+
+from all_results_service import AllResults
+from service import Service
+
+
+def init_firefox_driver():
+    firefox_options = webdriver.FirefoxOptions()
+    driver_file = "drivers/geckodriver" if platform.system() == "Linux" else "drivers/geckodriver.exe"
+    # Arguments for Firefox driver
+    firefox_options.add_argument("--headless")
+    firefox_options.add_argument("--no-sandbox")
+    firefox_options.add_argument("--disable-dev-shm-usage")
+
+    # Firefox Driver
+    driver = webdriver.Firefox(
+        executable_path=os.path.join(os.getcwd(), driver_file), firefox_options=firefox_options)
+
+    return driver
+
+
+def init_chrome_driver():
+    chrome_options = webdriver.ChromeOptions()
+    # Specifying the driver options for chrome
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.binary_location = os.environ.get(
+        "GOOGLE_CHROME_BIN")
+    # Starting the driver
+    driver = webdriver.Chrome(
+        executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+
+    return driver
+
+
+driver = init_firefox_driver()
 
 # Initializing the Crawler object from service
-old_scrapper = Service()
-new_scrapper = AllResults()
+# Injecting the driver dependency
+old_scrapper = Service(driver)
+new_scrapper = AllResults(driver)
 
 grades = {
     "O":  10,
