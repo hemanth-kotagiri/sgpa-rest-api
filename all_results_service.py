@@ -46,8 +46,8 @@ class AllResults:
         # os.chmod(os.path.join(os.getcwd(), self.driver_file),
         # st.st_mode | stat.S_IEXEC)
 
-        self._init_firefox_driver()
-        # self._init_chrome_driver()
+        # self._init_firefox_driver()
+        self._init_chrome_driver()
         self.driver.set_page_load_timeout(10)
 
     def get_table_attribute(self):
