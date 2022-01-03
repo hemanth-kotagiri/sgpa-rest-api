@@ -1,4 +1,5 @@
 from service import Service
+from all_results_service import AllResults
 import json
 import markdown
 import markdown.extensions.fenced_code
@@ -6,9 +7,20 @@ from pygments.formatters import HtmlFormatter
 from flask import Flask, Response, request
 
 # Initializing the Crawler object from service
-scrapper = Service()
+old_scrapper = Service()
+new_scrapper = AllResults()
 
 app = Flask(__name__)
+grades = {
+    "O":  10,
+    "A+": 9,
+    "A":  8,
+    "B+": 7,
+    "B":  6,
+    "C":  5,
+    "F":  0,
+    "Ab": 0,
+}
 
 
 @app.route("/")
@@ -28,23 +40,13 @@ def index():
 @app.route("/<hallticket>/<dob>/<year>", methods=["GET"])
 def routing_path(hallticket, dob, year):
 
-    result = scrapper.get_result(hallticket, dob, year)
+    result = old_scrapper.get_result(hallticket, dob, year)
     return Response(json.dumps(result),  mimetype='application/json')
 
 
 @app.route("/calculate/<hallticket>/<dob>/<year>", methods=["GET"])
 def calculate(hallticket, dob, year):
-    grades = {
-        "O":  10,
-        "A+": 9,
-        "A":  8,
-        "B+": 7,
-        "B":  6,
-        "C":  5,
-        "F":  0,
-        "Ab": 0,
-    }
-    result = scrapper.get_result(hallticket, dob, year)
+    result = old_scrapper.get_result(hallticket, dob, year)
     # Calculating the result
     sgpa = 0
     total_credits = 0
@@ -71,8 +73,14 @@ def request_param_path():
     dob = request.args.get("dob")
     year = request.args.get("year")
 
-    result = scrapper.get_result(hallticket, dob, year)
+    result = old_scrapper.get_result(hallticket, dob, year)
 
+    return Response(json.dumps(result),  mimetype='application/json')
+
+
+@app.route("/new/all", methods=["GET"])
+def all():
+    result = new_scrapper.get_all_results()
     return Response(json.dumps(result),  mimetype='application/json')
 
 
