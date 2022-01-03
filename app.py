@@ -42,7 +42,7 @@ def init_chrome_driver():
     return driver
 
 
-driver = init_firefox_driver()
+driver = init_chrome_driver()
 
 # Initializing the Crawler object from service
 # Injecting the driver dependency
