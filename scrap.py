@@ -1,6 +1,8 @@
+import json
 import logging
-from bs4 import BeautifulSoup
 import re
+
+from bs4 import BeautifulSoup
 from selenium import webdriver
 LINK1 = 'http://results.jntuh.ac.in/'
 LINK2 = 'http://202.63.105.184/results/'
@@ -28,11 +30,11 @@ def save_table():
 
 def save_exams_json(exams):
     with open('result-links.json', 'w') as f:
-        f.write(str(exams))
+        f.write(json.dumps(exams))
 
 
 def get_all_results():
-    """ 
+    """
     within the tablebody, there are table rows
     each row has two table-data elements
     td1:
