@@ -42,7 +42,8 @@ def init_chrome_driver():
     return driver
 
 
-driver = init_chrome_driver()
+driver = init_firefox_driver()
+# driver = init_chrome_driver()
 
 # Initializing the Crawler object from service
 # Injecting the driver dependency
@@ -135,6 +136,22 @@ def all_regular():
 def all_supply():
     _, _, supply_exams = new_scrapper.get_all_results()
     return Response(json.dumps(supply_exams),  mimetype='application/json')
+
+
+@app.route("/new", methods=["GET"])
+def get_specific_result():
+    hallticket = request.args.get("hallticket")
+    dob = request.args.get("dob")
+    degree = request.args.get("degree")
+    examCode = request.args.get("examCode")
+    etype = request.args.get("etype")
+    type = request.args.get("type")
+    result = request.args.get("result") or ''
+    print(hallticket, dob, degree, examCode, etype, type, result)
+    resp = old_scrapper.get_result_with_url(
+        hallticket, dob, degree, examCode, etype, type, result)
+
+    return Response(json.dumps(resp),  mimetype='application/json')
 
 
 if __name__ == "__main__":

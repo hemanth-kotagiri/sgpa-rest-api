@@ -109,9 +109,30 @@ class Service:
         except Exception as e:
             logging.exception(f"Exception occoured: {e}")
             logging.info("Previous URL : ", url)
-            logging.info("Scrapping : ", url)
 
             return self.helper(self.urls2[year], hallticket, dob)
+
+    def get_result_with_url(self, hallticket, dob, degree, examCode, etype, type, result):
+        LINK1 = 'http://results.jntuh.ac.in/jsp/SearchResult.jsp?'
+        LINK2 = 'http://202.63.105.184/results/jsp/SearchResult.jsp?'
+
+        hallticket = hallticket.upper()
+        endpoint = f"degree={degree}&examCode={examCode}"
+        if etype:
+            endpoint += f"&etype={etype}"
+        if type:
+            endpoint += f"&type={type}"
+        if result:
+            endpoint += f"&result={result}"
+        url1 = LINK1 + endpoint
+        url2 = LINK2 + endpoint
+        try:
+            return self.helper(url1, hallticket, dob)
+        except Exception as e:
+            logging.exception(f"Exception occoured: {e}")
+            logging.info("Previous URL : ", url1)
+
+            return self.helper(url2, hallticket, dob)
 
     def get_student_info(self, sel_soup):
         """ Returns the student information """

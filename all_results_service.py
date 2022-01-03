@@ -8,8 +8,8 @@ import platform
 from bs4 import BeautifulSoup
 from selenium import webdriver
 
-LINK1 = 'http://results.jntuh.ac.in/'
-LINK2 = 'http://202.63.105.184/results/'
+LINK1 = 'http://results.jntuh.ac.in'
+LINK2 = 'http://202.63.105.184/results'
 
 
 class AllResults:
@@ -96,10 +96,13 @@ class AllResults:
         rows = soup.find_all("tr")
         regular_exams = []
         supply_exams = []
-
-        for row in rows:
+        regular_id, supply_id = 0, 0
+        for i, row in enumerate(rows):
             anchorElement = row.find_all("a")[0]
             link = anchorElement.get("href")
+            params = link.split("&")
+            params[0] = re.sub(r'^.*?\?', '', params[0])
+            # logging.info("PARMS: ", params)
             links = [
                 LINK1 + link,
                 LINK2 + link
@@ -113,15 +116,23 @@ class AllResults:
                 "exam_date": exam_date,
                 "links": links,
             }
+            for each_param in params:
+                key, value = each_param.split("=")
+                object[key] = value
 
             if "Regular" in exam_desc:
+                object["id"] = regular_id
+                regular_id += 1
                 regular_exams.append(object)
             else:
+                object["id"] = supply_id
+                supply_id += 1
                 supply_exams.append(object)
 
         all_exams = {
             "regular": regular_exams,
             "supply": supply_exams,
+            "id": i
         }
 
         self.save_exams_json(all_exams)
