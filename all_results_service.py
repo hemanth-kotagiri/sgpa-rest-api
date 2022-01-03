@@ -125,4 +125,4 @@ class AllResults:
         }
 
         self.save_exams_json(all_exams)
-        return all_exams
+        return [all_exams, regular_exams, supply_exams]

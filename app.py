@@ -10,7 +10,6 @@ from flask import Flask, Response, request
 old_scrapper = Service()
 new_scrapper = AllResults()
 
-app = Flask(__name__)
 grades = {
     "O":  10,
     "A+": 9,
@@ -21,6 +20,9 @@ grades = {
     "F":  0,
     "Ab": 0,
 }
+
+
+app = Flask(__name__)
 
 
 @app.route("/")
@@ -80,8 +82,20 @@ def request_param_path():
 
 @app.route("/new/all", methods=["GET"])
 def all():
-    result = new_scrapper.get_all_results()
-    return Response(json.dumps(result),  mimetype='application/json')
+    all_exams, _, _ = new_scrapper.get_all_results()
+    return Response(json.dumps(all_exams),  mimetype='application/json')
+
+
+@app.route("/new/all/regular", methods=["GET"])
+def all_regular():
+    _, regular_exams, _ = new_scrapper.get_all_results()
+    return Response(json.dumps(regular_exams),  mimetype='application/json')
+
+
+@app.route("/new/all/supply", methods=["GET"])
+def all_supply():
+    _, _, supply_exams = new_scrapper.get_all_results()
+    return Response(json.dumps(supply_exams),  mimetype='application/json')
 
 
 if __name__ == "__main__":
