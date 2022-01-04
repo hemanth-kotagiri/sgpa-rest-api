@@ -8,6 +8,8 @@ batch 2018. Soon, I would leverage this to other regulations and supplementary e
 
 ### Documentation
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9ca1efa8af8a450abe751428a6fbbbf1)](https://app.codacy.com/gh/hemanth-kotagiri/sgpa-rest-api?utm_source=github.com&utm_medium=referral&utm_content=hemanth-kotagiri/sgpa-rest-api&utm_campaign=Badge_Grade_Settings)
+
 An official documentation website for the API is available at [SGPA RestAPI
 Docs](https://hemanth-kotagiri.github.io/sgpa-rest-api-docs/). Please check it
 out for more information.
