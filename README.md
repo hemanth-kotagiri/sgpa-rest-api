@@ -178,6 +178,13 @@ This will add an additional object as such:
 }
 ```
 
+TODO
+
+- [x] Endpoint for fetching all results links
+- [x] Endpoint for fetching all regular links
+- [x] Endpoint for fetching all supplementary links
+- [ ] Endpoint for fetching regulation specific links
+
 [GNU GPLv3](LICENSE) - Copyright (c) 2021 Hemanth Kotagiri
 
 This project has been solely developed by me without any external influence by
@@ -191,7 +198,5 @@ Please raise an issue regarding the task that you would like to pick up and
 link the PRs for the same.
 
 Made with ❤️ by Hemanth.
-
----
 
 > For Precious, With Patience.
