@@ -12,7 +12,7 @@ An official documentation website for the API is available at [SGPA RestAPI
 Docs](https://hemanth-kotagiri.github.io/sgpa-rest-api-docs/). Please check it
 out for more information.
 
-**Note that the response is in the form of JSON only.**
+**Note that the response is in the form of JSON only**
 
 ### Endpoints
 
@@ -30,13 +30,13 @@ out for more information.
   GET /hallticket/dob/year
 ```
 
-#### Query parameter specific endpoint.
+#### Query parameter specific endpoint
 
 ```http
   GET /result?hallticket&dob&year
 ```
 
-#### Endpoint to calculate the sgpa.
+#### Endpoint to calculate the sgpa
 
 ```http
   GET /calculate/hallticket/dob/year
@@ -79,7 +79,7 @@ And, this is a response object containing an 8 tuple schema.
 ]
 ```
 
-##### Note that depending on the servers, the number of tuples are determined.
+##### Note that depending on the servers, the number of tuples are determined
 
 ### Usage
 

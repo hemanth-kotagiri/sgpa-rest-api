@@ -75,7 +75,6 @@ class Service:
             dob(str) -- student's date of birth
             year(str) -- comma saperated year and semester value. eg: 1,1
         """
-
         hallticket = hallticket.upper()
         url = self.urls[year]
         try:
@@ -83,7 +82,7 @@ class Service:
 
         except Exception as e:
             self.logger.exception(f"Exception occoured: {e}")
-            self.logger.info("Previous URL : ", url)
+            self.logger.info(f"Previous URL : {url}")
 
             return self.helper(self.urls2[year], hallticket, dob)
 
@@ -99,6 +98,7 @@ class Service:
             type(str)
             result(str)
         """
+
         LINK1 = 'http://results.jntuh.ac.in/jsp/SearchResult.jsp?'
         LINK2 = 'http://202.63.105.184/results/jsp/SearchResult.jsp?'
 
@@ -116,7 +116,7 @@ class Service:
             return self.helper(url1, hallticket, dob)
         except Exception as e:
             self.logger.exception(f"Exception occoured: {e}")
-            self.logger.info("Previous URL : ", url1)
+            self.logger.info(f"Previous URL : {url1}")
 
             return self.helper(url2, hallticket, dob)
 

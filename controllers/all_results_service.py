@@ -68,7 +68,7 @@ class AllResults:
             self.save_table()
             self.logger.info("SUCCESSFULLY SAVED DATA")
         except Exception as e:
-            self.logger.exception("Exception: ", e)
+            self.logger.exception(f"Exception: {e}")
             # Reading the static html that has been saved locally
             soup = BeautifulSoup(open("table.html", "r"), 'html.parser')
 
