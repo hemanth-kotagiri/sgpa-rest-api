@@ -84,6 +84,7 @@ And, this is a response object containing an 8 tuple schema.
 ### Usage
 
 1. You are here : https://results-restapi.herokuapp.com
+
 2. As the above parameters have been mentioned, form the endpoint as such:
 
    ```
@@ -187,8 +188,11 @@ This will add an additional object as such:
 TODO
 
 - [x] Endpoint for fetching all results links
+
 - [x] Endpoint for fetching all regular links
+
 - [x] Endpoint for fetching all supplementary links
+
 - [ ] Endpoint for fetching regulation specific links
 
 [GNU GPLv3](LICENSE) - Copyright (c) 2021 Hemanth Kotagiri

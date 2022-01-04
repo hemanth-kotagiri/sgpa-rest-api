@@ -10,6 +10,7 @@ LINK2 = 'http://202.63.105.184/results'
 
 
 class AllResults:
+
     """ A Class that implements to scrap all links of results """
 
     logger = logging.getLogger(__name__)
@@ -51,9 +52,7 @@ class AllResults:
             f.write(json.dumps(exams))
 
     def get_all_results(self) -> list:
-        """
-        within the tablebody, there are table rows
-        each row has two table-data elements
+        """ within the tablebody, there are table rows each row has two table-data elements
         td1:
             a single anchor with an href and has below:
             b -> p -> Exam Description
