@@ -3,6 +3,12 @@ from bs4 import BeautifulSoup
 
 
 class Service:
+    logger = logging.getLogger(__name__)
+    logger.setLevel(logging.INFO)
+    logging_formatter = logging.Formatter()
+    stream_handler = logging.StreamHandler()
+    stream_handler.setFormatter(logging_formatter)
+    logger.addHandler(stream_handler)
 
     urls = {
         "1,1": "http://202.63.105.184/results/jsp/SearchResult.jsp?degree=btech&examCode=1323&etype=r16&type=grade16",
@@ -63,7 +69,12 @@ class Service:
         return [student, results]
 
     def get_result(self, hallticket, dob, year):
-        """Returns the json object of results"""
+        """Returns the json object of results
+        parameters:
+            hallticket(str) -- student's hallticket number
+            dob(str) -- student's date of birth
+            year(str) -- comma saperated year and semester value. eg: 1,1
+        """
 
         hallticket = hallticket.upper()
         url = self.urls[year]
@@ -71,12 +82,22 @@ class Service:
             return self.helper(url, hallticket, dob)
 
         except Exception as e:
-            logging.exception(f"Exception occoured: {e}")
-            logging.info("Previous URL : ", url)
+            self.logger.exception(f"Exception occoured: {e}")
+            self.logger.info("Previous URL : ", url)
 
             return self.helper(self.urls2[year], hallticket, dob)
 
     def get_result_with_url(self, hallticket, dob, degree, examCode, etype, type, result):
+        """ A method to fetch the results given the paremeters as a JSON object
+        parameters:
+            hallticket(str)
+            dob(str)
+            degree(str)
+            examCode(str)
+            etype(str)
+            type(str)
+            result(str)
+        """
         LINK1 = 'http://results.jntuh.ac.in/jsp/SearchResult.jsp?'
         LINK2 = 'http://202.63.105.184/results/jsp/SearchResult.jsp?'
 
@@ -93,13 +114,14 @@ class Service:
         try:
             return self.helper(url1, hallticket, dob)
         except Exception as e:
-            logging.exception(f"Exception occoured: {e}")
-            logging.info("Previous URL : ", url1)
+            self.logger.exception(f"Exception occoured: {e}")
+            self.logger.info("Previous URL : ", url1)
 
             return self.helper(url2, hallticket, dob)
 
     def get_student_info(self, sel_soup):
         """ Returns the student information """
+
         """ tables[0] consists the information regarding the student """
 
         tables = sel_soup.find_all('table')
@@ -123,6 +145,8 @@ class Service:
         return student
 
     def get_results_info(self, sel_soup):
+        """ A method to obtain the results object """
+
         """ tables[1] consists the subject code, subject name, grade and credits"""
 
         tables = sel_soup.find_all('table')

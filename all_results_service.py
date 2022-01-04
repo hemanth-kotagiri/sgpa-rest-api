@@ -10,23 +10,27 @@ LINK2 = 'http://202.63.105.184/results'
 
 
 class AllResults:
+    """ A Class that implements to scrap all links of results """
+
+    logger = logging.getLogger(__name__)
+    logger.setLevel(logging.INFO)
+    logging_formatter = logging.Formatter()
+    stream_handler = logging.StreamHandler()
+    stream_handler.setFormatter(logging_formatter)
+    logger.addHandler(stream_handler)
 
     def __init__(self, driver):
 
-        # st = os.stat(os.path.join(os.getcwd(), self.driver_file))
-        # os.chmod(os.path.join(os.getcwd(), self.driver_file),
-        # st.st_mode | stat.S_IEXEC)
-
-        # self._init_firefox_driver()
         self.driver = driver
         self.driver.set_page_load_timeout(10)
 
     def get_table_attribute(self):
+        """ Switches to second frameset of webpage and returns table attribute """
+
         iframe_path = "/html/frameset/frameset/frame[2]"
 
         self.driver.get("http://results.jntuh.ac.in/")
         iframe = self.driver.find_element_by_xpath(iframe_path)
-        # driver.switch_to_frame(iframe)
         self.driver.switch_to.frame(iframe)
         table_xpath = "/html/body/div[2]/table"
         table = self.driver.find_element_by_xpath(table_xpath)
@@ -34,11 +38,15 @@ class AllResults:
         return table
 
     def save_table(self):
+        """ A method to save the table locally """
+
         table = self.get_table_attribute()
         with open("table.html", "w") as f:
             f.write(table.get_attribute("innerHTML"))
 
     def save_exams_json(self, exams):
+        """ A method to save exams json object """
+
         with open('result-links.json', 'w') as f:
             f.write(json.dumps(exams))
 
@@ -57,11 +65,12 @@ class AllResults:
             table = self.get_table_attribute()
             table = table.get_attribute('innerHTML')
             soup = BeautifulSoup(table, 'html.parser')
+            self.logger.info("SUCCESS IN SCRAPING DATA")
             self.save_table()
-            logging.info("SUCCESS")
+            self.logger.info("SUCCESSFULLY SAVED DATA")
         except Exception as e:
-            print(e)
-            logging.exception("Exception: ", e)
+            self.logger.exception("Exception: ", e)
+            # Reading the static html that has been saved locally
             soup = BeautifulSoup(open("table.html", "r"), 'html.parser')
 
         rows = soup.find_all("tr")
@@ -73,7 +82,7 @@ class AllResults:
             link = anchorElement.get("href")
             params = link.split("&")
             params[0] = re.sub(r'^.*?\?', '', params[0])
-            # logging.info("PARMS: ", params)
+            # self.logger.info("PARMS: ", params)
             links = [
                 LINK1 + link,
                 LINK2 + link
@@ -107,4 +116,5 @@ class AllResults:
         }
 
         self.save_exams_json(all_exams)
+
         return [all_exams, regular_exams, supply_exams]
