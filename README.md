@@ -6,6 +6,12 @@ you can integrate into your own applications/projects to get the data. As of
 now, this RestAPI provides the regular resluts of all R18 regulation students of the
 batch 2018. Soon, I would leverage this to other regulations and supplementary exams as well.
 
+### Documentation
+
+An official documentation website for the API is available at [SGPA RestAPI
+Docs](https://hemanth-kotagiri.github.io/sgpa-rest-api-docs/). Please check it
+out for more information.
+
 **Note that the response is in the form of JSON only.**
 
 ### Endpoints
