@@ -146,9 +146,9 @@ class Service:
         return student
 
     def get_results_info(self, sel_soup):
-        """ A method to obtain the results object """
-
-        """ tables[1] consists the subject code, subject name, grade and credits"""
+        """ A method to obtain the results object 
+        tables[1] consists the subject code, subject name, grade and credits
+        """
 
         tables = sel_soup.find_all('table')
         results = []

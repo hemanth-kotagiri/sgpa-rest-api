@@ -1,5 +1,7 @@
 <h1 align="center">RestAPI for <a href="https://github.com/hemanth-kotagiri/sgpa-calculator" target="_blank">SGPA-Calcluator</a></h1>
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9ca1efa8af8a450abe751428a6fbbbf1)](https://app.codacy.com/gh/hemanth-kotagiri/sgpa-rest-api?utm_source=github.com&utm_medium=referral&utm_content=hemanth-kotagiri/sgpa-rest-api&utm_campaign=Badge_Grade_Settings)
+
 This has been specifically built to suppliment the mobile application that I am
 developing. Feel free to use this irrespective of the mobile-app, with which
 you can integrate into your own applications/projects to get the data. As of
@@ -7,8 +9,6 @@ now, this RestAPI provides the regular resluts of all R18 regulation students of
 batch 2018. Soon, I would leverage this to other regulations and supplementary exams as well.
 
 ### Documentation
-
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9ca1efa8af8a450abe751428a6fbbbf1)](https://app.codacy.com/gh/hemanth-kotagiri/sgpa-rest-api?utm_source=github.com&utm_medium=referral&utm_content=hemanth-kotagiri/sgpa-rest-api&utm_campaign=Badge_Grade_Settings)
 
 An official documentation website for the API is available at [SGPA RestAPI
 Docs](https://hemanth-kotagiri.github.io/sgpa-rest-api-docs/). Please check it

@@ -121,7 +121,7 @@ def request_param_path():
 
 
 @app.route("/new/all", methods=["GET"])
-def all():
+def all_results():
     all_exams, _, _ = new_scrapper.get_all_results()
     return Response(json.dumps(all_exams),  mimetype='application/json')
 
