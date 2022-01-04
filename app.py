@@ -8,8 +8,8 @@ import markdown.extensions.fenced_code
 from pygments.formatters import HtmlFormatter
 from selenium import webdriver
 
-from all_results_service import AllResults
-from service import Service
+from controllers.all_results_service import AllResults
+from controllers.service import Service
 
 
 def init_firefox_driver():
