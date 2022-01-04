@@ -22,7 +22,7 @@ def init_firefox_driver():
 
     # Firefox Driver
     driver = webdriver.Firefox(
-        executable_path=os.path.join(os.getcwd(), driver_file), firefox_options=firefox_options)
+        executable_path=os.path.join(os.getcwd(), driver_file), options=firefox_options)
 
     return driver
 
