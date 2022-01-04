@@ -14,7 +14,7 @@ class AllResults:
 
     logger = logging.getLogger(__name__)
     logger.setLevel(logging.INFO)
-    logging_formatter = logging.Formatter()
+    logging_formatter = logging.Formatter('%(asctime)s:%(name)s:%(message)s')
     stream_handler = logging.StreamHandler()
     stream_handler.setFormatter(logging_formatter)
     logger.addHandler(stream_handler)
@@ -24,7 +24,7 @@ class AllResults:
         self.driver = driver
         self.driver.set_page_load_timeout(10)
 
-    def get_table_attribute(self):
+    def get_table_attribute(self) -> None:
         """ Switches to second frameset of webpage and returns table attribute """
 
         iframe_path = "/html/frameset/frameset/frame[2]"
@@ -37,20 +37,20 @@ class AllResults:
 
         return table
 
-    def save_table(self):
+    def save_table(self) -> None:
         """ A method to save the table locally """
 
         table = self.get_table_attribute()
         with open("table.html", "w") as f:
             f.write(table.get_attribute("innerHTML"))
 
-    def save_exams_json(self, exams):
+    def save_exams_json(self, exams: dict) -> None:
         """ A method to save exams json object """
 
         with open('result-links.json', 'w') as f:
             f.write(json.dumps(exams))
 
-    def get_all_results(self):
+    def get_all_results(self) -> list:
         """
         within the tablebody, there are table rows
         each row has two table-data elements

@@ -5,21 +5,12 @@ from bs4 import BeautifulSoup
 class Service:
     logger = logging.getLogger(__name__)
     logger.setLevel(logging.INFO)
-    logging_formatter = logging.Formatter()
+    logging_formatter = logging.Formatter('%(asctime)s:%(name)s:%(message)s')
     stream_handler = logging.StreamHandler()
     stream_handler.setFormatter(logging_formatter)
     logger.addHandler(stream_handler)
 
     urls = {
-        "1,1": "http://202.63.105.184/results/jsp/SearchResult.jsp?degree=btech&examCode=1323&etype=r16&type=grade16",
-        "1,2": "http://202.63.105.184/results/jsp/SearchResult.jsp?degree=btech&examCode=1356&etype=r16&type=grade16",
-        "2,1": "http://202.63.105.184/results/jsp/SearchResult.jsp?degree=btech&examCode=1391&etype=r17&type=grade17",
-        "2,2": "http://202.63.105.184/results/jsp/SearchResult.jsp?degree=btech&examCode=1437&etype=r17&type=intgrade",
-        "3,1": "http://202.63.105.184/results/jsp/SearchResult.jsp?degree=btech&examCode=1454&etype=r17&type=intgrade",
-        "3,2": "http://202.63.105.184/results/jsp/SearchResult.jsp?degree=btech&examCode=1502&etype=r17&type=intgrade",
-    }
-
-    urls2 = {
         "1,1": "http://results.jntuh.ac.in/results/jsp/SearchResult.jsp?degree=btech&examCode=1323&etype=r16&type=grade16",
         "1,2": "http://results.jntuh.ac.in/results/jsp/SearchResult.jsp?degree=btech&examCode=1356&etype=r16&type=grade16",
         "2,1": "http://results.jntuh.ac.in/results/jsp/SearchResult.jsp?degree=btech&examCode=1391&etype=r17&type=grade17",
@@ -28,11 +19,20 @@ class Service:
         "3,2": "http://results.jntuh.ac.in/results/jsp/SearchResult.jsp?degree=btech&examCode=1502&etype=r17&type=intgrade",
     }
 
+    urls2 = {
+        "1,1": "http://202.63.105.184/results/jsp/SearchResult.jsp?degree=btech&examCode=1323&etype=r16&type=grade16",
+        "1,2": "http://202.63.105.184/results/jsp/SearchResult.jsp?degree=btech&examCode=1356&etype=r16&type=grade16",
+        "2,1": "http://202.63.105.184/results/jsp/SearchResult.jsp?degree=btech&examCode=1391&etype=r17&type=grade17",
+        "2,2": "http://202.63.105.184/results/jsp/SearchResult.jsp?degree=btech&examCode=1437&etype=r17&type=intgrade",
+        "3,1": "http://202.63.105.184/results/jsp/SearchResult.jsp?degree=btech&examCode=1454&etype=r17&type=intgrade",
+        "3,2": "http://202.63.105.184/results/jsp/SearchResult.jsp?degree=btech&examCode=1502&etype=r17&type=intgrade",
+    }
+
     def __init__(self, driver):
         self.driver = driver
         self.driver.set_page_load_timeout(10)
 
-    def helper(self, url, hallticket, dob):
+    def helper(self, url: str, hallticket: str, dob: str) -> list:
 
         self.driver.get(url)
 
@@ -68,7 +68,7 @@ class Service:
 
         return [student, results]
 
-    def get_result(self, hallticket, dob, year):
+    def get_result(self, hallticket: str, dob: str, year: str) -> list:
         """Returns the json object of results
         parameters:
             hallticket(str) -- student's hallticket number
@@ -87,7 +87,8 @@ class Service:
 
             return self.helper(self.urls2[year], hallticket, dob)
 
-    def get_result_with_url(self, hallticket, dob, degree, examCode, etype, type, result):
+    def get_result_with_url(self, hallticket: str, dob: str, degree: str,
+                            examCode: str, etype: str, type: str, result: str) -> list:
         """ A method to fetch the results given the paremeters as a JSON object
         parameters:
             hallticket(str)
@@ -119,7 +120,7 @@ class Service:
 
             return self.helper(url2, hallticket, dob)
 
-    def get_student_info(self, sel_soup):
+    def get_student_info(self, sel_soup) -> dict:
         """ Returns the student information """
 
         """ tables[0] consists the information regarding the student """
