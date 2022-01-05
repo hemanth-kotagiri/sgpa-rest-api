@@ -120,21 +120,27 @@ def request_param_path():
     return Response(json.dumps(result),  mimetype='application/json')
 
 
+@app.route("/new", methods=["GET"])
+def all_unordered_results():
+    _, _, _, unordered_results = new_scrapper.get_all_results()
+    return Response(json.dumps(unordered_results),  mimetype='application/json')
+
+
 @app.route("/new/all", methods=["GET"])
 def all_results():
-    all_exams, _, _ = new_scrapper.get_all_results()
+    all_exams, _, _, _ = new_scrapper.get_all_results()
     return Response(json.dumps(all_exams),  mimetype='application/json')
 
 
 @app.route("/new/all/regular", methods=["GET"])
 def all_regular():
-    _, regular_exams, _ = new_scrapper.get_all_results()
+    _, regular_exams, _, _ = new_scrapper.get_all_results()
     return Response(json.dumps(regular_exams),  mimetype='application/json')
 
 
 @app.route("/new/all/supply", methods=["GET"])
 def all_supply():
-    _, _, supply_exams = new_scrapper.get_all_results()
+    _, _, supply_exams, _ = new_scrapper.get_all_results()
     return Response(json.dumps(supply_exams),  mimetype='application/json')
 
 

@@ -75,6 +75,7 @@ class AllResults:
         rows = soup.find_all("tr")
         regular_exams = []
         supply_exams = []
+        unordered_results = []
         regular_id, supply_id = 0, 0
         for i, row in enumerate(rows):
             anchorElement = row.find_all("a")[0]
@@ -90,30 +91,34 @@ class AllResults:
             exam_desc, exam_date = row.find_all("b")
             exam_desc, exam_date = exam_desc.text, exam_date.text
 
-            object = {
+            result_object = {
                 "exam_name": exam_desc,
                 "release_date": exam_date,
                 "links": links,
             }
             for each_param in params:
                 key, value = each_param.split("=")
-                object[key] = value
+                result_object[key] = value
+
+            unordered_results.append(result_object)
 
             if "Regular" in exam_desc:
-                object["id"] = regular_id
+                result_object["id"] = regular_id
                 regular_id += 1
-                regular_exams.append(object)
+                regular_exams.append(result_object)
             else:
-                object["id"] = supply_id
+                result_object["id"] = supply_id
                 supply_id += 1
-                supply_exams.append(object)
+                supply_exams.append(result_object)
 
         all_exams = {
+            "total-exam-result-releases": i,
+            "total-regular-exam-result-releases": regular_id,
+            "total-supply-exam-result-releases": supply_id,
             "regular": regular_exams,
             "supply": supply_exams,
-            "id": i
         }
 
         self.save_exams_json(all_exams)
 
-        return [all_exams, regular_exams, supply_exams]
+        return [all_exams, regular_exams, supply_exams, unordered_results]
