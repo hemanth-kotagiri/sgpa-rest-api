@@ -42,8 +42,8 @@ def init_chrome_driver():
     return driver
 
 
-# driver = init_firefox_driver()
-driver = init_chrome_driver()
+driver = init_firefox_driver()
+# driver = init_chrome_driver()
 
 # Initializing the Crawler object from service
 # Injecting the driver dependency
@@ -120,12 +120,6 @@ def request_param_path():
     return Response(json.dumps(result),  mimetype='application/json')
 
 
-@app.route("/new/", methods=["GET"])
-def all_unordered_results():
-    _, _, _, unordered_results = new_scrapper.get_all_results()
-    return Response(json.dumps(unordered_results),  mimetype='application/json')
-
-
 @app.route("/new/all", methods=["GET"])
 def all_results():
     all_exams, _, _, _ = new_scrapper.get_all_results()
@@ -144,7 +138,7 @@ def all_supply():
     return Response(json.dumps(supply_exams),  mimetype='application/json')
 
 
-@app.route("/new", methods=["GET"])
+@app.route("/api", methods=["GET"])
 def get_specific_result():
     hallticket = request.args.get("hallticket")
     dob = request.args.get("dob")
@@ -158,6 +152,12 @@ def get_specific_result():
         hallticket, dob, degree, examCode, etype, type, result)
 
     return Response(json.dumps(resp),  mimetype='application/json')
+
+
+@app.route("/new/", methods=["GET"])
+def all_unordered_results():
+    _, _, _, unordered_results = new_scrapper.get_all_results()
+    return Response(json.dumps(unordered_results),  mimetype='application/json')
 
 
 if __name__ == "__main__":
