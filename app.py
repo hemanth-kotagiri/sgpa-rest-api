@@ -120,7 +120,7 @@ def request_param_path():
     return Response(json.dumps(result),  mimetype='application/json')
 
 
-@app.route("/new", methods=["GET"])
+@app.route("/new/", methods=["GET"])
 def all_unordered_results():
     _, _, _, unordered_results = new_scrapper.get_all_results()
     return Response(json.dumps(unordered_results),  mimetype='application/json')

@@ -190,11 +190,8 @@ This will add an additional object as such:
 TODO
 
 - [x] Endpoint for fetching all results links
-
 - [x] Endpoint for fetching all regular links
-
 - [x] Endpoint for fetching all supplementary links
-
 - [ ] Endpoint for fetching regulation specific links
 
 [GNU GPLv3](LICENSE) - Copyright (c) 2021 Hemanth Kotagiri
