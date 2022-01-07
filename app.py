@@ -62,6 +62,26 @@ grades = {
 }
 
 
+def calculate_sgpa(results_object):
+    sgpa = 0
+    total_credits = 0
+    for subject in results_object[1]:
+        total_credits += float(subject["subject_credits"])
+        if subject["grade_earned"] == "F" or subject["grade_earned"] == "-":
+            sgpa = 0
+            break
+        if not subject["grade_earned"] in grades.keys():
+            sgpa = 0
+            break
+        sgpa += grades[subject["grade_earned"]] * \
+            float(subject["subject_credits"])
+
+    sgpa = round(sgpa/total_credits, 2)
+    results_object.insert(0, {"SGPA": sgpa if sgpa else "FAIL"})
+
+    return results_object
+
+
 app = Flask(__name__)
 
 
@@ -89,22 +109,7 @@ def routing_path(hallticket, dob, year):
 @app.route("/calculate/<hallticket>/<dob>/<year>", methods=["GET"])
 def calculate(hallticket, dob, year):
     result = old_scrapper.get_result(hallticket, dob, year)
-    # Calculating the result
-    sgpa = 0
-    total_credits = 0
-    for subject in result[1]:
-        total_credits += float(subject["subject_credits"])
-        if subject["grade_earned"] == "F" or subject["grade_earned"] == "-":
-            sgpa = 0
-            break
-        if not subject["grade_earned"] in grades.keys():
-            sgpa = 0
-            break
-        sgpa += grades[subject["grade_earned"]] * \
-            float(subject["subject_credits"])
-
-    sgpa = round(sgpa/total_credits, 2)
-    result.insert(0, {"SGPA": sgpa if sgpa else "FAIL"})
+    result = calculate_sgpa(result)
     return Response(json.dumps(result),  mimetype='application/json')
 
 
@@ -152,6 +157,24 @@ def get_specific_result():
         hallticket, dob, degree, examCode, etype, type, result)
 
     return Response(json.dumps(resp),  mimetype='application/json')
+
+
+@app.route("/api/calculate", methods=["GET"])
+def get_specific_result_with_sgpa():
+    hallticket = request.args.get("hallticket")
+    dob = request.args.get("dob")
+    degree = request.args.get("degree")
+    examCode = request.args.get("examCode")
+    etype = request.args.get("etype")
+    type = request.args.get("type")
+    result = request.args.get("result") or ''
+    resp = old_scrapper.get_result_with_url(
+        hallticket, dob, degree, examCode, etype, type, result)
+
+    print(result)
+    result = calculate_sgpa(resp)
+
+    return Response(json.dumps(result),  mimetype='application/json')
 
 
 @app.route("/new/", methods=["GET"])
