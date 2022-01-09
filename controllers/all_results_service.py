@@ -38,6 +38,32 @@ class AllResults:
 
         return table
 
+    def get_notifiations(self) -> list:
+        iframe_path = "/html/frameset/frameset/frame[1]"
+
+        self.driver.get("http://results.jntuh.ac.in/")
+        iframe = self.driver.find_element_by_xpath(iframe_path)
+        self.driver.switch_to.frame(iframe)
+
+        body_xpath = "/html/body"
+        body = self.driver.find_element_by_xpath(body_xpath)
+        body = body.get_attribute('innerHTML')
+        soup = BeautifulSoup(body, 'html.parser')
+        notifications = []
+        for each in soup.findAll("h3"):
+            current = each.getText()
+            date, description = current.split(" ", 1)
+            date = date.lstrip("*(").rstrip(")")
+            description = description.strip()
+            if not "B.TECH" in description:
+                continue
+            notifications.append({
+                "notification_date": date,
+                "notification_description": description
+            })
+
+        return notifications
+
     def save_table(self) -> None:
         """ A method to save the table locally """
 

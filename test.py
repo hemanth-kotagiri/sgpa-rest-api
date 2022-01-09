@@ -14,7 +14,20 @@ firefox_options.add_argument("--disable-javascript")
 driver = webdriver.Firefox(
     executable_path=os.path.join(os.getcwd(), driver_file), firefox_options=firefox_options)
 
-driver.get("http://results.jntuh.ac.in/")
 
-print("DOING...")
-print(driver.execute_script("return document.documentElement.outerHTML"))
+iframe_path = "/html/frameset/frameset/frame[1]"
+
+driver.get("http://results.jntuh.ac.in/")
+iframe = driver.find_element_by_xpath(iframe_path)
+driver.switch_to.frame(iframe)
+
+body_xpath = "/html/body"
+body = driver.find_element_by_xpath(body_xpath)
+body = body.get_attribute('innerHTML')
+soup = BeautifulSoup(body, 'html.parser')
+for each in soup.findAll("h3"):
+    current = each.getText()
+    date, description = current.split(" ", 1)
+    date = date.lstrip("*(").rstrip(")")
+    description = description.strip()
+    print(date, description)

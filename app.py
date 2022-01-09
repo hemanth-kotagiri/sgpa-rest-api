@@ -183,5 +183,11 @@ def all_unordered_results():
     return Response(json.dumps(unordered_results),  mimetype='application/json')
 
 
+@app.route("/notifications", methods=["GET"])
+def notifications():
+    result = new_scrapper.get_notifiations()
+    return Response(json.dumps(result),   mimetype='application/json')
+
+
 if __name__ == "__main__":
     app.run()
