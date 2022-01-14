@@ -216,4 +216,8 @@ link the PRs for the same.
 
 Made with ❤️ by Hemanth.
 
-> For Precious, With Patience.
+> I started this for you, only for you. Now, it serves for a greater purpose -
+> for so many students ahead. You shall be remembered forever, in the
+> reminiscence of this project.
+
+> **_For Precious, with Patience._**
