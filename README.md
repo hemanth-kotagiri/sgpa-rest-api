@@ -1,6 +1,12 @@
 <h1 align="center">RestAPI for <a href="https://github.com/hemanth-kotagiri/sgpa-calculator" target="_blank">SGPA-Calcluator</a></h1>
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/9ca1efa8af8a450abe751428a6fbbbf1)](https://app.codacy.com/gh/hemanth-kotagiri/sgpa-rest-api?utm_source=github.com&utm_medium=referral&utm_content=hemanth-kotagiri/sgpa-rest-api&utm_campaign=Badge_Grade_Settings)
+![License](https://img.shields.io/github/license/hemanth-kotagiri/sgpa-rest-api)
+![Stars](https://img.shields.io/github/stars/hemanth-kotagiri/sgpa-rest-api)
+
+<img width=100 src="https://img.shields.io/badge/flask-black.svg?style=for-the-badge&logo=flask" alt="">
+<img width=100 src="https://img.shields.io/badge/python-black.svg?style=for-the-badge&logo=python" alt="">
+<img width=100 src="https://img.shields.io/badge/selenium-black.svg?style=for-the-badge&logo=selenium" alt="">
 
 This has been specifically built to suppliment the mobile application that I am
 developing. Feel free to use this irrespective of the mobile-app, with which
