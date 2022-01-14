@@ -4,9 +4,11 @@
 ![License](https://img.shields.io/github/license/hemanth-kotagiri/sgpa-rest-api)
 ![Stars](https://img.shields.io/github/stars/hemanth-kotagiri/sgpa-rest-api)
 
-<img width=100 src="https://img.shields.io/badge/flask-black.svg?style=for-the-badge&logo=flask" alt="">
-<img width=100 src="https://img.shields.io/badge/python-black.svg?style=for-the-badge&logo=python" alt="">
-<img width=100 src="https://img.shields.io/badge/selenium-black.svg?style=for-the-badge&logo=selenium" alt="">
+<div align="left">
+  <img width=100 src="https://img.shields.io/badge/flask-black.svg?style=for-the-badge&logo=flask" alt="">
+  <img width=100 src="https://img.shields.io/badge/python-black.svg?style=for-the-badge&logo=python" alt="">
+  <img width=100 src="https://img.shields.io/badge/selenium-black.svg?style=for-the-badge&logo=selenium" alt="">
+</div>
 
 This has been specifically built to suppliment the mobile application that I am
 developing. Feel free to use this irrespective of the mobile-app, with which
