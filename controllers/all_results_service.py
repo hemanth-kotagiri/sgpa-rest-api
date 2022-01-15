@@ -74,7 +74,7 @@ class AllResults:
     def save_notifications(self, notifications) -> None:
         """ A method to save the notifications """
         with open("notifications.json", "w") as f:
-            f.write(json.dumps(notifications))
+            f.write(json.dumps(notifications, indent=2))
 
     def save_table(self) -> None:
         """ A method to save the table locally """
@@ -87,7 +87,7 @@ class AllResults:
         """ A method to save exams json object """
 
         with open('result-links.json', 'w') as f:
-            f.write(json.dumps(exams))
+            f.write(json.dumps(exams, indent=2))
 
     def get_all_results(self) -> list:
         """ within the tablebody, there are table rows each row has two table-data elements
