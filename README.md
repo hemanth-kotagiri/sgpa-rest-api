@@ -6,9 +6,9 @@
 
 <div align="left">
   <img width=100 src="https://img.shields.io/badge/flask-black.svg?style=for-the-badge&logo=flask" alt="">
-  <img width=100 src="https://img.shields.io/badge/python-black.svg?style=for-the-badge&logo=python" alt="">
-  <img width=100 src="https://img.shields.io/badge/selenium-black.svg?style=for-the-badge&logo=selenium" alt="">
-  <img width=80 src="https://img.shields.io/badge/redis-black.svg?style=for-the-badge&logo=redis" alt="">
+  <img width=110 src="https://img.shields.io/badge/python-black.svg?style=for-the-badge&logo=python" alt="">
+  <img width=120 src="https://img.shields.io/badge/selenium-black.svg?style=for-the-badge&logo=selenium" alt="">
+  <img width=100 src="https://img.shields.io/badge/redis-black.svg?style=for-the-badge&logo=redis" alt="">
 </div>
 
 This has been specifically built to suppliment the mobile application that I am
