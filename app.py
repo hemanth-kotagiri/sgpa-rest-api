@@ -1,3 +1,4 @@
+from datetime import timedelta
 import json
 import os
 import platform
@@ -6,6 +7,7 @@ from flask import Flask, Response, request
 import markdown
 import markdown.extensions.fenced_code
 from pygments.formatters import HtmlFormatter
+import redis
 from selenium import webdriver
 
 from controllers.all_results_service import AllResults
@@ -43,7 +45,9 @@ def init_chrome_driver():
 
 
 # driver = init_firefox_driver()
+# redis_client = redis.Redis(host="localhost", port=6379, db=0)
 driver = init_chrome_driver()
+redis_client = redis.from_url(os.environ.get("REDIS_URL"))
 
 # Initializing the Crawler object from service
 # Injecting the driver dependency
@@ -101,15 +105,32 @@ def index():
 
 @app.route("/<hallticket>/<dob>/<year>", methods=["GET"])
 def routing_path(hallticket, dob, year):
+    current_key = f"{hallticket}-{year}"
 
-    result = old_scrapper.get_result(hallticket, dob, year)
+    redis_response = redis_client.get(current_key)
+    if redis_response != None:
+        result = json.loads(redis_response)
+    else:
+        result = old_scrapper.get_result(hallticket, dob, year)
+        redis_client.set(current_key, json.dumps(result))
+        redis_client.expire(current_key, timedelta(minutes=15))
+
     return Response(json.dumps(result),  mimetype='application/json')
 
 
 @app.route("/calculate/<hallticket>/<dob>/<year>", methods=["GET"])
 def calculate(hallticket, dob, year):
-    result = old_scrapper.get_result(hallticket, dob, year)
-    result = calculate_sgpa(result)
+    current_key = f"calculate-{hallticket}-{year}"
+
+    redis_response = redis_client.get(current_key)
+    if redis_response != None:
+        result = json.loads(redis_response)
+    else:
+        result = old_scrapper.get_result(hallticket, dob, year)
+        result = calculate_sgpa(result)
+        redis_client.set(current_key, json.dumps(result))
+        redis_client.expire(current_key, timedelta(minutes=15))
+
     return Response(json.dumps(result),  mimetype='application/json')
 
 
@@ -120,26 +141,59 @@ def request_param_path():
     dob = request.args.get("dob")
     year = request.args.get("year")
 
-    result = old_scrapper.get_result(hallticket, dob, year)
+    current_key = f"result-{hallticket}-{year}"
+    redis_response = redis_client.get(current_key)
+    if redis_response != None:
+        result = json.loads(redis_response)
+    else:
+        result = old_scrapper.get_result(hallticket, dob, year)
+        redis_client.set(current_key, json.dumps(result))
+        redis_client.expire(current_key, timedelta(minutes=15))
 
     return Response(json.dumps(result),  mimetype='application/json')
 
 
 @app.route("/new/all", methods=["GET"])
 def all_results():
-    all_exams, _, _, _ = new_scrapper.get_all_results()
+    current_key = "all_exams"
+
+    redis_response = redis_client.get(current_key)
+    if redis_response != None:
+        all_exams = json.loads(redis_response)
+    else:
+        all_exams, _, _, _ = new_scrapper.get_all_results()
+        redis_client.set(current_key, json.dumps(all_exams))
+        redis_client.expire(current_key, timedelta(minutes=30))
+
     return Response(json.dumps(all_exams),  mimetype='application/json')
 
 
 @app.route("/new/all/regular", methods=["GET"])
 def all_regular():
-    _, regular_exams, _, _ = new_scrapper.get_all_results()
+    current_key = "all_regular"
+
+    redis_response = redis_client.get(current_key)
+    if redis_response != None:
+        regular_exams = json.loads(redis_response)
+    else:
+        _, regular_exams, _, _ = new_scrapper.get_all_results()
+        redis_client.set(current_key, json.dumps(regular_exams))
+        redis_client.expire(current_key, timedelta(minutes=30))
+
     return Response(json.dumps(regular_exams),  mimetype='application/json')
 
 
 @app.route("/new/all/supply", methods=["GET"])
 def all_supply():
-    _, _, supply_exams, _ = new_scrapper.get_all_results()
+    current_key = "all_supply"
+    redis_response = redis_client.get(current_key)
+    if redis_response != None:
+        supply_exams = json.loads(redis_response)
+    else:
+        _, _, supply_exams, _ = new_scrapper.get_all_results()
+        redis_client.set(current_key, json.dumps(supply_exams))
+        redis_client.expire(current_key, timedelta(minutes=30))
+
     return Response(json.dumps(supply_exams),  mimetype='application/json')
 
 
@@ -153,8 +207,17 @@ def get_specific_result():
     type = request.args.get("type")
     result = request.args.get("result") or ''
     print(hallticket, dob, degree, examCode, etype, type, result)
-    resp = old_scrapper.get_result_with_url(
-        hallticket, dob, degree, examCode, etype, type, result)
+
+    current_key = f"{hallticket}-{degree}-{examCode}-{etype}-{type}-{result}"
+
+    redis_response = redis_client.get(current_key)
+    if redis_response != None:
+        resp = json.loads(redis_response)
+    else:
+        resp = old_scrapper.get_result_with_url(
+            hallticket, dob, degree, examCode, etype, type, result)
+        redis_client.set(current_key, json.dumps(resp))
+        redis_client.expire(current_key, timedelta(minutes=15))
 
     return Response(json.dumps(resp),  mimetype='application/json')
 
@@ -168,11 +231,17 @@ def get_specific_result_with_sgpa():
     etype = request.args.get("etype")
     type = request.args.get("type")
     result = request.args.get("result") or ''
-    resp = old_scrapper.get_result_with_url(
-        hallticket, dob, degree, examCode, etype, type, result)
 
-    print(result)
-    result = calculate_sgpa(resp)
+    current_key = f"calculate-{hallticket}-{degree}-{examCode}-{etype}-{type}-{result}"
+    redis_response = redis_client.get(current_key)
+    if redis_response != None:
+        result = json.loads(redis_response)
+    else:
+        resp = old_scrapper.get_result_with_url(
+            hallticket, dob, degree, examCode, etype, type, result)
+        result = calculate_sgpa(resp)
+        redis_client.set(current_key, json.dumps(result))
+        redis_client.expire(current_key, timedelta(minutes=15))
 
     return Response(json.dumps(result),  mimetype='application/json')
 
@@ -185,7 +254,14 @@ def all_unordered_results():
 
 @app.route("/notifications", methods=["GET"])
 def notifications():
-    result = new_scrapper.get_notifiations()
+    current_key = "notifications"
+
+    redis_response = redis_client.get(current_key)
+    if redis_response != None:
+        result = json.loads(redis_response)
+    else:
+        result = new_scrapper.get_notifiations()
+
     return Response(json.dumps(result),   mimetype='application/json')
 
 
