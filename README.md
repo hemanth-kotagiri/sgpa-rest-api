@@ -8,13 +8,14 @@
   <img width=100 src="https://img.shields.io/badge/flask-black.svg?style=for-the-badge&logo=flask" alt="">
   <img width=100 src="https://img.shields.io/badge/python-black.svg?style=for-the-badge&logo=python" alt="">
   <img width=100 src="https://img.shields.io/badge/selenium-black.svg?style=for-the-badge&logo=selenium" alt="">
+  <img width=80 src="https://img.shields.io/badge/redis-black.svg?style=for-the-badge&logo=redis" alt="">
 </div>
 
 This has been specifically built to suppliment the mobile application that I am
-developing. Feel free to use this irrespective of the mobile-app, with which
-you can integrate into your own applications/projects to get the data. As of
-now, this RestAPI provides the regular resluts of all R18 regulation students of the
-batch 2018. Soon, I would leverage this to other regulations and supplementary exams as well.
+developed. Feel free to use this irrespective of the mobile-app, with which
+you can integrate into your own applications/projects to get the data. This
+RestAPI provides the results for all regulations, and of all types (
+regular and supplementary ).
 
 ### Documentation
 
@@ -27,10 +28,21 @@ out for more information.
 ### Endpoints
 
 ```
-- /          - This is where you are right now.
-- /result    - A query parameter specific endpoint.
-- /calculate - Fetch the SGPA along with other details.
+- /                  - This is where you are right now.
+- /result            - A query parameter specific endpoint.
+- /calculate         - Fetch the SGPA along with other details.
+- /new/all           - Fetch all results links (Supplementary and Regular).
+- /new/all/regular   - Fetch all regular results links.
+- /new/all/supply    - Fetch all regular supplementary links.
+- /api               - A Query parameter endpoint to get result of an exam given hallticket, date of birth, degree, examCode, eType, type and result.
+- /api/calculate     - A Query parameter endpoint to get result of an exam given hallticket, date of birth, degree, examCode, eType, type and result with sgpa.
+- /new/              - Returns all results links in unordered fashion
+- /notifications     - Returns all the latest released notifications
 ```
+
+Refer to the official documentation for detailed API Reference. Below is
+just a sample from one endpoint. Please click
+[here](https://hemanth-kotagiri.github.io/sgpa-rest-api-docs/).
 
 ### API Reference
 
@@ -194,13 +206,6 @@ This will add an additional object as such:
   "SGPA": "Value"
 }
 ```
-
-TODO
-
-- [x] Endpoint for fetching all results links
-- [x] Endpoint for fetching all regular links
-- [x] Endpoint for fetching all supplementary links
-- [ ] Endpoint for fetching regulation specific links
 
 [GNU GPLv3](LICENSE) - Copyright (c) 2021 Hemanth Kotagiri
 
