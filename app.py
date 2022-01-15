@@ -113,7 +113,7 @@ def routing_path(hallticket, dob, year):
     else:
         result = old_scrapper.get_result(hallticket, dob, year)
         redis_client.set(current_key, json.dumps(result))
-        redis_client.expire(current_key, timedelta(minutes=15))
+        redis_client.expire(current_key, timedelta(days=1))
 
     return Response(json.dumps(result),  mimetype='application/json')
 
@@ -129,7 +129,7 @@ def calculate(hallticket, dob, year):
         result = old_scrapper.get_result(hallticket, dob, year)
         result = calculate_sgpa(result)
         redis_client.set(current_key, json.dumps(result))
-        redis_client.expire(current_key, timedelta(minutes=15))
+        redis_client.expire(current_key, timedelta(days=1))
 
     return Response(json.dumps(result),  mimetype='application/json')
 
@@ -148,7 +148,7 @@ def request_param_path():
     else:
         result = old_scrapper.get_result(hallticket, dob, year)
         redis_client.set(current_key, json.dumps(result))
-        redis_client.expire(current_key, timedelta(minutes=15))
+        redis_client.expire(current_key, timedelta(days=1))
 
     return Response(json.dumps(result),  mimetype='application/json')
 
@@ -217,7 +217,7 @@ def get_specific_result():
         resp = old_scrapper.get_result_with_url(
             hallticket, dob, degree, examCode, etype, type, result)
         redis_client.set(current_key, json.dumps(resp))
-        redis_client.expire(current_key, timedelta(minutes=15))
+        redis_client.expire(current_key, timedelta(days=1))
 
     return Response(json.dumps(resp),  mimetype='application/json')
 
@@ -241,7 +241,7 @@ def get_specific_result_with_sgpa():
             hallticket, dob, degree, examCode, etype, type, result)
         result = calculate_sgpa(resp)
         redis_client.set(current_key, json.dumps(result))
-        redis_client.expire(current_key, timedelta(minutes=15))
+        redis_client.expire(current_key, timedelta(days=1))
 
     return Response(json.dumps(result),  mimetype='application/json')
 
@@ -261,6 +261,8 @@ def notifications():
         result = json.loads(redis_response)
     else:
         result = new_scrapper.get_notifiations()
+        redis_client.set(current_key, json.dumps(result))
+        redis_client.expire(current_key, timedelta(minutes=30))
 
     return Response(json.dumps(result),   mimetype='application/json')
 
