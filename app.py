@@ -45,10 +45,10 @@ def init_chrome_driver():
     return driver
 
 
-driver = init_firefox_driver()
-redis_client = redis.Redis(host="localhost", port=6379, db=0)
-# driver = init_chrome_driver()
-# redis_client = redis.from_url(os.environ.get("REDIS_URL"))
+# driver = init_firefox_driver()
+# redis_client = redis.Redis(host="localhost", port=6379, db=0)
+driver = init_chrome_driver()
+redis_client = redis.from_url(os.environ.get("REDIS_URL"))
 
 # Initializing the Crawler object from service
 # Injecting the driver dependency
