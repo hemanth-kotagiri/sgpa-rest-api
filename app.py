@@ -1,4 +1,5 @@
 from datetime import timedelta
+import time
 import json
 import os
 import platform
@@ -44,10 +45,10 @@ def init_chrome_driver():
     return driver
 
 
-# driver = init_firefox_driver()
-# redis_client = redis.Redis(host="localhost", port=6379, db=0)
-driver = init_chrome_driver()
-redis_client = redis.from_url(os.environ.get("REDIS_URL"))
+driver = init_firefox_driver()
+redis_client = redis.Redis(host="localhost", port=6379, db=0)
+# driver = init_chrome_driver()
+# redis_client = redis.from_url(os.environ.get("REDIS_URL"))
 
 # Initializing the Crawler object from service
 # Injecting the driver dependency
@@ -244,6 +245,102 @@ def get_specific_result_with_sgpa():
         redis_client.expire(current_key, timedelta(minutes=30))
 
     return Response(json.dumps(result),  mimetype='application/json')
+
+@app.route("/api/bulk/calculate", methods=["GET"])
+def newThing():
+    results = []
+    string_dict = {
+        'A': 0,
+         'B': 1,
+         'C': 2,
+         'D': 3,
+         'E': 4,
+         'F': 5,
+         'G': 6,
+         'H': 7,
+         'J': 8,
+    }
+    hallticket_from = request.args.get("hallticket_from")
+    hallticket_to = request.args.get("hallticket_to")
+    dob = request.args.get("dob")
+    degree = request.args.get("degree")
+    examCode = request.args.get("examCode")
+    etype = request.args.get("etype")
+    type = request.args.get("type")
+    result = request.args.get("result") or ''
+    # hallticket = hallticket_from[:-2]
+
+    if(hallticket_from[0:8] != hallticket_to[0:8]):
+        return Exception("Starting and ending hallticket should be same")
+
+    roll_number = hallticket_from[0:8]
+    s1 = str(hallticket_from[8:10])
+    s2 = str(hallticket_to[8:10])
+
+    def test(s1):
+        try:
+            s1 = int(s1)
+            return s1
+        except:
+            s1 = str(string_dict[s1[0]]) + str(s1[1])
+            s1 = 100 + int(s1)
+        return s1
+    start = test(s1)
+    end = test(s2)
+
+    if end-start < 0 or end-start > 210:
+        return Exception("SOMETHING WENT WRONG")
+
+    start_time = time.time()
+    for i in range(start, end+1):
+        if (i < 10):
+            hallticket = roll_number + '0' + str(i)
+        elif (i < 100):
+            hallticket = roll_number + str(i)
+        elif i > 99 and i < 110:
+            hallticket = roll_number + 'A' + str(i - 100)
+        elif i > 109 and i < 120:
+            hallticket = roll_number + 'B' + str(i - 110)
+        elif i > 119 and i < 130:
+            hallticket = roll_number + 'C' + str(i - 120)
+        elif i > 129 and i < 140:
+            hallticket = roll_number + 'D' + str(i - 130)
+        elif i > 139 and i < 150:
+            hallticket = roll_number + 'E' + str(i - 140)
+        elif i > 149 and i < 160:
+            hallticket = roll_number + 'F' + str(i - 150)
+        elif i > 159 and i < 170:
+            hallticket = roll_number + 'G' + str(i - 160)
+        elif i > 169 and i < 180:
+            hallticket = roll_number + 'H' + str(i - 170)
+        elif i > 179 and i < 190:
+            hallticket = roll_number + 'j' + str(i - 180)
+
+        print(hallticket)
+        current_key = f"calculate-{hallticket}-{degree}-{examCode}-{etype}-{type}-{result}"
+        redis_response = redis_client.get(current_key)
+        if redis_response != None:
+            redis_out = json.loads(redis_response)
+            results.append(redis_out)
+        else:
+            # Perform the manaual fetch
+            try:
+                resp = old_scrapper.get_result_with_url(
+                    hallticket, dob, degree, examCode, etype, type, result)
+                new_res = calculate_sgpa(resp)
+                results.append(new_res)
+                redis_client.set(current_key, json.dumps(new_res))
+                redis_client.expire(current_key, timedelta(minutes=30))
+            except Exception as e:
+                print(e)
+                redis_client.set(
+                    current_key, json.dumps({hallticket: "FALSE"}))
+                redis_client.expire(current_key, timedelta(minutes=30))
+
+    end_time = time.time()
+    print("TIME TOOK ", end_time - start_time)
+
+    return Response(json.dumps(results),  mimetype='application/json')
 
 
 @app.route("/new/", methods=["GET"])
