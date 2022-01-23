@@ -1,8 +1,9 @@
 from datetime import timedelta
-import time
 import json
 import os
 import platform
+import threading
+import time
 
 from flask import Flask, Response, request
 import markdown
@@ -246,9 +247,35 @@ def get_specific_result_with_sgpa():
 
     return Response(json.dumps(result),  mimetype='application/json')
 
+
+def get_hallticket_helper(roll_number, i):
+    if (i < 10):
+        hallticket = roll_number + '0' + str(i)
+    elif (i < 100):
+        hallticket = roll_number + str(i)
+    elif i > 99 and i < 110:
+        hallticket = roll_number + 'A' + str(i - 100)
+    elif i > 109 and i < 120:
+        hallticket = roll_number + 'B' + str(i - 110)
+    elif i > 119 and i < 130:
+        hallticket = roll_number + 'C' + str(i - 120)
+    elif i > 129 and i < 140:
+        hallticket = roll_number + 'D' + str(i - 130)
+    elif i > 139 and i < 150:
+        hallticket = roll_number + 'E' + str(i - 140)
+    elif i > 149 and i < 160:
+        hallticket = roll_number + 'F' + str(i - 150)
+    elif i > 159 and i < 170:
+        hallticket = roll_number + 'G' + str(i - 160)
+    elif i > 169 and i < 180:
+        hallticket = roll_number + 'H' + str(i - 170)
+    elif i > 179 and i < 190:
+        hallticket = roll_number + 'j' + str(i - 180)
+
+    return hallticket
+
 @app.route("/api/bulk/calculate", methods=["GET"])
-def newThing():
-    results = []
+def get_bulk_results():
     string_dict = {
         'A': 0,
          'B': 1,
@@ -291,56 +318,67 @@ def newThing():
     if end-start < 0 or end-start > 210:
         return Exception("SOMETHING WENT WRONG")
 
-    start_time = time.time()
-    for i in range(start, end+1):
-        if (i < 10):
-            hallticket = roll_number + '0' + str(i)
-        elif (i < 100):
-            hallticket = roll_number + str(i)
-        elif i > 99 and i < 110:
-            hallticket = roll_number + 'A' + str(i - 100)
-        elif i > 109 and i < 120:
-            hallticket = roll_number + 'B' + str(i - 110)
-        elif i > 119 and i < 130:
-            hallticket = roll_number + 'C' + str(i - 120)
-        elif i > 129 and i < 140:
-            hallticket = roll_number + 'D' + str(i - 130)
-        elif i > 139 and i < 150:
-            hallticket = roll_number + 'E' + str(i - 140)
-        elif i > 149 and i < 160:
-            hallticket = roll_number + 'F' + str(i - 150)
-        elif i > 159 and i < 170:
-            hallticket = roll_number + 'G' + str(i - 160)
-        elif i > 169 and i < 180:
-            hallticket = roll_number + 'H' + str(i - 170)
-        elif i > 179 and i < 190:
-            hallticket = roll_number + 'j' + str(i - 180)
+    redis_response = redis_client.get(hallticket_from + hallticket_to)
+    if redis_response != None:
+        return Response(redis_response, mimetype='application/json')
 
-        print(hallticket)
+    # Check if all the halltickets are already cached, if so, return them.
+    results = []
+    for i in range(start, end+1):
+
+        hallticket = get_hallticket_helper(roll_number, i)
         current_key = f"calculate-{hallticket}-{degree}-{examCode}-{etype}-{type}-{result}"
         redis_response = redis_client.get(current_key)
+
         if redis_response != None:
             redis_out = json.loads(redis_response)
             results.append(redis_out)
         else:
-            # Perform the manaual fetch
-            try:
-                resp = old_scrapper.get_result_with_url(
-                    hallticket, dob, degree, examCode, etype, type, result)
-                new_res = calculate_sgpa(resp)
-                results.append(new_res)
-                redis_client.set(current_key, json.dumps(new_res))
-                redis_client.expire(current_key, timedelta(minutes=30))
-            except Exception as e:
-                print(e)
-                redis_client.set(
-                    current_key, json.dumps({hallticket: "FALSE"}))
-                redis_client.expire(current_key, timedelta(minutes=30))
+            break
+    else:
+        print("DIDN'T CREATE A NEW KEY, GOT RESULTS FROM HALLTICKETS CACHED")
+        return Response(json.dumps(results), mimetype='application/json')
 
-    end_time = time.time()
-    print("TIME TOOK ", end_time - start_time)
+    redis_client.set(hallticket_from+hallticket_to, json.dumps({"result":"loading"}))
+    redis_client.expire(hallticket_from+hallticket_to, timedelta(minutes=10))
 
-    return Response(json.dumps(results),  mimetype='application/json')
+    def worker(start, end):
+        results = []
+        print("WORKER IS RUNNING")
+        # Start the worker from here
+
+        for i in range(start, end+1):
+            hallticket = get_hallticket_helper(roll_number, i)
+            print(hallticket)
+            current_key = f"calculate-{hallticket}-{degree}-{examCode}-{etype}-{type}-{result}"
+            redis_response = redis_client.get(current_key)
+
+            if redis_response != None:
+                redis_out = json.loads(redis_response)
+                results.append(redis_out)
+            else:
+                # Perform the manaual fetch
+                try:
+                    resp = old_scrapper.get_result_with_url(
+                        hallticket, dob, degree, examCode, etype, type, result)
+                    new_res = calculate_sgpa(resp)
+                    results.append(new_res)
+                    redis_client.set(current_key, json.dumps(new_res))
+                    redis_client.expire(current_key, timedelta(minutes=30))
+                except Exception as e:
+                    print(e)
+                    redis_client.set(
+                        current_key, json.dumps({hallticket: "FALSE"}))
+                    redis_client.expire(current_key, timedelta(minutes=30))
+
+
+        redis_client.set(hallticket_from+hallticket_to, json.dumps(results))
+
+    threading.Thread(target=worker, args=(start, end)).start()
+
+
+    # This is only going to return in the first call.
+    return Response(redis_client.get(hallticket_from + hallticket_to),  mimetype='application/json')
 
 
 @app.route("/new/", methods=["GET"])
