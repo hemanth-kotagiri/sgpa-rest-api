@@ -81,7 +81,8 @@ def calculate_sgpa(results_object):
         sgpa += grades[subject["grade_earned"]] * \
             float(subject["subject_credits"])
 
-    sgpa = round(sgpa/total_credits, 2)
+    if total_credits == 0: sgpa = 0
+    else: sgpa = round(sgpa/total_credits, 2)
     results_object.insert(0, {"SGPA": sgpa if sgpa else "FAIL"})
 
     return results_object

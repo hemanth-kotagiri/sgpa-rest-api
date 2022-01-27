@@ -155,9 +155,11 @@ class Service:
 
         for element in list(tables[1].tbody)[1:]:
             current_subject = []
+            count = 1
             for table_row in element:
                 for b in table_row:
-                    if type(b) != str:
+                    if type(b) != str and count <= 7:
+                        count += 1
                         # table_row has 4 elements: subject code, name, grade, credits else
                         # table_row has 7 elements: subject code, name, internal, external, total grade, credits
                         current_subject.append(b.text)
