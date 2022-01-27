@@ -3,7 +3,6 @@ import json
 import os
 import platform
 import threading
-import time
 
 from flask import Flask, Response, request
 import markdown
@@ -389,10 +388,13 @@ def all_unordered_results():
 
 @app.route("/notifications", methods=["GET"])
 def notifications():
+    refresh = request.args.get("refresh")
+    if refresh is not None:
+        refresh = True
     current_key = "notifications"
 
     redis_response = redis_client.get(current_key)
-    if redis_response != None:
+    if redis_response != None and not refresh:
         result = json.loads(redis_response)
     else:
         result = new_scrapper.get_notifiations()
