@@ -4,7 +4,7 @@ import os
 import platform
 import threading
 
-from flask import Flask, Response, request
+from flask import Flask, Response, request, render_template
 import markdown
 import markdown.extensions.fenced_code
 from pygments.formatters import HtmlFormatter
@@ -94,15 +94,7 @@ app = Flask(__name__)
 @app.route("/")
 def index():
 
-    formatter = HtmlFormatter(full=True, cssclass="codehilite")
-    css_string = formatter.get_style_defs()
-    readme = open("README_PAGE.md", "r")
-    md_template = markdown.markdown(
-        readme.read(), extensions=["fenced_code", "codehilite"]
-    )
-    md_css_string = "<style>" + css_string + "</style>"
-    md_template = md_css_string + md_template
-    return md_template
+    return render_template("index.html")
 
 
 @app.route("/<hallticket>/<dob>/<year>", methods=["GET"])
