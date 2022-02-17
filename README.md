@@ -11,7 +11,7 @@
   <img width=100 src="https://img.shields.io/badge/redis-black.svg?style=for-the-badge&logo=redis" alt="">
 </div>
 
-This has been specifically built to suppliment the mobile application that I am
+This has been specifically built to suppliment the mobile application that I have
 developed. Feel free to use this irrespective of the mobile-app, with which
 you can integrate into your own applications/projects to get the data. This
 RestAPI provides the results for all regulations, and of all types (
