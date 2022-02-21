@@ -42,7 +42,7 @@ class AllResults:
         try:
             iframe_path = "/html/frameset/frameset/frame[1]"
 
-            self.driver.get("http://results.jntuh.ac.in/")
+            self.driver.get("http://202.63.105.184/results/")
             iframe = self.driver.find_element_by_xpath(iframe_path)
             self.driver.switch_to.frame(iframe)
 

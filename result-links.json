@@ -1,8 +1,50 @@
 {
-  "total-exam-result-releases": 334,
-  "total-regular-exam-result-releases": 49,
-  "total-supply-exam-result-releases": 286,
+  "total-exam-result-releases": 345,
+  "total-regular-exam-result-releases": 52,
+  "total-supply-exam-result-releases": 294,
   "regular": [
+    {
+      "exam_name": " RC/RV B.Tech I Year II Semester (R18) Regular Examinations Results",
+      "release_date": "07-FEB-2022",
+      "links": [
+        "http://results.jntuh.ac.in/jsp/SearchResult.jsp?degree=btech&examCode=1503&etype=r17&result=gradercrv&type=rcrvintgrade",
+        "http://202.63.105.184/results/jsp/SearchResult.jsp?degree=btech&examCode=1503&etype=r17&result=gradercrv&type=rcrvintgrade"
+      ],
+      "degree": "btech",
+      "examCode": "1503",
+      "etype": "r17",
+      "result": "gradercrv",
+      "type": "rcrvintgrade",
+      "id": 0
+    },
+    {
+      "exam_name": " RC/RV B.Tech III Year II Semester (R18) Regular Examinations Results",
+      "release_date": "27-JAN-2022",
+      "links": [
+        "http://results.jntuh.ac.in/jsp/SearchResult.jsp?degree=btech&examCode=1502&etype=r17&result=gradercrv&type=rcrvintgrade",
+        "http://202.63.105.184/results/jsp/SearchResult.jsp?degree=btech&examCode=1502&etype=r17&result=gradercrv&type=rcrvintgrade"
+      ],
+      "degree": "btech",
+      "examCode": "1502",
+      "etype": "r17",
+      "result": "gradercrv",
+      "type": "rcrvintgrade",
+      "id": 1
+    },
+    {
+      "exam_name": " RC/RV B.Tech II Year II Semester (R18) Regular Examinations Results",
+      "release_date": "20-JAN-2022",
+      "links": [
+        "http://results.jntuh.ac.in/jsp/SearchResult.jsp?degree=btech&examCode=1501&etype=r17&result=gradercrv&type=rcrvintgrade",
+        "http://202.63.105.184/results/jsp/SearchResult.jsp?degree=btech&examCode=1501&etype=r17&result=gradercrv&type=rcrvintgrade"
+      ],
+      "degree": "btech",
+      "examCode": "1501",
+      "etype": "r17",
+      "result": "gradercrv",
+      "type": "rcrvintgrade",
+      "id": 2
+    },
     {
       "exam_name": "B.Tech I Year II Semester (R18) Regular Examinations Results",
       "release_date": "16-DEC-2021",
@@ -14,7 +56,7 @@
       "examCode": "1503",
       "etype": "r17",
       "type": "intgrade",
-      "id": 0
+      "id": 3
     },
     {
       "exam_name": "B.Tech III Year II Semester (R18) Regular Examinations Results",
@@ -27,7 +69,7 @@
       "examCode": "1502",
       "etype": "r17",
       "type": "intgrade",
-      "id": 1
+      "id": 4
     },
     {
       "exam_name": "B.Tech II Year II Semester (R18) Regular Examinations Results",
@@ -40,7 +82,7 @@
       "examCode": "1501",
       "etype": "r17",
       "type": "intgrade",
-      "id": 2
+      "id": 5
     },
     {
       "exam_name": "RC/RV B.Tech I Year I Semester (R18) Regular Examinations Results",
@@ -54,7 +96,7 @@
       "etype": "r17",
       "result": "gradercrv",
       "type": "rcrvintgrade",
-      "id": 3
+      "id": 6
     },
     {
       "exam_name": "RC/RV B.Tech IV Year II Semester (R16) Regular Examinations Results",
@@ -68,7 +110,7 @@
       "etype": "r17",
       "result": "gradercrv",
       "type": "rcrvintgrade",
-      "id": 4
+      "id": 7
     },
     {
       "exam_name": "B.Tech I Year I Semester (R18) Regular Examinations Results",
@@ -81,7 +123,7 @@
       "examCode": "1467",
       "etype": "r17",
       "type": "intgrade",
-      "id": 5
+      "id": 8
     },
     {
       "exam_name": "RC/RV B.Tech IV Year I Semester (R16) Regular Examinations Results",
@@ -95,7 +137,7 @@
       "etype": "r17",
       "result": "gradercrv",
       "type": "rcrvintgrade",
-      "id": 6
+      "id": 9
     },
     {
       "exam_name": "RC/RV B.Tech II Year I Semester (R18) Regular Examinations Results",
@@ -109,7 +151,7 @@
       "etype": "r17",
       "result": "gradercrv",
       "type": "rcrvintgrade",
-      "id": 7
+      "id": 10
     },
     {
       "exam_name": " RC/RV B.Tech III Year I Semester (R18) Regular Examinations Results",
@@ -123,7 +165,7 @@
       "etype": "r17",
       "result": "gradercrv",
       "type": "rcrvintgrade",
-      "id": 8
+      "id": 11
     },
     {
       "exam_name": "B.Tech IV Year II Semester (R16) Regular Examinations Results",
@@ -136,7 +178,7 @@
       "examCode": "1463",
       "etype": "r16",
       "type": "intgrade",
-      "id": 9
+      "id": 12
     },
     {
       "exam_name": "B.Tech IV Year I Semester (R16) Regular Examinations Results",
@@ -149,7 +191,7 @@
       "examCode": "1459",
       "etype": "r16",
       "type": "intgrade",
-      "id": 10
+      "id": 13
     },
     {
       "exam_name": "B.Tech II Year I Semester (R18) Regular Examinations Results",
@@ -162,7 +204,7 @@
       "examCode": "1449",
       "etype": "r17",
       "type": "intgrade",
-      "id": 11
+      "id": 14
     },
     {
       "exam_name": "B.Tech III Year I Semester (R18) Regular Examinations Results",
@@ -175,7 +217,7 @@
       "examCode": "1454",
       "etype": "r17",
       "type": "intgrade",
-      "id": 12
+      "id": 15
     },
     {
       "exam_name": " RC/RV B.Tech III Year II Semester (R16) Regular during COVID Pandemic Examinations Results",
@@ -189,7 +231,7 @@
       "etype": "r17",
       "result": "gradercrv",
       "type": "rcrvintgrade",
-      "id": 13
+      "id": 16
     },
     {
       "exam_name": " RC/RV B.Tech II Year II Semester (R18) Regular during COVID Pandemic Examinations Results",
@@ -203,7 +245,7 @@
       "etype": "r17",
       "result": "gradercrv",
       "type": "rcrvintgrade",
-      "id": 14
+      "id": 17
     },
     {
       "exam_name": " B.Tech III Year II Semester (R16) Regular during COVID Pandemic Examinations Results",
@@ -216,7 +258,7 @@
       "examCode": "1446",
       "etype": "r17",
       "type": "intgrade",
-      "id": 15
+      "id": 18
     },
     {
       "exam_name": "B.Tech II Year II Semester (R18) Regular during COVID Pandemic Examinations Results",
@@ -229,7 +271,7 @@
       "examCode": "1447",
       "etype": "r17",
       "type": "intgrade",
-      "id": 16
+      "id": 19
     },
     {
       "exam_name": "B.Tech I Year II Semester (R18) Regular during COVID Pandemic Examinations Results",
@@ -242,7 +284,7 @@
       "examCode": "1448",
       "etype": "r17",
       "type": "intgrade",
-      "id": 17
+      "id": 20
     },
     {
       "exam_name": " RC/RV B.Tech III Year II Semester (R16) Regular Examinations Results",
@@ -256,7 +298,7 @@
       "etype": "r17",
       "result": "gradercrv",
       "type": "rcrvintgrade",
-      "id": 18
+      "id": 21
     },
     {
       "exam_name": " RC/RV B.Tech II Year II Semester (R18) Regular Examinations Results",
@@ -270,7 +312,7 @@
       "etype": "r17",
       "result": "gradercrv",
       "type": "rcrvintgrade",
-      "id": 19
+      "id": 22
     },
     {
       "exam_name": " RC/RV B.Tech I Year II Semester (R18) Regular Examinations Results",
@@ -284,7 +326,7 @@
       "etype": "r17",
       "result": "gradercrv",
       "type": "rcrvintgrade",
-      "id": 20
+      "id": 23
     },
     {
       "exam_name": "B.Tech III Year II Semester (R16) Regular Examinations Results",
@@ -297,7 +339,7 @@
       "examCode": "1442",
       "etype": "r17",
       "type": "intgrade",
-      "id": 21
+      "id": 24
     },
     {
       "exam_name": "B.Tech II Year II Semester (R18) Regular Examinations Results",
@@ -310,7 +352,7 @@
       "examCode": "1437",
       "etype": "r17",
       "type": "intgrade",
-      "id": 22
+      "id": 25
     },
     {
       "exam_name": "B.Tech I Year II Semester (R18) Regular Examinations Results",
@@ -323,7 +365,7 @@
       "examCode": "1435",
       "etype": "r17",
       "type": "intgrade",
-      "id": 23
+      "id": 26
     },
     {
       "exam_name": "RCRV B.Tech IV Year II Semester (R16) Regular Examinations Results",
@@ -337,7 +379,7 @@
       "etype": "r16",
       "result": "gradercrv",
       "type": "rcrvintgrade",
-      "id": 24
+      "id": 27
     },
     {
       "exam_name": "B.Tech IV Year II Semester (R16) Regular Examinations Results",
@@ -350,7 +392,7 @@
       "examCode": "1409",
       "etype": "r17",
       "type": "intgrade",
-      "id": 25
+      "id": 28
     },
     {
       "exam_name": "B.Tech I Year I Semester (R18) Regular Examinations Results",
@@ -363,7 +405,7 @@
       "examCode": "1404",
       "etype": "r17",
       "type": "grade17",
-      "id": 26
+      "id": 29
     },
     {
       "exam_name": "B.Tech II Year I Semester (R18) Regular Examinations Results",
@@ -376,7 +418,7 @@
       "examCode": "1391",
       "etype": "r17",
       "type": "grade17",
-      "id": 27
+      "id": 30
     },
     {
       "exam_name": "B.Tech III Year I Semester (R16) Regular Examinations Results",
@@ -389,7 +431,7 @@
       "examCode": "1387",
       "etype": "r16",
       "type": "grade16",
-      "id": 28
+      "id": 31
     },
     {
       "exam_name": "B.Tech IV Year I Semester (R16) Regular Examinations Results",
@@ -402,7 +444,7 @@
       "examCode": "1383",
       "etype": "r16",
       "type": "grade16",
-      "id": 29
+      "id": 32
     },
     {
       "exam_name": "RCRV B.Tech III Year II Semester (R16) Regular Examinations Results",
@@ -416,7 +458,7 @@
       "etype": "r16",
       "result": "gradercrv",
       "type": "grade16",
-      "id": 30
+      "id": 33
     },
     {
       "exam_name": "RCRV II B.Tech. II Semester (R16) Regular Examinations Results",
@@ -430,7 +472,7 @@
       "etype": "r16",
       "result": "gradercrv",
       "type": "grade16",
-      "id": 31
+      "id": 34
     },
     {
       "exam_name": "RCRV B.Tech I Year II Semester (R18) Regular Examinations Results(Studied 1-1 in R16 AND 1-2 IN R18 Regulation students)",
@@ -442,7 +484,7 @@
       "degree": "btech",
       "examCode": "1363",
       "etype": "rcrv",
-      "id": 32
+      "id": 35
     },
     {
       "exam_name": "RCRV B.Tech I Year II Semester (R18) Regular Examinations Results",
@@ -454,7 +496,7 @@
       "degree": "btech",
       "examCode": "1356",
       "etype": "rcrv",
-      "id": 33
+      "id": 36
     },
     {
       "exam_name": "I B.Tech. II Semester (R18) Regular Examination Results(Studied 1-1 in R16 AND 1-2 IN R18 Regulation students)",
@@ -467,7 +509,7 @@
       "examCode": "1363",
       "etype": "r17",
       "type": "grade17",
-      "id": 34
+      "id": 37
     },
     {
       "exam_name": "B.Tech I Year II Semester (R18) Regular Examinations Results",
@@ -480,7 +522,7 @@
       "examCode": "1356",
       "etype": "r16",
       "type": "grade16",
-      "id": 35
+      "id": 38
     },
     {
       "exam_name": "RCRV B.Tech IV Year II Semester (R15) Regular Examinations Results",
@@ -492,7 +534,7 @@
       "degree": "btech",
       "examCode": "1334",
       "etype": "rcrv",
-      "id": 36
+      "id": 39
     },
     {
       "exam_name": " II B.Tech. II Semester (R16) Regular Examinations Results",
@@ -505,7 +547,7 @@
       "examCode": "1341",
       "etype": "r16",
       "type": "grade16",
-      "id": 37
+      "id": 40
     },
     {
       "exam_name": "B.Tech III Year II Semester (R16) Regular Examinations Results",
@@ -518,7 +560,7 @@
       "examCode": "1337",
       "etype": "r16",
       "type": "grade16",
-      "id": 38
+      "id": 41
     },
     {
       "exam_name": "B.Tech IV Year II Semester (R15) Regular Examinations Results",
@@ -529,7 +571,7 @@
       ],
       "degree": "btech",
       "examCode": "1334",
-      "id": 39
+      "id": 42
     },
     {
       "exam_name": "B.Tech I Year I Semester (R18) Regular Examinations Results",
@@ -542,7 +584,7 @@
       "examCode": "1323",
       "etype": "r16",
       "type": "grade16",
-      "id": 40
+      "id": 43
     },
     {
       "exam_name": "B.Tech II Year I Semester (R16) Regular Examinations Results",
@@ -555,7 +597,7 @@
       "examCode": "1319",
       "etype": "r16",
       "type": "grade16",
-      "id": 41
+      "id": 44
     },
     {
       "exam_name": "B.Tech III Year I Semester (R16) Regular Examinations Results",
@@ -568,7 +610,7 @@
       "examCode": "1315",
       "etype": "r16",
       "type": "grade16",
-      "id": 42
+      "id": 45
     },
     {
       "exam_name": "B.Tech IV Year I Semester (R15) Regular Examinations Results",
@@ -579,7 +621,7 @@
       ],
       "degree": "btech",
       "examCode": "1312",
-      "id": 43
+      "id": 46
     },
     {
       "exam_name": "RCRV B.Tech III Year II Semester (R15) Regular Examinations Results",
@@ -591,7 +633,7 @@
       "degree": "btech",
       "examCode": "1280",
       "etype": "rcrv",
-      "id": 44
+      "id": 47
     },
     {
       "exam_name": "RCRV I B.Tech. II Semester (R16) Regular Examinations Results",
@@ -605,7 +647,7 @@
       "etype": "r16",
       "result": "gradercrv",
       "type": "grade16",
-      "id": 45
+      "id": 48
     },
     {
       "exam_name": " I B.Tech. II Semester (R16) Regular Examinations Results",
@@ -618,7 +660,7 @@
       "examCode": "1289",
       "etype": "r16",
       "type": "grade16",
-      "id": 46
+      "id": 49
     },
     {
       "exam_name": " II B.Tech. II Semester (R16) Regular Examinations Results",
@@ -631,7 +673,7 @@
       "examCode": "1284",
       "etype": "r16",
       "type": "grade16",
-      "id": 47
+      "id": 50
     },
     {
       "exam_name": "B.Tech III Year II Semester (R15) Regular Examinations Results",
@@ -642,10 +684,112 @@
       ],
       "degree": "btech",
       "examCode": "1280",
-      "id": 48
+      "id": 51
     }
   ],
   "supply": [
+    {
+      "exam_name": " RC/RV B.Tech I Year I Semester (R18) Supplementary Examinations Results",
+      "release_date": "17-JAN-2022",
+      "links": [
+        "http://results.jntuh.ac.in/jsp/SearchResult.jsp?degree=btech&examCode=1504&etype=r17&result=gradercrv&type=rcrvintgrade",
+        "http://202.63.105.184/results/jsp/SearchResult.jsp?degree=btech&examCode=1504&etype=r17&result=gradercrv&type=rcrvintgrade"
+      ],
+      "degree": "btech",
+      "examCode": "1504",
+      "etype": "r17",
+      "result": "gradercrv",
+      "type": "rcrvintgrade",
+      "id": 0
+    },
+    {
+      "exam_name": " RC/RV B.Tech I Year I Semester (R16) Supplementary Examinations Results",
+      "release_date": "17-JAN-2022",
+      "links": [
+        "http://results.jntuh.ac.in/jsp/SearchResult.jsp?degree=btech&examCode=1505&etype=r17&result=gradercrv&type=rcrvintgrade",
+        "http://202.63.105.184/results/jsp/SearchResult.jsp?degree=btech&examCode=1505&etype=r17&result=gradercrv&type=rcrvintgrade"
+      ],
+      "degree": "btech",
+      "examCode": "1505",
+      "etype": "r17",
+      "result": "gradercrv",
+      "type": "rcrvintgrade",
+      "id": 1
+    },
+    {
+      "exam_name": " RC/RV B.Tech I Year  (R15) Supplementary Examinations Results",
+      "release_date": "17-JAN-2022",
+      "links": [
+        "http://results.jntuh.ac.in/jsp/SearchResult.jsp?degree=btech&examCode=1506&etype=rcrv",
+        "http://202.63.105.184/results/jsp/SearchResult.jsp?degree=btech&examCode=1506&etype=rcrv"
+      ],
+      "degree": "btech",
+      "examCode": "1506",
+      "etype": "rcrv",
+      "id": 2
+    },
+    {
+      "exam_name": " RC/RV B.Tech I Year  (R13) Supplementary Examinations Results",
+      "release_date": "17-JAN-2022",
+      "links": [
+        "http://results.jntuh.ac.in/jsp/SearchResult.jsp?degree=btech&examCode=1507&etype=rcrv",
+        "http://202.63.105.184/results/jsp/SearchResult.jsp?degree=btech&examCode=1507&etype=rcrv"
+      ],
+      "degree": "btech",
+      "examCode": "1507",
+      "etype": "rcrv",
+      "id": 3
+    },
+    {
+      "exam_name": " RC/RV B.Tech I Year  (R09) Supplementary Examinations Results",
+      "release_date": "17-JAN-2022",
+      "links": [
+        "http://results.jntuh.ac.in/jsp/SearchResult.jsp?degree=btech&examCode=1508&etype=rcrv",
+        "http://202.63.105.184/results/jsp/SearchResult.jsp?degree=btech&examCode=1508&etype=rcrv"
+      ],
+      "degree": "btech",
+      "examCode": "1508",
+      "etype": "rcrv",
+      "id": 4
+    },
+    {
+      "exam_name": "B.Tech IV Year I Semester (R16) Supplementary Examinations Results",
+      "release_date": "17-JAN-2022",
+      "links": [
+        "http://results.jntuh.ac.in/jsp/SearchResult.jsp?degree=btech&examCode=1487&etype=r17&result=gradercrv&type=rcrvintgrade",
+        "http://202.63.105.184/results/jsp/SearchResult.jsp?degree=btech&examCode=1487&etype=r17&result=gradercrv&type=rcrvintgrade"
+      ],
+      "degree": "btech",
+      "examCode": "1487",
+      "etype": "r17",
+      "result": "gradercrv",
+      "type": "rcrvintgrade",
+      "id": 5
+    },
+    {
+      "exam_name": "B.Tech IV Year I Semester (R15) Supplementary Examinations Results",
+      "release_date": "17-JAN-2022",
+      "links": [
+        "http://results.jntuh.ac.in/jsp/SearchResult.jsp?degree=btech&examCode=1488&etype=rcrv",
+        "http://202.63.105.184/results/jsp/SearchResult.jsp?degree=btech&examCode=1488&etype=rcrv"
+      ],
+      "degree": "btech",
+      "examCode": "1488",
+      "etype": "rcrv",
+      "id": 6
+    },
+    {
+      "exam_name": "B.Tech IV Year I Semester (R13) Supplementary Examinations Results",
+      "release_date": "17-JAN-2022",
+      "links": [
+        "http://results.jntuh.ac.in/jsp/SearchResult.jsp?degree=btech&examCode=1489&etype=rcrv",
+        "http://202.63.105.184/results/jsp/SearchResult.jsp?degree=btech&examCode=1489&etype=rcrv"
+      ],
+      "degree": "btech",
+      "examCode": "1489",
+      "etype": "rcrv",
+      "id": 7
+    },
     {
       "exam_name": " RC/RV B.Tech II Year I Semester (R18) Supplementary Examinations Results",
       "release_date": "07-JAN-2022",
@@ -658,7 +802,7 @@
       "etype": "r17",
       "result": "gradercrv",
       "type": "rcrvintgrade",
-      "id": 0
+      "id": 8
     },
     {
       "exam_name": " RC/RV B.Tech II Year I Semester (R16) Supplementary Examinations Results",
@@ -672,7 +816,7 @@
       "etype": "r17",
       "result": "gradercrv",
       "type": "rcrvintgrade",
-      "id": 1
+      "id": 9
     },
     {
       "exam_name": " RC/RV B.Tech II Year I Semester (R15) Supplementary Examinations Results",
@@ -684,7 +828,7 @@
       "degree": "btech",
       "examCode": "1498",
       "etype": "rcrv",
-      "id": 2
+      "id": 10
     },
     {
       "exam_name": " RC/RV B.Tech II Year I Semester (R13) Supplementary Examinations Results",
@@ -696,7 +840,7 @@
       "degree": "btech",
       "examCode": "1499",
       "etype": "rcrv",
-      "id": 3
+      "id": 11
     },
     {
       "exam_name": " RC/RV B.Tech II Year I Semester (R09) Supplementary Examinations Results",
@@ -708,7 +852,7 @@
       "degree": "btech",
       "examCode": "1500",
       "etype": "rcrv",
-      "id": 4
+      "id": 12
     },
     {
       "exam_name": " RC/RV B.Tech III Year I Semester (R18) Supplementary Examinations Results",
@@ -722,7 +866,7 @@
       "etype": "r17",
       "result": "gradercrv",
       "type": "rcrvintgrade",
-      "id": 5
+      "id": 13
     },
     {
       "exam_name": " RC/RV B.Tech III Year I Semester (R16) Supplementary Examinations Results",
@@ -736,7 +880,7 @@
       "etype": "r17",
       "result": "gradercrv",
       "type": "rcrvintgrade",
-      "id": 6
+      "id": 14
     },
     {
       "exam_name": " RC/RV B.Tech III Year I Semester (R15) Supplementary Examinations Results",
@@ -748,7 +892,7 @@
       "degree": "btech",
       "examCode": "1493",
       "etype": "rcrv",
-      "id": 7
+      "id": 15
     },
     {
       "exam_name": " RC/RV B.Tech III Year I Semester (R13) Supplementary Examinations Results",
@@ -760,7 +904,7 @@
       "degree": "btech",
       "examCode": "1494",
       "etype": "rcrv",
-      "id": 8
+      "id": 16
     },
     {
       "exam_name": " RC/RV B.Tech III Year I Semester (R09) Supplementary Examinations Results",
@@ -772,7 +916,7 @@
       "degree": "btech",
       "examCode": "1495",
       "etype": "rcrv",
-      "id": 9
+      "id": 17
     },
     {
       "exam_name": " RC/RV B.Tech IV Year II Semester (R16) Adv. Supplementary Examinations Results",
@@ -786,7 +930,7 @@
       "etype": "r17",
       "result": "gradercrv",
       "type": "rcrvintgrade",
-      "id": 10
+      "id": 18
     },
     {
       "exam_name": " RC/RV B.Tech IV Year II Semester (R15) Adv. Supplementary Examinations Results",
@@ -798,7 +942,7 @@
       "degree": "btech",
       "examCode": "1484",
       "etype": "rcrv",
-      "id": 11
+      "id": 19
     },
     {
       "exam_name": " RC/RV B.Tech IV Year II Semester (R13) Adv. Supplementary Examinations Results",
@@ -810,7 +954,7 @@
       "degree": "btech",
       "examCode": "1485",
       "etype": "rcrv",
-      "id": 12
+      "id": 20
     },
     {
       "exam_name": " RC/RV B.Tech IV Year II Semester (R09) Adv. Supplementary Examinations Results",
@@ -822,7 +966,7 @@
       "degree": "btech",
       "examCode": "1486",
       "etype": "rcrv",
-      "id": 13
+      "id": 21
     },
     {
       "exam_name": "B.Tech I Year I Semester (R18) Supplementary Examinations Results",
@@ -835,7 +979,7 @@
       "examCode": "1504",
       "etype": "r17",
       "type": "intgrade",
-      "id": 14
+      "id": 22
     },
     {
       "exam_name": "B.Tech I Year I Semester (R16) Supplementary Examinations Results",
@@ -848,7 +992,7 @@
       "examCode": "1505",
       "etype": "r17",
       "type": "intgrade",
-      "id": 15
+      "id": 23
     },
     {
       "exam_name": " I B.Tech. (R15) Supplementary Examinations Results",
@@ -859,7 +1003,7 @@
       ],
       "degree": "btech",
       "examCode": "1506",
-      "id": 16
+      "id": 24
     },
     {
       "exam_name": " I B.Tech. (R13) Supplementary Examinations Results",
@@ -870,7 +1014,7 @@
       ],
       "degree": "btech",
       "examCode": "1507",
-      "id": 17
+      "id": 25
     },
     {
       "exam_name": " I B.Tech. (R09) Supplementary Examinations Results",
@@ -881,7 +1025,7 @@
       ],
       "degree": "btech",
       "examCode": "1508",
-      "id": 18
+      "id": 26
     },
     {
       "exam_name": "B.Tech II Year I Semester (R18) Supplementary Examinations Results",
@@ -894,7 +1038,7 @@
       "examCode": "1496",
       "etype": "r17",
       "type": "intgrade",
-      "id": 19
+      "id": 27
     },
     {
       "exam_name": "B.Tech II Year I Semester (R16) Supplementary Examinations Results",
@@ -907,7 +1051,7 @@
       "examCode": "1497",
       "etype": "r16",
       "type": "intgrade",
-      "id": 20
+      "id": 28
     },
     {
       "exam_name": "B.Tech II Year I Semester (R15) Supplementary Examinations Results",
@@ -918,7 +1062,7 @@
       ],
       "degree": "btech",
       "examCode": "1498",
-      "id": 21
+      "id": 29
     },
     {
       "exam_name": "B.Tech II Year I Semester (R13) Supplementary Examinations Results",
@@ -929,7 +1073,7 @@
       ],
       "degree": "btech",
       "examCode": "1499",
-      "id": 22
+      "id": 30
     },
     {
       "exam_name": "B.Tech II Year I Semester (R09) Supplementary Examinations Results",
@@ -940,7 +1084,7 @@
       ],
       "degree": "btech",
       "examCode": "1500",
-      "id": 23
+      "id": 31
     },
     {
       "exam_name": "B.Tech III Year I Semester (R18) Supplementary Examinations Results",
@@ -953,7 +1097,7 @@
       "examCode": "1491",
       "etype": "r17",
       "type": "intgrade",
-      "id": 24
+      "id": 32
     },
     {
       "exam_name": "B.Tech III Year I Semester (R16) Supplementary Examinations Results",
@@ -966,7 +1110,7 @@
       "examCode": "1492",
       "etype": "r17",
       "type": "intgrade",
-      "id": 25
+      "id": 33
     },
     {
       "exam_name": "B.Tech III Year I Semester (R15) Supplementary Examinations Results",
@@ -977,7 +1121,7 @@
       ],
       "degree": "btech",
       "examCode": "1493",
-      "id": 26
+      "id": 34
     },
     {
       "exam_name": "B.Tech III Year I Semester (R13) Supplementary Examinations Results",
@@ -988,7 +1132,7 @@
       ],
       "degree": "btech",
       "examCode": "1494",
-      "id": 27
+      "id": 35
     },
     {
       "exam_name": "B.Tech III Year I Semester (R09) Supplementary Examinations Results",
@@ -999,7 +1143,7 @@
       ],
       "degree": "btech",
       "examCode": "1495",
-      "id": 28
+      "id": 36
     },
     {
       "exam_name": "B.Tech IV Year I Semester (R16) Supplementary Examinations Results",
@@ -1012,7 +1156,7 @@
       "examCode": "1487",
       "etype": "r17",
       "type": "intgrade",
-      "id": 29
+      "id": 37
     },
     {
       "exam_name": "B.Tech IV Year I Semester (R15) Supplementary Examinations Results",
@@ -1023,7 +1167,7 @@
       ],
       "degree": "btech",
       "examCode": "1488",
-      "id": 30
+      "id": 38
     },
     {
       "exam_name": "B.Tech IV Year I Semester (R13) Supplementary Examinations Results",
@@ -1034,7 +1178,7 @@
       ],
       "degree": "btech",
       "examCode": "1489",
-      "id": 31
+      "id": 39
     },
     {
       "exam_name": "B.Tech IV Year I Semester (R09) Supplementary Examinations Results",
@@ -1045,7 +1189,7 @@
       ],
       "degree": "btech",
       "examCode": "1490",
-      "id": 32
+      "id": 40
     },
     {
       "exam_name": " RC/RV B.Tech III Year II Semester (R16) Supplementary Examinations Results",
@@ -1059,7 +1203,7 @@
       "etype": "r17",
       "result": "gradercrv",
       "type": "rcrvintgrade",
-      "id": 33
+      "id": 41
     },
     {
       "exam_name": " RC/RV B.Tech III Year II Semester (R15) Supplementary Examinations Results",
@@ -1071,7 +1215,7 @@
       "degree": "btech",
       "examCode": "1473",
       "etype": "rcrv",
-      "id": 34
+      "id": 42
     },
     {
       "exam_name": " RC/RV B.Tech III Year II Semester (R13) Supplementary Examinations Results",
@@ -1083,7 +1227,7 @@
       "degree": "btech",
       "examCode": "1474",
       "etype": "rcrv",
-      "id": 35
+      "id": 43
     },
     {
       "exam_name": " RC/RV B.Tech III Year II Semester (R09) Supplementary Examinations Results",
@@ -1095,7 +1239,7 @@
       "degree": "btech",
       "examCode": "1475",
       "etype": "rcrv",
-      "id": 36
+      "id": 44
     },
     {
       "exam_name": "RC/RV B.Tech I Year II Semester (R18) Supplementary Examinations Results",
@@ -1109,7 +1253,7 @@
       "etype": "r17",
       "result": "gradercrv",
       "type": "rcrvintgrade",
-      "id": 37
+      "id": 45
     },
     {
       "exam_name": "RC/RV B.Tech I Year II Semester (R16) Supplementary Examinations Results",
@@ -1123,7 +1267,7 @@
       "etype": "r17",
       "result": "gradercrv",
       "type": "rcrvintgrade",
-      "id": 38
+      "id": 46
     },
     {
       "exam_name": "RC/RV B.Tech I Year I Semester (R16) Supplementary Examinations Results",
@@ -1137,7 +1281,7 @@
       "etype": "r17",
       "result": "gradercrv",
       "type": "rcrvintgrade",
-      "id": 39
+      "id": 47
     },
     {
       "exam_name": " RC/RV I B.Tech. (R15) Supplementary Examinations Results",
@@ -1149,7 +1293,7 @@
       "degree": "btech",
       "examCode": "1469",
       "etype": "rcrv",
-      "id": 40
+      "id": 48
     },
     {
       "exam_name": " RC/RV I B.Tech. (R13) Supplementary Examinations Results",
@@ -1161,7 +1305,7 @@
       "degree": "btech",
       "examCode": "1470",
       "etype": "rcrv",
-      "id": 41
+      "id": 49
     },
     {
       "exam_name": " RC/RV I B.Tech. (R09) Supplementary Examinations Results",
@@ -1173,7 +1317,7 @@
       "degree": "btech",
       "examCode": "1471",
       "etype": "rcrv",
-      "id": 42
+      "id": 50
     },
     {
       "exam_name": "B.Tech I Year II Semester (R18) Supplementary Examinations Results",
@@ -1186,7 +1330,7 @@
       "examCode": "1481",
       "etype": "r17",
       "type": "intgrade",
-      "id": 43
+      "id": 51
     },
     {
       "exam_name": "B.Tech I Year II Semester (R16) Supplementary Examinations Results",
@@ -1199,7 +1343,7 @@
       "examCode": "1482",
       "etype": "r16",
       "type": "grade16",
-      "id": 44
+      "id": 52
     },
     {
       "exam_name": "B.Tech III Year II Semester (R16) Supplementary Examinations Results",
@@ -1212,7 +1356,7 @@
       "examCode": "1472",
       "etype": "r17",
       "type": "intgrade",
-      "id": 45
+      "id": 53
     },
     {
       "exam_name": "B.Tech III Year II Semester (R15) Supplementary Examinations Results",
@@ -1223,7 +1367,7 @@
       ],
       "degree": "btech",
       "examCode": "1473",
-      "id": 46
+      "id": 54
     },
     {
       "exam_name": "B.Tech III Year II Semester (R13) Supplementary Examinations Results",
@@ -1234,7 +1378,7 @@
       ],
       "degree": "btech",
       "examCode": "1474",
-      "id": 47
+      "id": 55
     },
     {
       "exam_name": "B.Tech III Year II Semester (R09) Supplementary Examinations Results",
@@ -1245,7 +1389,7 @@
       ],
       "degree": "btech",
       "examCode": "1475",
-      "id": 48
+      "id": 56
     },
     {
       "exam_name": "B.Tech II Year II Semester (R18) Supplementary Examinations Results",
@@ -1258,7 +1402,7 @@
       "examCode": "1476",
       "etype": "r17",
       "type": "intgrade",
-      "id": 49
+      "id": 57
     },
     {
       "exam_name": "B.Tech II Year II Semester (R16) Supplementary Examinations Results",
@@ -1271,7 +1415,7 @@
       "examCode": "1477",
       "etype": "r16",
       "type": "intgrade",
-      "id": 50
+      "id": 58
     },
     {
       "exam_name": "B.Tech II Year II Semester (R15) Supplementary Examinations Results",
@@ -1282,7 +1426,7 @@
       ],
       "degree": "btech",
       "examCode": "1478",
-      "id": 51
+      "id": 59
     },
     {
       "exam_name": "B.Tech II Year II Semester (R13) Supplementary Examinations Results",
@@ -1293,7 +1437,7 @@
       ],
       "degree": "btech",
       "examCode": "1479",
-      "id": 52
+      "id": 60
     },
     {
       "exam_name": "B.Tech II Year II Semester (R09) Supplementary Examinations Results",
@@ -1304,7 +1448,7 @@
       ],
       "degree": "btech",
       "examCode": "1480",
-      "id": 53
+      "id": 61
     },
     {
       "exam_name": "RC/RV B.Tech IV Year II Semester (R15) Supplementary Examinations Results",
@@ -1316,7 +1460,7 @@
       "degree": "btech",
       "examCode": "1464",
       "etype": "rcrv",
-      "id": 54
+      "id": 62
     },
     {
       "exam_name": "RC/RV B.Tech IV Year II (R13) Supplementary Examinations Results",
@@ -1328,7 +1472,7 @@
       "degree": "btech",
       "examCode": "1465",
       "etype": "rcrv",
-      "id": 55
+      "id": 63
     },
     {
       "exam_name": "RC/RV B.Tech IV Year II Semester (R09) Supplementary Examinations Results",
@@ -1340,7 +1484,7 @@
       "degree": "btech",
       "examCode": "1466",
       "etype": "rcrv",
-      "id": 56
+      "id": 64
     },
     {
       "exam_name": "B.Tech I Year I Semester (R16) Supplementary Examinations Results",
@@ -1353,7 +1497,7 @@
       "examCode": "1468",
       "etype": "r16",
       "type": "intgrade",
-      "id": 57
+      "id": 65
     },
     {
       "exam_name": " I B.Tech. (R15) Supplementary Examinations Results",
@@ -1364,7 +1508,7 @@
       ],
       "degree": "btech",
       "examCode": "1469",
-      "id": 58
+      "id": 66
     },
     {
       "exam_name": " I B.Tech. (R13) Supplementary Examinations Results",
@@ -1375,7 +1519,7 @@
       ],
       "degree": "btech",
       "examCode": "1470",
-      "id": 59
+      "id": 67
     },
     {
       "exam_name": " I B.Tech. (R09) Supplementary Examinations Results",
@@ -1386,7 +1530,7 @@
       ],
       "degree": "btech",
       "examCode": "1471",
-      "id": 60
+      "id": 68
     },
     {
       "exam_name": "RC/RV B.Tech IV Year I Semester (R15) Supplementary Examinations Results",
@@ -1398,7 +1542,7 @@
       "degree": "btech",
       "examCode": "1460",
       "etype": "rcrv",
-      "id": 61
+      "id": 69
     },
     {
       "exam_name": "RC/RV B.Tech IV Year I (R13) Supplementary Examinations Results",
@@ -1410,7 +1554,7 @@
       "degree": "btech",
       "examCode": "1461",
       "etype": "rcrv",
-      "id": 62
+      "id": 70
     },
     {
       "exam_name": "RC/RV B.Tech IV Year I Semester (R09) Supplementary Examinations Results",
@@ -1422,7 +1566,7 @@
       "degree": "btech",
       "examCode": "1462",
       "etype": "rcrv",
-      "id": 63
+      "id": 71
     },
     {
       "exam_name": "RC/RV B.Tech II Year I Semester (R16) Supplementary Examinations Results",
@@ -1436,7 +1580,7 @@
       "etype": "r17",
       "result": "gradercrv",
       "type": "rcrvintgrade",
-      "id": 64
+      "id": 72
     },
     {
       "exam_name": "RC/RV B.Tech II Year I Semester (R15) Supplementary Examinations Results",
@@ -1448,7 +1592,7 @@
       "degree": "btech",
       "examCode": "1451",
       "etype": "rcrv",
-      "id": 65
+      "id": 73
     },
     {
       "exam_name": "RC/RV B.Tech II Year I Semester (R13) Supplementary Examinations Results",
@@ -1460,7 +1604,7 @@
       "degree": "btech",
       "examCode": "1452",
       "etype": "rcrv",
-      "id": 66
+      "id": 74
     },
     {
       "exam_name": "RC/RV B.Tech II Year I Semester (R09) Supplementary Examinations Results",
@@ -1472,7 +1616,7 @@
       "degree": "btech",
       "examCode": "1453",
       "etype": "rcrv",
-      "id": 67
+      "id": 75
     },
     {
       "exam_name": " RC/RV B.Tech III Year I Semester (R16) Supplementary Examinations Results",
@@ -1486,7 +1630,7 @@
       "etype": "r17",
       "result": "gradercrv",
       "type": "rcrvintgrade",
-      "id": 68
+      "id": 76
     },
     {
       "exam_name": " RC/RV B.Tech III Year I Semester (R15) Supplementary Examinations Results",
@@ -1498,7 +1642,7 @@
       "degree": "btech",
       "examCode": "1456",
       "etype": "rcrv",
-      "id": 69
+      "id": 77
     },
     {
       "exam_name": " RC/RV B.Tech III Year I Semester (R13) Supplementary Examinations Results",
@@ -1510,7 +1654,7 @@
       "degree": "btech",
       "examCode": "1457",
       "etype": "rcrv",
-      "id": 70
+      "id": 78
     },
     {
       "exam_name": " RC/RV B.Tech III Year I Semester (R09) Supplementary Examinations Results",
@@ -1522,7 +1666,7 @@
       "degree": "btech",
       "examCode": "1458",
       "etype": "rcrv",
-      "id": 71
+      "id": 79
     },
     {
       "exam_name": "B.Tech IV Year II Semester (R15) Supplementary Examinations Results",
@@ -1533,7 +1677,7 @@
       ],
       "degree": "btech",
       "examCode": "1464",
-      "id": 72
+      "id": 80
     },
     {
       "exam_name": "B.Tech IV Year II (R13) Supplementary Examinations Results",
@@ -1544,7 +1688,7 @@
       ],
       "degree": "btech",
       "examCode": "1465",
-      "id": 73
+      "id": 81
     },
     {
       "exam_name": "B.Tech IV Year II Semester (R09) Supplementary Examinations Results",
@@ -1555,7 +1699,7 @@
       ],
       "degree": "btech",
       "examCode": "1466",
-      "id": 74
+      "id": 82
     },
     {
       "exam_name": "B.Tech IV Year I Semester (R15) Supplementary Examinations Results",
@@ -1566,7 +1710,7 @@
       ],
       "degree": "btech",
       "examCode": "1460",
-      "id": 75
+      "id": 83
     },
     {
       "exam_name": "B.Tech IV Year I (R13) Supplementary Examinations Results",
@@ -1577,7 +1721,7 @@
       ],
       "degree": "btech",
       "examCode": "1461",
-      "id": 76
+      "id": 84
     },
     {
       "exam_name": "B.Tech IV Year I Semester (R09) Supplementary Examinations Results",
@@ -1588,7 +1732,7 @@
       ],
       "degree": "btech",
       "examCode": "1462",
-      "id": 77
+      "id": 85
     },
     {
       "exam_name": "B.Tech II Year I Semester (R16) Supplementary Examinations Results",
@@ -1601,7 +1745,7 @@
       "examCode": "1450",
       "etype": "r16",
       "type": "intgrade",
-      "id": 78
+      "id": 86
     },
     {
       "exam_name": "B.Tech II Year I Semester (R15) Supplementary Examinations Results",
@@ -1612,7 +1756,7 @@
       ],
       "degree": "btech",
       "examCode": "1451",
-      "id": 79
+      "id": 87
     },
     {
       "exam_name": "B.Tech II Year I Semester (R13) Supplementary Examinations Results",
@@ -1623,7 +1767,7 @@
       ],
       "degree": "btech",
       "examCode": "1452",
-      "id": 80
+      "id": 88
     },
     {
       "exam_name": "B.Tech II Year I Semester (R09) Supplementary Examinations Results",
@@ -1634,7 +1778,7 @@
       ],
       "degree": "btech",
       "examCode": "1453",
-      "id": 81
+      "id": 89
     },
     {
       "exam_name": "B.Tech III Year I Semester (R16) Supplementary Examinations Results",
@@ -1647,7 +1791,7 @@
       "examCode": "1455",
       "etype": "r17",
       "type": "intgrade",
-      "id": 82
+      "id": 90
     },
     {
       "exam_name": "B.Tech III Year I Semester (R15) Supplementary Examinations Results",
@@ -1658,7 +1802,7 @@
       ],
       "degree": "btech",
       "examCode": "1456",
-      "id": 83
+      "id": 91
     },
     {
       "exam_name": "B.Tech III Year I Semester (R13) Supplementary Examinations Results",
@@ -1669,7 +1813,7 @@
       ],
       "degree": "btech",
       "examCode": "1457",
-      "id": 84
+      "id": 92
     },
     {
       "exam_name": "B.Tech III Year I Semester (R09) Supplementary Examinations Results",
@@ -1680,7 +1824,7 @@
       ],
       "degree": "btech",
       "examCode": "1458",
-      "id": 85
+      "id": 93
     },
     {
       "exam_name": " RC/RV B.Tech IV Year II Semester (R16) Adv.Supplementary Examinations Results",
@@ -1694,7 +1838,7 @@
       "etype": "r17",
       "result": "gradercrv",
       "type": "rcrvintgrade",
-      "id": 86
+      "id": 94
     },
     {
       "exam_name": " RC/RV B.Tech IV Year II Semester (R15) Adv.Supplementary Examinations Results",
@@ -1706,7 +1850,7 @@
       "degree": "btech",
       "examCode": "1414",
       "etype": "rcrv",
-      "id": 87
+      "id": 95
     },
     {
       "exam_name": " RC/RV B.Tech IV Year II Semester (R13) Adv.Supplementary Examinations Results",
@@ -1718,7 +1862,7 @@
       "degree": "btech",
       "examCode": "1415",
       "etype": "rcrv",
-      "id": 88
+      "id": 96
     },
     {
       "exam_name": " RC/RV B.Tech IV Year II Semester (R09) Adv.Supplementary Examinations Results",
@@ -1730,7 +1874,7 @@
       "degree": "btech",
       "examCode": "1416",
       "etype": "rcrv",
-      "id": 89
+      "id": 97
     },
     {
       "exam_name": " RC/RV B.Tech IV Year I Semester (R16) Supplementary Examinations Results",
@@ -1744,7 +1888,7 @@
       "etype": "r17",
       "result": "gradercrv",
       "type": "rcrvintgrade",
-      "id": 90
+      "id": 98
     },
     {
       "exam_name": " RC/RV B.Tech IV Year I Semester (R15) Supplementary Examinations Results",
@@ -1756,7 +1900,7 @@
       "degree": "btech",
       "examCode": "1418",
       "etype": "rcrv",
-      "id": 91
+      "id": 99
     },
     {
       "exam_name": " RC/RV B.Tech IV Year I Semester (R13) Supplementary Examinations Results",
@@ -1768,7 +1912,7 @@
       "degree": "btech",
       "examCode": "1419",
       "etype": "rcrv",
-      "id": 92
+      "id": 100
     },
     {
       "exam_name": " RC/RV B.Tech IV Year I Semester (R09) Supplementary Examinations Results",
@@ -1780,7 +1924,7 @@
       "degree": "btech",
       "examCode": "1420",
       "etype": "rcrv",
-      "id": 93
+      "id": 101
     },
     {
       "exam_name": " RC/RV B.Tech III Year II Semester (R15) Supplementary Examinations Results",
@@ -1792,7 +1936,7 @@
       "degree": "btech",
       "examCode": "1443",
       "etype": "rcrv",
-      "id": 94
+      "id": 102
     },
     {
       "exam_name": " RC/RV B.Tech III Year II Semester (R13) Supplementary Examinations Results",
@@ -1804,7 +1948,7 @@
       "degree": "btech",
       "examCode": "1444",
       "etype": "rcrv",
-      "id": 95
+      "id": 103
     },
     {
       "exam_name": " RC/RV B.Tech III Year II Semester (R09) Supplementary Examinations Results",
@@ -1816,7 +1960,7 @@
       "degree": "btech",
       "examCode": "1445",
       "etype": "rcrv",
-      "id": 96
+      "id": 104
     },
     {
       "exam_name": " RC/RV B.Tech III Year I Semester (R16) Supplementary Examinations Results",
@@ -1830,7 +1974,7 @@
       "etype": "r17",
       "result": "gradercrv",
       "type": "rcrvintgrade",
-      "id": 97
+      "id": 105
     },
     {
       "exam_name": " RC/RV B.Tech III Year I Semester (R15) Supplementary Examinations Results",
@@ -1842,7 +1986,7 @@
       "degree": "btech",
       "examCode": "1422",
       "etype": "rcrv",
-      "id": 98
+      "id": 106
     },
     {
       "exam_name": " RC/RV B.Tech III Year I Semester (R13) Supplementary Examinations Results",
@@ -1854,7 +1998,7 @@
       "degree": "btech",
       "examCode": "1423",
       "etype": "rcrv",
-      "id": 99
+      "id": 107
     },
     {
       "exam_name": " RC/RV B.Tech III Year I Semester (R09) Supplementary Examinations Results",
@@ -1866,7 +2010,7 @@
       "degree": "btech",
       "examCode": "1424",
       "etype": "rcrv",
-      "id": 100
+      "id": 108
     },
     {
       "exam_name": " RC/RV B.Tech II Year I Semester (R18) Supplementary Examinations Results",
@@ -1880,7 +2024,7 @@
       "etype": "r17",
       "result": "gradercrv",
       "type": "rcrvintgrade",
-      "id": 101
+      "id": 109
     },
     {
       "exam_name": " RC/RV B.Tech II Year I Semester (R16) Supplementary Examinations Results",
@@ -1894,7 +2038,7 @@
       "etype": "r16",
       "result": "gradercrv",
       "type": "rcrvintgrade",
-      "id": 102
+      "id": 110
     },
     {
       "exam_name": " RC/RV B.Tech II Year I Semester (R15) Supplementary Examinations Results",
@@ -1906,7 +2050,7 @@
       "degree": "btech",
       "examCode": "1427",
       "etype": "rcrv",
-      "id": 103
+      "id": 111
     },
     {
       "exam_name": " RC/RV B.Tech II Year I Semester (R13) Supplementary Examinations Results",
@@ -1918,7 +2062,7 @@
       "degree": "btech",
       "examCode": "1428",
       "etype": "rcrv",
-      "id": 104
+      "id": 112
     },
     {
       "exam_name": " RC/RV B.Tech II Year I Semester (R09) Supplementary Examinations Results",
@@ -1930,7 +2074,7 @@
       "degree": "btech",
       "examCode": "1429",
       "etype": "rcrv",
-      "id": 105
+      "id": 113
     },
     {
       "exam_name": " RC/RV B.Tech. II Year II Semester (R16) Supplementary Examinations Results",
@@ -1944,7 +2088,7 @@
       "etype": "r17",
       "result": "gradercrv",
       "type": "rcrvintgrade",
-      "id": 106
+      "id": 114
     },
     {
       "exam_name": " RC/RV B.Tech II Year II Semester (R15) Supplementary Examinations Results",
@@ -1956,7 +2100,7 @@
       "degree": "btech",
       "examCode": "1439",
       "etype": "rcrv",
-      "id": 107
+      "id": 115
     },
     {
       "exam_name": " RC/RV B.Tech II Year II Semester (R13) Supplementary Examinations Results",
@@ -1968,7 +2112,7 @@
       "degree": "btech",
       "examCode": "1440",
       "etype": "rcrv",
-      "id": 108
+      "id": 116
     },
     {
       "exam_name": " RC/RV B.Tech II Year II Semester (R09) Supplementary Examinations Results",
@@ -1980,7 +2124,7 @@
       "degree": "btech",
       "examCode": "1441",
       "etype": "rcrv",
-      "id": 109
+      "id": 117
     },
     {
       "exam_name": " RC/RV B.Tech I Year I Semester (R18) Supplementary Examinations Results",
@@ -1994,7 +2138,7 @@
       "etype": "r17",
       "result": "gradercrv",
       "type": "rcrvintgrade",
-      "id": 110
+      "id": 118
     },
     {
       "exam_name": " RC/RV B.Tech I Year I Semester (R16) Supplementary Examinations Results",
@@ -2008,7 +2152,7 @@
       "etype": "r17",
       "result": "gradercrv",
       "type": "rcrvintgrade",
-      "id": 111
+      "id": 119
     },
     {
       "exam_name": " RC/RV I B.Tech. (R15) Supplementary Examinations Results",
@@ -2020,7 +2164,7 @@
       "degree": "btech",
       "examCode": "1432",
       "etype": "rcrv",
-      "id": 112
+      "id": 120
     },
     {
       "exam_name": " RC/RV I B.Tech. (R13) Supplementary Examinations Results",
@@ -2032,7 +2176,7 @@
       "degree": "btech",
       "examCode": "1433",
       "etype": "rcrv",
-      "id": 113
+      "id": 121
     },
     {
       "exam_name": " RC/RV I B.Tech. (R09) Supplementary Examinations Results",
@@ -2044,7 +2188,7 @@
       "degree": "btech",
       "examCode": "1434",
       "etype": "rcrv",
-      "id": 114
+      "id": 122
     },
     {
       "exam_name": " RC/RV B.Tech I Year II Semester (R16) Supplementary Examinations Results",
@@ -2058,7 +2202,7 @@
       "etype": "r17",
       "result": "gradercrv",
       "type": "rcrvintgrade",
-      "id": 115
+      "id": 123
     },
     {
       "exam_name": "B.Tech III Year II Semester (R15) Supplementary Examinations Results",
@@ -2069,7 +2213,7 @@
       ],
       "degree": "btech",
       "examCode": "1443",
-      "id": 116
+      "id": 124
     },
     {
       "exam_name": "B.Tech III Year II Semester (R13) Supplementary Examinations Results",
@@ -2080,7 +2224,7 @@
       ],
       "degree": "btech",
       "examCode": "1444",
-      "id": 117
+      "id": 125
     },
     {
       "exam_name": "B.Tech III Year II Semester (R09) Supplementary Examinations Results",
@@ -2091,7 +2235,7 @@
       ],
       "degree": "btech",
       "examCode": "1445",
-      "id": 118
+      "id": 126
     },
     {
       "exam_name": " II B.Tech. II Semester (R16) Supplementary Examinations Results",
@@ -2104,7 +2248,7 @@
       "examCode": "1438",
       "etype": "r17",
       "type": "intgrade",
-      "id": 119
+      "id": 127
     },
     {
       "exam_name": "B.Tech II Year II Semester (R15) Supplementary Examinations Results",
@@ -2115,7 +2259,7 @@
       ],
       "degree": "btech",
       "examCode": "1439",
-      "id": 120
+      "id": 128
     },
     {
       "exam_name": "B.Tech II Year II Semester (R13) Supplementary Examinations Results",
@@ -2126,7 +2270,7 @@
       ],
       "degree": "btech",
       "examCode": "1440",
-      "id": 121
+      "id": 129
     },
     {
       "exam_name": "B.Tech II Year II Semester (R09) Supplementary Examinations Results",
@@ -2137,7 +2281,7 @@
       ],
       "degree": "btech",
       "examCode": "1441",
-      "id": 122
+      "id": 130
     },
     {
       "exam_name": "B.Tech I Year II Semester (R16) Supplementary Examinations Results",
@@ -2150,7 +2294,7 @@
       "examCode": "1436",
       "etype": "r17",
       "type": "intgrade",
-      "id": 123
+      "id": 131
     },
     {
       "exam_name": "B.Tech II Year I Semester (R18) Supplementary Examinations Results",
@@ -2163,7 +2307,7 @@
       "examCode": "1425",
       "etype": "r17",
       "type": "intgrade",
-      "id": 124
+      "id": 132
     },
     {
       "exam_name": "B.Tech II Year I Semester (R16) Supplementary Examinations Results",
@@ -2176,7 +2320,7 @@
       "examCode": "1426",
       "etype": "r16",
       "type": "intgrade",
-      "id": 125
+      "id": 133
     },
     {
       "exam_name": "B.Tech II Year I Semester (R15) Supplementary Examinations Results",
@@ -2187,7 +2331,7 @@
       ],
       "degree": "btech",
       "examCode": "1427",
-      "id": 126
+      "id": 134
     },
     {
       "exam_name": "B.Tech II Year I Semester (R13) Supplementary Examinations Results",
@@ -2198,7 +2342,7 @@
       ],
       "degree": "btech",
       "examCode": "1428",
-      "id": 127
+      "id": 135
     },
     {
       "exam_name": "B.Tech II Year I Semester (R09) Supplementary Examinations Results",
@@ -2209,7 +2353,7 @@
       ],
       "degree": "btech",
       "examCode": "1429",
-      "id": 128
+      "id": 136
     },
     {
       "exam_name": "B.Tech I Year I Semester (R18) Supplementary Examinations Results",
@@ -2222,7 +2366,7 @@
       "examCode": "1430",
       "etype": "r17",
       "type": "intgrade",
-      "id": 129
+      "id": 137
     },
     {
       "exam_name": "B.Tech I Year I Semester (R16) Supplementary Examinations Results",
@@ -2235,7 +2379,7 @@
       "examCode": "1431",
       "etype": "r17",
       "type": "intgrade",
-      "id": 130
+      "id": 138
     },
     {
       "exam_name": " I B.Tech. (R15) Supplementary Examinations Results",
@@ -2246,7 +2390,7 @@
       ],
       "degree": "btech",
       "examCode": "1432",
-      "id": 131
+      "id": 139
     },
     {
       "exam_name": " I B.Tech. (R13) Supplementary Examinations Results",
@@ -2257,7 +2401,7 @@
       ],
       "degree": "btech",
       "examCode": "1433",
-      "id": 132
+      "id": 140
     },
     {
       "exam_name": " I B.Tech. (R09) Supplementary Examinations Results",
@@ -2268,7 +2412,7 @@
       ],
       "degree": "btech",
       "examCode": "1434",
-      "id": 133
+      "id": 141
     },
     {
       "exam_name": "B.Tech III Year I Semester (R16) Supplementary Examinations Results",
@@ -2281,7 +2425,7 @@
       "examCode": "1421",
       "etype": "r17",
       "type": "intgrade",
-      "id": 134
+      "id": 142
     },
     {
       "exam_name": "B.Tech III Year I Semester (R15) Supplementary Examinations Results",
@@ -2292,7 +2436,7 @@
       ],
       "degree": "btech",
       "examCode": "1422",
-      "id": 135
+      "id": 143
     },
     {
       "exam_name": "B.Tech III Year I Semester (R13) Supplementary Examinations Results",
@@ -2303,7 +2447,7 @@
       ],
       "degree": "btech",
       "examCode": "1423",
-      "id": 136
+      "id": 144
     },
     {
       "exam_name": "B.Tech III Year I Semester (R09) Supplementary Examinations Results",
@@ -2314,7 +2458,7 @@
       ],
       "degree": "btech",
       "examCode": "1424",
-      "id": 137
+      "id": 145
     },
     {
       "exam_name": "B.Tech IV Year I Semester (R16) Supplementary Examinations Results",
@@ -2327,7 +2471,7 @@
       "examCode": "1417",
       "etype": "r17",
       "type": "intgrade",
-      "id": 138
+      "id": 146
     },
     {
       "exam_name": "B.Tech IV Year I Semester (R15) Supplementary Examinations Results",
@@ -2338,7 +2482,7 @@
       ],
       "degree": "btech",
       "examCode": "1418",
-      "id": 139
+      "id": 147
     },
     {
       "exam_name": "B.Tech IV Year I Semester (R13) Supplementary Examinations Results",
@@ -2349,7 +2493,7 @@
       ],
       "degree": "btech",
       "examCode": "1419",
-      "id": 140
+      "id": 148
     },
     {
       "exam_name": "B.Tech IV Year I Semester (R09) Supplementary Examinations Results",
@@ -2360,7 +2504,7 @@
       ],
       "degree": "btech",
       "examCode": "1420",
-      "id": 141
+      "id": 149
     },
     {
       "exam_name": "B.Tech IV Year II Semester (R16) Adv.Supplementary Examinations Results",
@@ -2373,7 +2517,7 @@
       "examCode": "1413",
       "etype": "r17",
       "type": "intgrade",
-      "id": 142
+      "id": 150
     },
     {
       "exam_name": "B.Tech IV Year II Semester (R15) Adv.Supplementary Examinations Results",
@@ -2384,7 +2528,7 @@
       ],
       "degree": "btech",
       "examCode": "1414",
-      "id": 143
+      "id": 151
     },
     {
       "exam_name": "B.Tech IV Year II Semester (R13) Adv.Supplementary Examinations Results",
@@ -2395,7 +2539,7 @@
       ],
       "degree": "btech",
       "examCode": "1415",
-      "id": 144
+      "id": 152
     },
     {
       "exam_name": "B.Tech IV Year II Semester (R09) Adv.Supplementary Examinations Results",
@@ -2406,7 +2550,7 @@
       ],
       "degree": "btech",
       "examCode": "1416",
-      "id": 145
+      "id": 153
     },
     {
       "exam_name": "RCRV B.Tech IV Year II Semester (R15) Supplementary Examinations Results",
@@ -2418,7 +2562,7 @@
       "degree": "btech",
       "examCode": "1410",
       "etype": "rcrv",
-      "id": 146
+      "id": 154
     },
     {
       "exam_name": "RCRV B.Tech IV Year II Semester (R13) Supplementary Examinations Results",
@@ -2430,7 +2574,7 @@
       "degree": "btech",
       "examCode": "1411",
       "etype": "rcrv",
-      "id": 147
+      "id": 155
     },
     {
       "exam_name": "RCRV B.Tech IV Year II Semester (R09) Supplementary Examinations Results",
@@ -2442,7 +2586,7 @@
       "degree": "btech",
       "examCode": "1412",
       "etype": "rcrv",
-      "id": 148
+      "id": 156
     },
     {
       "exam_name": "B.Tech IV Year II Semester (R15) Supplementary Examinations Results",
@@ -2453,7 +2597,7 @@
       ],
       "degree": "btech",
       "examCode": "1410",
-      "id": 149
+      "id": 157
     },
     {
       "exam_name": "B.Tech IV Year II Semester (R13) Supplementary Examinations Results",
@@ -2464,7 +2608,7 @@
       ],
       "degree": "btech",
       "examCode": "1411",
-      "id": 150
+      "id": 158
     },
     {
       "exam_name": "B.Tech IV Year II Semester (R09) Supplementary Examinations Results",
@@ -2475,7 +2619,7 @@
       ],
       "degree": "btech",
       "examCode": "1412",
-      "id": 151
+      "id": 159
     },
     {
       "exam_name": "B.Tech I Year I Semester (R16) Supplementary Examinations Results",
@@ -2488,7 +2632,7 @@
       "examCode": "1405",
       "etype": "r17",
       "type": "grade17",
-      "id": 152
+      "id": 160
     },
     {
       "exam_name": " I B.Tech. (R15) Supplementary Examinations Results",
@@ -2499,7 +2643,7 @@
       ],
       "degree": "btech",
       "examCode": "1406",
-      "id": 153
+      "id": 161
     },
     {
       "exam_name": " I B.Tech. (R13) Supplementary Examinations Results",
@@ -2510,7 +2654,7 @@
       ],
       "degree": "btech",
       "examCode": "1407",
-      "id": 154
+      "id": 162
     },
     {
       "exam_name": " I B.Tech. (R09) Supplementary Examinations Results",
@@ -2521,7 +2665,7 @@
       ],
       "degree": "btech",
       "examCode": "1408",
-      "id": 155
+      "id": 163
     },
     {
       "exam_name": "B.Tech III Year II Semester (R16) Supplementary Examinations Results",
@@ -2534,7 +2678,7 @@
       "examCode": "1396",
       "etype": "r17",
       "type": "grade17",
-      "id": 156
+      "id": 164
     },
     {
       "exam_name": "B.Tech III Year II Semester (R15) Supplementary Examinations Results",
@@ -2545,7 +2689,7 @@
       ],
       "degree": "btech",
       "examCode": "1397",
-      "id": 157
+      "id": 165
     },
     {
       "exam_name": "B.Tech III Year II Semester (R13) Supplementary Examinations Results",
@@ -2556,7 +2700,7 @@
       ],
       "degree": "btech",
       "examCode": "1398",
-      "id": 158
+      "id": 166
     },
     {
       "exam_name": "B.Tech III Year II Semester (R09) Supplementary Examinations Results",
@@ -2567,7 +2711,7 @@
       ],
       "degree": "btech",
       "examCode": "1399",
-      "id": 159
+      "id": 167
     },
     {
       "exam_name": " II B.Tech. II Semester (R16) Supplementary Examinations Results",
@@ -2580,7 +2724,7 @@
       "examCode": "1400",
       "etype": "r17",
       "type": "grade17",
-      "id": 160
+      "id": 168
     },
     {
       "exam_name": "B.Tech II Year II Semester (R15) Supplementary Examinations Results",
@@ -2591,7 +2735,7 @@
       ],
       "degree": "btech",
       "examCode": "1401",
-      "id": 161
+      "id": 169
     },
     {
       "exam_name": "B.Tech II Year II Semester (R13) Supplementary Examinations Results",
@@ -2602,7 +2746,7 @@
       ],
       "degree": "btech",
       "examCode": "1402",
-      "id": 162
+      "id": 170
     },
     {
       "exam_name": "B.Tech II Year II Semester (R09) Supplementary Examinations Results",
@@ -2613,7 +2757,7 @@
       ],
       "degree": "btech",
       "examCode": "1403",
-      "id": 163
+      "id": 171
     },
     {
       "exam_name": "B.Tech II Year I Semester (R16) Supplementary Examinations Results",
@@ -2626,7 +2770,7 @@
       "examCode": "1392",
       "etype": "r16",
       "type": "grade16",
-      "id": 164
+      "id": 172
     },
     {
       "exam_name": "B.Tech II Year I Semester (R15) Supplementary Examinations Results",
@@ -2637,7 +2781,7 @@
       ],
       "degree": "btech",
       "examCode": "1393",
-      "id": 165
+      "id": 173
     },
     {
       "exam_name": "B.Tech II Year I Semester (R13) Supplementary Examinations Results",
@@ -2648,7 +2792,7 @@
       ],
       "degree": "btech",
       "examCode": "1394",
-      "id": 166
+      "id": 174
     },
     {
       "exam_name": "B.Tech II Year I Semester (R09) Supplementary Examinations Results",
@@ -2659,7 +2803,7 @@
       ],
       "degree": "btech",
       "examCode": "1395",
-      "id": 167
+      "id": 175
     },
     {
       "exam_name": "B.Tech III Year I Semester (R15) Supplementary Examinations Results",
@@ -2670,7 +2814,7 @@
       ],
       "degree": "btech",
       "examCode": "1388",
-      "id": 168
+      "id": 176
     },
     {
       "exam_name": "B.Tech III Year I Semester (R13) Supplementary Examinations Results",
@@ -2681,7 +2825,7 @@
       ],
       "degree": "btech",
       "examCode": "1389",
-      "id": 169
+      "id": 177
     },
     {
       "exam_name": "B.Tech III Year I Semester (R09) Supplementary Examinations Results",
@@ -2692,7 +2836,7 @@
       ],
       "degree": "btech",
       "examCode": "1390",
-      "id": 170
+      "id": 178
     },
     {
       "exam_name": "B.Tech IV Year I Semester (R15) Supplementary Examinations Results",
@@ -2703,7 +2847,7 @@
       ],
       "degree": "btech",
       "examCode": "1384",
-      "id": 171
+      "id": 179
     },
     {
       "exam_name": "B.Tech IV Year I Semester (R13) Supplementary Examinations Results",
@@ -2714,7 +2858,7 @@
       ],
       "degree": "btech",
       "examCode": "1385",
-      "id": 172
+      "id": 180
     },
     {
       "exam_name": "B.Tech IV Year I Semester (R09) Supplementary Examinations Results",
@@ -2725,7 +2869,7 @@
       ],
       "degree": "btech",
       "examCode": "1386",
-      "id": 173
+      "id": 181
     },
     {
       "exam_name": "RCRV B.Tech I Year II Semester (R18) Advanced Supplementary Examinations Results",
@@ -2739,7 +2883,7 @@
       "etype": "r16",
       "result": "gradercrv",
       "type": "rcrvintgrade",
-      "id": 174
+      "id": 182
     },
     {
       "exam_name": "RCRV B.Tech I Year II Semester (R16) Advanced Supplementary Examinations Results",
@@ -2753,7 +2897,7 @@
       "etype": "r16",
       "result": "gradercrv",
       "type": "grade16",
-      "id": 175
+      "id": 183
     },
     {
       "exam_name": "B.Tech I Year II Semester (R18) Advanced Supplementary Examinations Results",
@@ -2766,7 +2910,7 @@
       "examCode": "1381",
       "etype": "r16",
       "type": "grade16",
-      "id": 176
+      "id": 184
     },
     {
       "exam_name": "B.Tech I Year II Semester (R16) Advanced Supplementary Examinations Results",
@@ -2779,7 +2923,7 @@
       "examCode": "1382",
       "etype": "r16",
       "type": "grade16",
-      "id": 177
+      "id": 185
     },
     {
       "exam_name": "RCRV B.Tech III Year I Semester (R16) Supplementary Examinations Results",
@@ -2793,7 +2937,7 @@
       "etype": "r16",
       "result": "gradercrv",
       "type": "grade16",
-      "id": 178
+      "id": 186
     },
     {
       "exam_name": "RCRV B.Tech III Year I Semester (R15) Supplementary Examinations Results",
@@ -2805,7 +2949,7 @@
       "degree": "btech",
       "examCode": "1349",
       "etype": "rcrv",
-      "id": 179
+      "id": 187
     },
     {
       "exam_name": "RCRV B.Tech III Year I Semester (R13) Supplementary Examinations Results",
@@ -2817,7 +2961,7 @@
       "degree": "btech",
       "examCode": "1350",
       "etype": "rcrv",
-      "id": 180
+      "id": 188
     },
     {
       "exam_name": "RCRV B.Tech III Year I Semester (R09) Supplementary Examinations Results",
@@ -2829,7 +2973,7 @@
       "degree": "btech",
       "examCode": "1351",
       "etype": "rcrv",
-      "id": 181
+      "id": 189
     },
     {
       "exam_name": "RCRV B.Tech III Year II Semester (R15) Supplementary Examinations Results",
@@ -2841,7 +2985,7 @@
       "degree": "btech",
       "examCode": "1338",
       "etype": "rcrv",
-      "id": 182
+      "id": 190
     },
     {
       "exam_name": "RCRV B.Tech III Year II Semester (R13) Supplementary Examinations Results",
@@ -2853,7 +2997,7 @@
       "degree": "btech",
       "examCode": "1339",
       "etype": "rcrv",
-      "id": 183
+      "id": 191
     },
     {
       "exam_name": "RCRV B.Tech III Year II Semester (R09) Supplementary Examinations Results",
@@ -2865,7 +3009,7 @@
       "degree": "btech",
       "examCode": "1340",
       "etype": "rcrv",
-      "id": 184
+      "id": 192
     },
     {
       "exam_name": "RCRV B.Tech IV Year II Semester (R15) Advance Supplementary Examinations Results",
@@ -2877,7 +3021,7 @@
       "degree": "btech",
       "examCode": "1364",
       "etype": "rcrv",
-      "id": 185
+      "id": 193
     },
     {
       "exam_name": "RCRV B.Tech IV Year II Semester (R13) Advance Supplementary Examinations Results",
@@ -2889,7 +3033,7 @@
       "degree": "btech",
       "examCode": "1365",
       "etype": "rcrv",
-      "id": 186
+      "id": 194
     },
     {
       "exam_name": "RCRV B.Tech IV Year II Semester (R09) Advance Supplementary Examinations Results",
@@ -2901,7 +3045,7 @@
       "degree": "btech",
       "examCode": "1366",
       "etype": "rcrv",
-      "id": 187
+      "id": 195
     },
     {
       "exam_name": "RCRV B.Tech II Year II Semester (R15) Supplementary Examinations Results",
@@ -2913,7 +3057,7 @@
       "degree": "btech",
       "examCode": "1342",
       "etype": "rcrv",
-      "id": 188
+      "id": 196
     },
     {
       "exam_name": "RCRV B.Tech II Year II Semester (R13) Supplementary Examinations Results",
@@ -2925,7 +3069,7 @@
       "degree": "btech",
       "examCode": "1343",
       "etype": "rcrv",
-      "id": 189
+      "id": 197
     },
     {
       "exam_name": "RCRV B.Tech II Year II Semester (R09) Supplementary Examinations Results",
@@ -2937,7 +3081,7 @@
       "degree": "btech",
       "examCode": "1344",
       "etype": "rcrv",
-      "id": 190
+      "id": 198
     },
     {
       "exam_name": "RCRV B.Tech II Year I Semester (R16) Supplementary Examinations Results",
@@ -2951,7 +3095,7 @@
       "etype": "r16",
       "result": "gradercrv",
       "type": "grade16",
-      "id": 191
+      "id": 199
     },
     {
       "exam_name": "RCRV B.Tech II Year I Semester (R15) Supplementary Examinations Results",
@@ -2963,7 +3107,7 @@
       "degree": "btech",
       "examCode": "1353",
       "etype": "rcrv",
-      "id": 192
+      "id": 200
     },
     {
       "exam_name": "RCRV B.Tech II Year I Semester (R13) Supplementary Examinations Results",
@@ -2975,7 +3119,7 @@
       "degree": "btech",
       "examCode": "1354",
       "etype": "rcrv",
-      "id": 193
+      "id": 201
     },
     {
       "exam_name": "RCRV B.Tech II Year I Semester (R09) Supplementary Examinations Results",
@@ -2987,7 +3131,7 @@
       "degree": "btech",
       "examCode": "1355",
       "etype": "rcrv",
-      "id": 194
+      "id": 202
     },
     {
       "exam_name": "RCRV B.Tech I Year II Semester (R16) Supplementary Examinations Results",
@@ -2999,7 +3143,7 @@
       "degree": "btech",
       "examCode": "1357",
       "etype": "rcrv",
-      "id": 195
+      "id": 203
     },
     {
       "exam_name": "B.Tech IV Year II Semester (R15) Advance Supplementary Examinations Results",
@@ -3010,7 +3154,7 @@
       ],
       "degree": "btech",
       "examCode": "1364",
-      "id": 196
+      "id": 204
     },
     {
       "exam_name": "B.Tech IV Year II Semester (R13) Advance Supplementary Examinations Results",
@@ -3021,7 +3165,7 @@
       ],
       "degree": "btech",
       "examCode": "1365",
-      "id": 197
+      "id": 205
     },
     {
       "exam_name": "B.Tech IV Year II Semester (R09) Advance Supplementary Examinations Results",
@@ -3032,7 +3176,7 @@
       ],
       "degree": "btech",
       "examCode": "1366",
-      "id": 198
+      "id": 206
     },
     {
       "exam_name": "B.Tech I Year II Semester (R16) Supplementary Examinations Results",
@@ -3045,7 +3189,7 @@
       "examCode": "1357",
       "etype": "r16",
       "type": "grade16",
-      "id": 199
+      "id": 207
     },
     {
       "exam_name": "B.Tech I Year I Semester (R18) Supplementary Examinations Results",
@@ -3058,7 +3202,7 @@
       "examCode": "1358",
       "etype": "r16",
       "type": "grade16",
-      "id": 200
+      "id": 208
     },
     {
       "exam_name": "B.Tech I Year I Semester (R16) Supplementary Examinations Results",
@@ -3071,7 +3215,7 @@
       "examCode": "1359",
       "etype": "r16",
       "type": "grade16",
-      "id": 201
+      "id": 209
     },
     {
       "exam_name": " I B.Tech. (R15) Supplementary Examinations Results",
@@ -3082,7 +3226,7 @@
       ],
       "degree": "btech",
       "examCode": "1360",
-      "id": 202
+      "id": 210
     },
     {
       "exam_name": " I B.Tech. (R13) Supplementary Examinations Results",
@@ -3093,7 +3237,7 @@
       ],
       "degree": "btech",
       "examCode": "1361",
-      "id": 203
+      "id": 211
     },
     {
       "exam_name": " I B.Tech. (R09) Supplementary Examinations Results",
@@ -3104,7 +3248,7 @@
       ],
       "degree": "btech",
       "examCode": "1362",
-      "id": 204
+      "id": 212
     },
     {
       "exam_name": "RCRV B.Tech IV Year II Semester (R13) Supplementary Examinations Results",
@@ -3116,7 +3260,7 @@
       "degree": "btech",
       "examCode": "1335",
       "etype": "rcrv",
-      "id": 205
+      "id": 213
     },
     {
       "exam_name": "RCRV B.Tech IV Year II Semester (R09) Supplementary Examinations Results",
@@ -3128,7 +3272,7 @@
       "degree": "btech",
       "examCode": "1336",
       "etype": "rcrv",
-      "id": 206
+      "id": 214
     },
     {
       "exam_name": "B.Tech II Year I Semester (R16) Supplementary Examinations Results",
@@ -3141,7 +3285,7 @@
       "examCode": "1352",
       "etype": "r16",
       "type": "grade16",
-      "id": 207
+      "id": 215
     },
     {
       "exam_name": "B.Tech II Year I Semester (R15) Supplementary Examinations Results",
@@ -3152,7 +3296,7 @@
       ],
       "degree": "btech",
       "examCode": "1353",
-      "id": 208
+      "id": 216
     },
     {
       "exam_name": "B.Tech II Year I Semester (R13) Supplementary Examinations Results",
@@ -3163,7 +3307,7 @@
       ],
       "degree": "btech",
       "examCode": "1354",
-      "id": 209
+      "id": 217
     },
     {
       "exam_name": "B.Tech II Year I Semester (R09) Supplementary Examinations Results",
@@ -3174,7 +3318,7 @@
       ],
       "degree": "btech",
       "examCode": "1355",
-      "id": 210
+      "id": 218
     },
     {
       "exam_name": "B.Tech III Year I Semester (R16) Supplementary Examinations Results",
@@ -3187,7 +3331,7 @@
       "examCode": "1348",
       "etype": "r16",
       "type": "grade16",
-      "id": 211
+      "id": 219
     },
     {
       "exam_name": "B.Tech III Year I Semester (R15) Supplementary Examinations Results",
@@ -3198,7 +3342,7 @@
       ],
       "degree": "btech",
       "examCode": "1349",
-      "id": 212
+      "id": 220
     },
     {
       "exam_name": "B.Tech III Year I Semester (R13) Supplementary Examinations Results",
@@ -3209,7 +3353,7 @@
       ],
       "degree": "btech",
       "examCode": "1350",
-      "id": 213
+      "id": 221
     },
     {
       "exam_name": "B.Tech III Year I Semester (R09) Supplementary Examinations Results",
@@ -3220,7 +3364,7 @@
       ],
       "degree": "btech",
       "examCode": "1351",
-      "id": 214
+      "id": 222
     },
     {
       "exam_name": "B.Tech IV Year I Semester (R15) Supplementary Examinations Results",
@@ -3231,7 +3375,7 @@
       ],
       "degree": "btech",
       "examCode": "1345",
-      "id": 215
+      "id": 223
     },
     {
       "exam_name": "B.Tech IV Year I Semester (R13) Supplementary Examinations Results",
@@ -3242,7 +3386,7 @@
       ],
       "degree": "btech",
       "examCode": "1346",
-      "id": 216
+      "id": 224
     },
     {
       "exam_name": "B.Tech IV Year I Semester (R09) Supplementary Examinations Results",
@@ -3253,7 +3397,7 @@
       ],
       "degree": "btech",
       "examCode": "1347",
-      "id": 217
+      "id": 225
     },
     {
       "exam_name": "B.Tech II Year II Semester (R15) Supplementary Examinations Results",
@@ -3264,7 +3408,7 @@
       ],
       "degree": "btech",
       "examCode": "1342",
-      "id": 218
+      "id": 226
     },
     {
       "exam_name": "B.Tech II Year II Semester (R13) Supplementary Examinations Results",
@@ -3275,7 +3419,7 @@
       ],
       "degree": "btech",
       "examCode": "1343",
-      "id": 219
+      "id": 227
     },
     {
       "exam_name": "B.Tech II Year II Semester (R09) Supplementary Examinations Results",
@@ -3286,7 +3430,7 @@
       ],
       "degree": "btech",
       "examCode": "1344",
-      "id": 220
+      "id": 228
     },
     {
       "exam_name": "B.Tech III Year II Semester (R15) Supplementary Examinations Results",
@@ -3297,7 +3441,7 @@
       ],
       "degree": "btech",
       "examCode": "1338",
-      "id": 221
+      "id": 229
     },
     {
       "exam_name": "B.Tech III Year II Semester (R13) Supplementary Examinations Results",
@@ -3308,7 +3452,7 @@
       ],
       "degree": "btech",
       "examCode": "1339",
-      "id": 222
+      "id": 230
     },
     {
       "exam_name": "B.Tech III Year II Semester (R09) Supplementary Examinations Results",
@@ -3319,7 +3463,7 @@
       ],
       "degree": "btech",
       "examCode": "1340",
-      "id": 223
+      "id": 231
     },
     {
       "exam_name": "B.Tech IV Year II Semester (R13) Supplementary Examinations Results",
@@ -3330,7 +3474,7 @@
       ],
       "degree": "btech",
       "examCode": "1335",
-      "id": 224
+      "id": 232
     },
     {
       "exam_name": "B.Tech IV Year II Semester (R09) Supplementary Examinations Results",
@@ -3341,7 +3485,7 @@
       ],
       "degree": "btech",
       "examCode": "1336",
-      "id": 225
+      "id": 233
     },
     {
       "exam_name": " II B.Tech. II Semester (R16) Supplementary Examinations Results",
@@ -3354,7 +3498,7 @@
       "examCode": "1330",
       "etype": "r16",
       "type": "grade16",
-      "id": 226
+      "id": 234
     },
     {
       "exam_name": "B.Tech II Year II Semester (R15) Supplementary Examinations Results",
@@ -3365,7 +3509,7 @@
       ],
       "degree": "btech",
       "examCode": "1331",
-      "id": 227
+      "id": 235
     },
     {
       "exam_name": "B.Tech II Year II Semester (R13) Supplementary Examinations Results",
@@ -3376,7 +3520,7 @@
       ],
       "degree": "btech",
       "examCode": "1332",
-      "id": 228
+      "id": 236
     },
     {
       "exam_name": "B.Tech II Year II Semester (R09) Supplementary Examinations Results",
@@ -3387,7 +3531,7 @@
       ],
       "degree": "btech",
       "examCode": "1333",
-      "id": 229
+      "id": 237
     },
     {
       "exam_name": "B.Tech III Year II Semester (R15) Supplementary Examinations Results",
@@ -3398,7 +3542,7 @@
       ],
       "degree": "btech",
       "examCode": "1327",
-      "id": 230
+      "id": 238
     },
     {
       "exam_name": "B.Tech III Year II Semester (R13) Supplementary Examinations Results",
@@ -3409,7 +3553,7 @@
       ],
       "degree": "btech",
       "examCode": "1328",
-      "id": 231
+      "id": 239
     },
     {
       "exam_name": "B.Tech III Year II Semester (R09) Supplementary Examinations Results",
@@ -3420,7 +3564,7 @@
       ],
       "degree": "btech",
       "examCode": "1329",
-      "id": 232
+      "id": 240
     },
     {
       "exam_name": "B.Tech I Year I Semester (R16) Supplementary Examinations Results",
@@ -3433,7 +3577,7 @@
       "examCode": "1324",
       "etype": "r16",
       "type": "grade16",
-      "id": 233
+      "id": 241
     },
     {
       "exam_name": " I B.Tech. (R13) Supplementary Examinations Results",
@@ -3444,7 +3588,7 @@
       ],
       "degree": "btech",
       "examCode": "1325",
-      "id": 234
+      "id": 242
     },
     {
       "exam_name": " I B.Tech. (R09) Supplementary Examinations Results",
@@ -3455,7 +3599,7 @@
       ],
       "degree": "btech",
       "examCode": "1326",
-      "id": 235
+      "id": 243
     },
     {
       "exam_name": "B.Tech II Year I Semester (R15) Supplementary Examinations Results",
@@ -3466,7 +3610,7 @@
       ],
       "degree": "btech",
       "examCode": "1320",
-      "id": 236
+      "id": 244
     },
     {
       "exam_name": "B.Tech II Year I Semester (R13) Supplementary Examinations Results",
@@ -3477,7 +3621,7 @@
       ],
       "degree": "btech",
       "examCode": "1321",
-      "id": 237
+      "id": 245
     },
     {
       "exam_name": "B.Tech II Year I Semester (R09) Supplementary Examinations Results",
@@ -3488,7 +3632,7 @@
       ],
       "degree": "btech",
       "examCode": "1322",
-      "id": 238
+      "id": 246
     },
     {
       "exam_name": "B.Tech III Year I Semester (R15) Supplementary Examinations Results",
@@ -3499,7 +3643,7 @@
       ],
       "degree": "btech",
       "examCode": "1316",
-      "id": 239
+      "id": 247
     },
     {
       "exam_name": "B.Tech III Year I Semester (R13) Supplementary Examinations Results",
@@ -3510,7 +3654,7 @@
       ],
       "degree": "btech",
       "examCode": "1317",
-      "id": 240
+      "id": 248
     },
     {
       "exam_name": "B.Tech III Year I Semester (R09) Supplementary Examinations Results",
@@ -3521,7 +3665,7 @@
       ],
       "degree": "btech",
       "examCode": "1318",
-      "id": 241
+      "id": 249
     },
     {
       "exam_name": "B.Tech IV Year I Semester (R13) Supplementary Examinations Results",
@@ -3532,7 +3676,7 @@
       ],
       "degree": "btech",
       "examCode": "1313",
-      "id": 242
+      "id": 250
     },
     {
       "exam_name": "B.Tech IV Year I Semester (R09) Supplementary Examinations Results",
@@ -3543,7 +3687,7 @@
       ],
       "degree": "btech",
       "examCode": "1314",
-      "id": 243
+      "id": 251
     },
     {
       "exam_name": "RCRV B.Tech III Year I Semester (R15) Supplementary Examinations Results",
@@ -3555,7 +3699,7 @@
       "degree": "btech",
       "examCode": "1293",
       "etype": "rcrv",
-      "id": 244
+      "id": 252
     },
     {
       "exam_name": "RCRV B.Tech III Year I Semester (R13) Supplementary Examinations Results",
@@ -3567,7 +3711,7 @@
       "degree": "btech",
       "examCode": "1294",
       "etype": "rcrv",
-      "id": 245
+      "id": 253
     },
     {
       "exam_name": "RCRV B.Tech III Year I Semester (R09) Supplementary Examinations Results",
@@ -3579,7 +3723,7 @@
       "degree": "btech",
       "examCode": "1295",
       "etype": "rcrv",
-      "id": 246
+      "id": 254
     },
     {
       "exam_name": "RCRV B.Tech III Year I Semester (R07) Supplementary Examinations Results",
@@ -3591,7 +3735,7 @@
       "degree": "btech",
       "examCode": "1296",
       "etype": "rcrv",
-      "id": 247
+      "id": 255
     },
     {
       "exam_name": "RCRV B.Tech III Year II Semester (R13) Supplementary Examinations Results",
@@ -3603,7 +3747,7 @@
       "degree": "btech",
       "examCode": "1281",
       "etype": "rcrv",
-      "id": 248
+      "id": 256
     },
     {
       "exam_name": "RCRV B.Tech III Year II Semester (R09) Supplementary Examinations Results",
@@ -3615,7 +3759,7 @@
       "degree": "btech",
       "examCode": "1282",
       "etype": "rcrv",
-      "id": 249
+      "id": 257
     },
     {
       "exam_name": "B.Tech I Year II Semester (R16) Supplementary Examinations Results",
@@ -3628,7 +3772,7 @@
       "examCode": "1310",
       "etype": "r16",
       "type": "grade16",
-      "id": 250
+      "id": 258
     },
     {
       "exam_name": " I B.Tech. (R15) Supplementary Examinations Results",
@@ -3639,7 +3783,7 @@
       ],
       "degree": "btech",
       "examCode": "1311",
-      "id": 251
+      "id": 259
     },
     {
       "exam_name": "RCRV B.Tech IV Year II Semester (R13) Advance Supplementary Examinations Results",
@@ -3651,7 +3795,7 @@
       "degree": "btech",
       "examCode": "1307",
       "etype": "rcrv",
-      "id": 252
+      "id": 260
     },
     {
       "exam_name": "RCRV B.Tech IV Year II Semester (R09) Advance Supplementary Examinations Results",
@@ -3663,7 +3807,7 @@
       "degree": "btech",
       "examCode": "1308",
       "etype": "rcrv",
-      "id": 253
+      "id": 261
     },
     {
       "exam_name": "RCRV B.Tech I Year I Semester (R16) Supplementary Examinations Results",
@@ -3677,7 +3821,7 @@
       "etype": "r16",
       "result": "gradercrv",
       "type": "grade16",
-      "id": 254
+      "id": 262
     },
     {
       "exam_name": "RCRV I B.Tech. (R15) Supplementary Examinations Results",
@@ -3689,7 +3833,7 @@
       "degree": "btech",
       "examCode": "1303",
       "etype": "rcrv",
-      "id": 255
+      "id": 263
     },
     {
       "exam_name": "RCRV I B.Tech. (R13) Supplementary Examinations Results",
@@ -3701,7 +3845,7 @@
       "degree": "btech",
       "examCode": "1304",
       "etype": "rcrv",
-      "id": 256
+      "id": 264
     },
     {
       "exam_name": "RCRV I B.Tech. (R09) Supplementary Examinations Results",
@@ -3713,7 +3857,7 @@
       "degree": "btech",
       "examCode": "1305",
       "etype": "rcrv",
-      "id": 257
+      "id": 265
     },
     {
       "exam_name": "RCRV I B.Tech. (R07) Supplementary Examinations Results",
@@ -3725,7 +3869,7 @@
       "degree": "btech",
       "examCode": "1306",
       "etype": "rcrv",
-      "id": 258
+      "id": 266
     },
     {
       "exam_name": "B.Tech IV Year II Semester (R13) Advance Supplementary Examinations Results",
@@ -3736,7 +3880,7 @@
       ],
       "degree": "btech",
       "examCode": "1307",
-      "id": 259
+      "id": 267
     },
     {
       "exam_name": "B.Tech IV Year II Semester (R09) Advance Supplementary Examinations Results",
@@ -3747,7 +3891,7 @@
       ],
       "degree": "btech",
       "examCode": "1308",
-      "id": 260
+      "id": 268
     },
     {
       "exam_name": "B.Tech IV Year II Semester (R07) Advance Supplementary Examinations Results",
@@ -3758,7 +3902,7 @@
       ],
       "degree": "btech",
       "examCode": "1309",
-      "id": 261
+      "id": 269
     },
     {
       "exam_name": "B.Tech IV Year I Semester (R13) Supplementary Examinations Results",
@@ -3769,7 +3913,7 @@
       ],
       "degree": "btech",
       "examCode": "1290",
-      "id": 262
+      "id": 270
     },
     {
       "exam_name": "B.Tech IV Year I Semester (R09) Supplementary Examinations Results",
@@ -3780,7 +3924,7 @@
       ],
       "degree": "btech",
       "examCode": "1291",
-      "id": 263
+      "id": 271
     },
     {
       "exam_name": "B.Tech IV Year I Semester (R07) Supplementary Examinations Results",
@@ -3791,7 +3935,7 @@
       ],
       "degree": "btech",
       "examCode": "1292",
-      "id": 264
+      "id": 272
     },
     {
       "exam_name": "B.Tech III Year I Semester (R15) Supplementary Examinations Results",
@@ -3802,7 +3946,7 @@
       ],
       "degree": "btech",
       "examCode": "1293",
-      "id": 265
+      "id": 273
     },
     {
       "exam_name": "B.Tech III Year I Semester (R13) Supplementary Examinations Results",
@@ -3813,7 +3957,7 @@
       ],
       "degree": "btech",
       "examCode": "1294",
-      "id": 266
+      "id": 274
     },
     {
       "exam_name": "B.Tech III Year I Semester (R09) Supplementary Examinations Results",
@@ -3824,7 +3968,7 @@
       ],
       "degree": "btech",
       "examCode": "1295",
-      "id": 267
+      "id": 275
     },
     {
       "exam_name": "B.Tech III Year I Semester (R07) Supplementary Examinations Results",
@@ -3835,7 +3979,7 @@
       ],
       "degree": "btech",
       "examCode": "1296",
-      "id": 268
+      "id": 276
     },
     {
       "exam_name": "B.Tech II Year I Semester (R16) Supplementary Examinations Results",
@@ -3848,7 +3992,7 @@
       "examCode": "1297",
       "etype": "r16",
       "type": "grade16",
-      "id": 269
+      "id": 277
     },
     {
       "exam_name": "B.Tech II Year I Semester (R15) Supplementary Examinations Results",
@@ -3859,7 +4003,7 @@
       ],
       "degree": "btech",
       "examCode": "1298",
-      "id": 270
+      "id": 278
     },
     {
       "exam_name": "B.Tech II Year I Semester (R13) Supplementary Examinations Results",
@@ -3870,7 +4014,7 @@
       ],
       "degree": "btech",
       "examCode": "1299",
-      "id": 271
+      "id": 279
     },
     {
       "exam_name": "B.Tech II Year I Semester (R09) Supplementary Examinations Results",
@@ -3881,7 +4025,7 @@
       ],
       "degree": "btech",
       "examCode": "1300",
-      "id": 272
+      "id": 280
     },
     {
       "exam_name": "B.Tech II Year I Semester (R07) Supplementary Examinations Results",
@@ -3892,7 +4036,7 @@
       ],
       "degree": "btech",
       "examCode": "1301",
-      "id": 273
+      "id": 281
     },
     {
       "exam_name": "B.Tech I Year I Semester (R16) Supplementary Examinations Results",
@@ -3905,7 +4049,7 @@
       "examCode": "1302",
       "etype": "r16",
       "type": "grade16",
-      "id": 274
+      "id": 282
     },
     {
       "exam_name": " I B.Tech. (R15) Supplementary Examinations Results",
@@ -3916,7 +4060,7 @@
       ],
       "degree": "btech",
       "examCode": "1303",
-      "id": 275
+      "id": 283
     },
     {
       "exam_name": " I B.Tech. (R13) Supplementary Examinations Results",
@@ -3927,7 +4071,7 @@
       ],
       "degree": "btech",
       "examCode": "1304",
-      "id": 276
+      "id": 284
     },
     {
       "exam_name": " I B.Tech. (R09) Supplementary Examinations Results",
@@ -3938,7 +4082,7 @@
       ],
       "degree": "btech",
       "examCode": "1305",
-      "id": 277
+      "id": 285
     },
     {
       "exam_name": " I B.Tech. (R07) Supplementary Examinations Results",
@@ -3949,7 +4093,7 @@
       ],
       "degree": "btech",
       "examCode": "1306",
-      "id": 278
+      "id": 286
     },
     {
       "exam_name": "B.Tech II Year II Semester (R15) Supplementary Examinations Results",
@@ -3960,7 +4104,7 @@
       ],
       "degree": "btech",
       "examCode": "1285",
-      "id": 279
+      "id": 287
     },
     {
       "exam_name": "B.Tech II Year II Semester (R13) Supplementary Examinations Results",
@@ -3971,7 +4115,7 @@
       ],
       "degree": "btech",
       "examCode": "1286",
-      "id": 280
+      "id": 288
     },
     {
       "exam_name": "B.Tech II Year II Semester (R09) Supplementary Examinations Results",
@@ -3982,7 +4126,7 @@
       ],
       "degree": "btech",
       "examCode": "1287",
-      "id": 281
+      "id": 289
     },
     {
       "exam_name": "B.Tech II Year II Semester (R07) Supplementary Examinations Results",
@@ -3993,7 +4137,7 @@
       ],
       "degree": "btech",
       "examCode": "1288",
-      "id": 282
+      "id": 290
     },
     {
       "exam_name": "B.Tech III Year II Semester (R13) Supplementary Examinations Results",
@@ -4004,7 +4148,7 @@
       ],
       "degree": "btech",
       "examCode": "1281",
-      "id": 283
+      "id": 291
     },
     {
       "exam_name": "B.Tech III Year II Semester (R09) Supplementary Examinations Results",
@@ -4015,7 +4159,7 @@
       ],
       "degree": "btech",
       "examCode": "1282",
-      "id": 284
+      "id": 292
     },
     {
       "exam_name": "B.Tech III Year II Semester (R07) Supplementary Examinations Results",
@@ -4026,7 +4170,7 @@
       ],
       "degree": "btech",
       "examCode": "1283",
-      "id": 285
+      "id": 293
     }
   ]
 }
