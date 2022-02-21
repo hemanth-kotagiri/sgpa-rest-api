@@ -46,7 +46,7 @@ just a sample from one endpoint. Please click
 
 ### API Reference
 
-The below example is to fetch results for R-18 Regular Exams only. To get other
+The below example is to fetch results for R-18 (2018) Regular Exams only. To get other
 results, please refer to the api documentation
 
 #### Get results and student details

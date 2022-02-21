@@ -5,9 +5,6 @@ import platform
 import threading
 
 from flask import Flask, Response, request, render_template
-import markdown
-import markdown.extensions.fenced_code
-from pygments.formatters import HtmlFormatter
 import redis
 from selenium import webdriver
 
