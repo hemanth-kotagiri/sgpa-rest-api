@@ -42,7 +42,7 @@ class AllResults:
         try:
             iframe_path = "/html/frameset/frameset/frame[1]"
 
-            self.driver.get("http://202.63.105.184/results/")
+            self.driver.get("http://results.jntuh.ac.in")
             iframe = self.driver.find_element_by_xpath(iframe_path)
             self.driver.switch_to.frame(iframe)
 
@@ -62,10 +62,15 @@ class AllResults:
                     "notification_date": date,
                     "notification_description": description
                 })
-                self.save_notifications(notifications)
+            self.save_notifications(notifications)
 
         except Exception as e:
             self.logger.exception(e)
+            with open("notifications.json", "r") as f:
+                notifications = json.loads(f.read())
+        if not notifications:
+            self.logger.exception(
+                "Something went wrong with fetching data from JNTUH servers")
             with open("notifications.json", "r") as f:
                 notifications = json.loads(f.read())
 

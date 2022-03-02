@@ -84,7 +84,13 @@ class Service:
             self.logger.exception(f"Exception occoured: {e}")
             self.logger.info(f"Previous URL : {url}")
 
-            return self.helper(self.urls2[year], hallticket, dob)
+            try:
+                return self.helper(self.urls2[year], hallticket, dob)
+            except Exception as e:
+                self.logger.exception(f"Exception Occoured: {e}")
+                return {
+                    "error": "JNTUH servers are down"
+                }
 
     def get_result_with_url(self, hallticket: str, dob: str, degree: str,
                             examCode: str, etype: str, type: str, result: str) -> list:
@@ -118,7 +124,13 @@ class Service:
             self.logger.exception(f"Exception occoured: {e}")
             self.logger.info(f"Previous URL : {url1}")
 
-            return self.helper(url2, hallticket, dob)
+            try:
+                return self.helper(url2, hallticket, dob)
+            except Exception as e:
+                self.logger.exception(f"Exception occoured: {e}")
+                return {
+                    "error": "JNTUH Servers are down"
+                }
 
     def get_student_info(self, sel_soup) -> dict:
         """ Returns the student information """

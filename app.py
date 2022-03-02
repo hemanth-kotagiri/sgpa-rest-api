@@ -103,6 +103,8 @@ def routing_path(hallticket, dob, year):
         result = json.loads(redis_response)
     else:
         result = old_scrapper.get_result(hallticket, dob, year)
+        if "error" in result:
+            return Response(json.dumps(result),  mimetype='application/json', status=503)
         redis_client.set(current_key, json.dumps(result))
         redis_client.expire(current_key, timedelta(minutes=30))
 
@@ -118,6 +120,8 @@ def calculate(hallticket, dob, year):
         result = json.loads(redis_response)
     else:
         result = old_scrapper.get_result(hallticket, dob, year)
+        if "error" in result:
+            return Response(json.dumps(result),  mimetype='application/json', status=503)
         result = calculate_sgpa(result)
         redis_client.set(current_key, json.dumps(result))
         redis_client.expire(current_key, timedelta(minutes=30))
@@ -138,6 +142,8 @@ def request_param_path():
         result = json.loads(redis_response)
     else:
         result = old_scrapper.get_result(hallticket, dob, year)
+        if "error" in result:
+            return Response(json.dumps(result),  mimetype='application/json', status=503)
         redis_client.set(current_key, json.dumps(result))
         redis_client.expire(current_key, timedelta(minutes=30))
 
@@ -207,6 +213,8 @@ def get_specific_result():
     else:
         resp = old_scrapper.get_result_with_url(
             hallticket, dob, degree, examCode, etype, type, result)
+        if "error" in resp:
+            return Response(json.dumps(resp),  mimetype='application/json', status=503)
         redis_client.set(current_key, json.dumps(resp))
         redis_client.expire(current_key, timedelta(minutes=30))
 
@@ -230,6 +238,8 @@ def get_specific_result_with_sgpa():
     else:
         resp = old_scrapper.get_result_with_url(
             hallticket, dob, degree, examCode, etype, type, result)
+        if "error" in resp:
+            return Response(json.dumps(resp),  mimetype='application/json', status=503)
         result = calculate_sgpa(resp)
         redis_client.set(current_key, json.dumps(result))
         redis_client.expire(current_key, timedelta(minutes=30))
