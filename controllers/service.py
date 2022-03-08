@@ -35,10 +35,10 @@ class Service:
 
     def helper(self, url: str, hallticket: str, dob: str) -> list:
 
-        print(url)
         url = url + f"f&htno={hallticket}"
+        print(url)
 
-        resp = requests.get(url)
+        resp = requests.get(url, timeout=3.0)
         sel_soup = BeautifulSoup(resp.text, 'html.parser')
 
         # Calling get student and results functions

@@ -317,7 +317,7 @@ def get_bulk_results():
     if end-start < 0 or end-start > 210:
         return Exception("SOMETHING WENT WRONG")
 
-    redis_response = redis_client.get(hallticket_from + hallticket_to)
+    redis_response = redis_client.get(hallticket_from + hallticket_to + examCode)
     if redis_response != None:
         return Response(redis_response, mimetype='application/json')
 
@@ -338,7 +338,7 @@ def get_bulk_results():
         print("DIDN'T CREATE A NEW KEY, GOT RESULTS FROM HALLTICKETS CACHED")
         return Response(json.dumps(results), mimetype='application/json')
 
-    redis_client.set(hallticket_from+hallticket_to, json.dumps({"result":"loading"}))
+    redis_client.set(hallticket_from + hallticket_to + examCode, json.dumps({"result":"loading"}))
     redis_client.expire(hallticket_from+hallticket_to, timedelta(minutes=10))
 
     def worker(start, end):
@@ -371,13 +371,13 @@ def get_bulk_results():
                     redis_client.expire(current_key, timedelta(minutes=30))
 
 
-        redis_client.set(hallticket_from+hallticket_to, json.dumps(results))
+        redis_client.set(hallticket_from+hallticket_to+examCode, json.dumps(results))
 
     threading.Thread(target=worker, args=(start, end)).start()
 
 
     # This is only going to return in the first call.
-    return Response(redis_client.get(hallticket_from + hallticket_to),  mimetype='application/json')
+    return Response(redis_client.get(hallticket_from + hallticket_to + examCode),  mimetype='application/json')
 
 
 @app.route("/new/", methods=["GET"])
