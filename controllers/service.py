@@ -97,7 +97,7 @@ class Service:
         if result:
             endpoint += f"&result={result}"
         else:
-            endpoint += f"&result={null}"
+            endpoint += f"&result=null"
 
         url1 = LINK1 + endpoint + "&grad=null"
         url2 = LINK2 + endpoint + "&grad=null"
