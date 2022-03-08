@@ -1,4 +1,5 @@
 import logging
+import requests
 from bs4 import BeautifulSoup
 
 
@@ -11,21 +12,21 @@ class Service:
     logger.addHandler(stream_handler)
 
     urls = {
-        "1,1": "http://results.jntuh.ac.in/results/jsp/SearchResult.jsp?degree=btech&examCode=1323&etype=r16&type=grade16",
-        "1,2": "http://results.jntuh.ac.in/results/jsp/SearchResult.jsp?degree=btech&examCode=1356&etype=r16&type=grade16",
-        "2,1": "http://results.jntuh.ac.in/results/jsp/SearchResult.jsp?degree=btech&examCode=1391&etype=r17&type=grade17",
-        "2,2": "http://results.jntuh.ac.in/results/jsp/SearchResult.jsp?degree=btech&examCode=1437&etype=r17&type=intgrade",
-        "3,1": "http://results.jntuh.ac.in/results/jsp/SearchResult.jsp?degree=btech&examCode=1454&etype=r17&type=intgrade",
-        "3,2": "http://results.jntuh.ac.in/results/jsp/SearchResult.jsp?degree=btech&examCode=1502&etype=r17&type=intgrade",
+        "1,1": "http://results.jntuh.ac.in/results/resultAction?degree=btech&examCode=1323&etype=r16&type=grade16&result=null&grad=null",
+        "1,2": "http://results.jntuh.ac.in/results/resultAction?degree=btech&examCode=1356&etype=r16&type=grade16&result=null&grad=null",
+        "2,1": "http://results.jntuh.ac.in/results/resultAction?degree=btech&examCode=1391&etype=r17&type=grade17&result=null&grad=null",
+        "2,2": "http://results.jntuh.ac.in/results/resultAction?degree=btech&examCode=1437&etype=r17&type=intgrade&result=null&grad=null",
+        "3,1": "http://results.jntuh.ac.in/results/resultAction?degree=btech&examCode=1454&etype=r17&type=intgrade&result=null&grad=null",
+        "3,2": "http://results.jntuh.ac.in/results/resultAction?degree=btech&examCode=1502&etype=r17&type=intgrade&result=null&grad=null",
     }
 
     urls2 = {
-        "1,1": "http://202.63.105.184/results/jsp/SearchResult.jsp?degree=btech&examCode=1323&etype=r16&type=grade16",
-        "1,2": "http://202.63.105.184/results/jsp/SearchResult.jsp?degree=btech&examCode=1356&etype=r16&type=grade16",
-        "2,1": "http://202.63.105.184/results/jsp/SearchResult.jsp?degree=btech&examCode=1391&etype=r17&type=grade17",
-        "2,2": "http://202.63.105.184/results/jsp/SearchResult.jsp?degree=btech&examCode=1437&etype=r17&type=intgrade",
-        "3,1": "http://202.63.105.184/results/jsp/SearchResult.jsp?degree=btech&examCode=1454&etype=r17&type=intgrade",
-        "3,2": "http://202.63.105.184/results/jsp/SearchResult.jsp?degree=btech&examCode=1502&etype=r17&type=intgrade",
+        "1,1": "http://202.63.105.184/results/resultAction?degree=btech&examCode=1323&etype=r16&type=grade16&type=grade16&result=null&grad=null",
+        "1,2": "http://202.63.105.184/results/resultAction?degree=btech&examCode=1356&etype=r16&type=grade16&type=grade16&result=null&grad=null",
+        "2,1": "http://202.63.105.184/results/resultAction?degree=btech&examCode=1391&etype=r17&type=grade17&type=grade16&result=null&grad=null",
+        "2,2": "http://202.63.105.184/results/resultAction?degree=btech&examCode=1437&etype=r17&type=intgrade&type=grade16&result=null&grad=null",
+        "3,1": "http://202.63.105.184/results/resultAction?degree=btech&examCode=1454&etype=r17&type=intgrade&type=grade16&result=null&grad=null",
+        "3,2": "http://202.63.105.184/results/resultAction?degree=btech&examCode=1502&etype=r17&type=intgrade&type=grade16&result=null&grad=null",
     }
 
     def __init__(self, driver):
@@ -34,37 +35,16 @@ class Service:
 
     def helper(self, url: str, hallticket: str, dob: str) -> list:
 
-        self.driver.get(url)
+        print(url)
+        url = url + f"f&htno={hallticket}"
 
-        # Getting the captcha value
-        captcha_val = self.driver.execute_script(
-            "return document.getElementById('txtCaptcha').value")
-        hall_pass = "document.getElementById('htno').value = '{}'".format(
-            hallticket)
-        date_pass = "document.getElementById('datepicker').value = '{}'".format(
-            dob)
-        pass_str = "document.getElementById('txtInput').value = '{}'".format(
-            captcha_val)
-
-        self.driver.execute_script(pass_str)
-        self.driver.execute_script(date_pass)
-        self.driver.execute_script(hall_pass)
-
-        submit_button_xpath = '//*[@id="myForm"]/div/table/tbody/tr[5]/td[3]/input'
-
-        submit = self.driver.find_element_by_xpath(submit_button_xpath)
-        submit.click()
-
-        # Creating the soup object for the result page
-        sel_html = self.driver.execute_script(
-            "return document.documentElement.outerHTML")
-
-        sel_soup = BeautifulSoup(sel_html, 'html.parser')
+        resp = requests.get(url)
+        sel_soup = BeautifulSoup(resp.text, 'html.parser')
 
         # Calling get student and results functions
         student = self.get_student_info(sel_soup)
         results = self.get_results_info(sel_soup)
-        self.driver.back()
+        # self.driver.back()
 
         return [student, results]
 
@@ -105,8 +85,8 @@ class Service:
             result(str)
         """
 
-        LINK1 = 'http://results.jntuh.ac.in/jsp/SearchResult.jsp?'
-        LINK2 = 'http://202.63.105.184/results/jsp/SearchResult.jsp?'
+        LINK1 = 'http://results.jntuh.ac.in/results/resultAction?'
+        LINK2 = 'http://202.63.105.184/results/resultAction?'
 
         hallticket = hallticket.upper()
         endpoint = f"degree={degree}&examCode={examCode}"
@@ -116,8 +96,11 @@ class Service:
             endpoint += f"&type={type}"
         if result:
             endpoint += f"&result={result}"
-        url1 = LINK1 + endpoint
-        url2 = LINK2 + endpoint
+        else:
+            endpoint += f"&result={null}"
+
+        url1 = LINK1 + endpoint + "&grad=null"
+        url2 = LINK2 + endpoint + "&grad=null"
         try:
             return self.helper(url1, hallticket, dob)
         except Exception as e:
@@ -138,17 +121,15 @@ class Service:
         """ tables[0] consists the information regarding the student """
 
         tables = sel_soup.find_all('table')
+        # print(len(tables))
+        # print(tables[0].find_all("tr"))
 
         # Gathering the student information
 
         data = []
-        for element in list(tables[0].tbody):
-            for row in element:
-                for td in row:
-                    for b in td:
-                        if type(b) != str:
-                            data.append(
-                                str(b.string).replace("\n", "").strip())
+        for element in list(tables[0].find_all("tr")):
+            for bTag in element.find_all("b"):
+                data.append(bTag.text)
 
         student = dict(zip([data[i].replace(":", "") for i in range(len(data))
                             if i % 2 == 0], [data[j] for j in range(1,
@@ -165,16 +146,18 @@ class Service:
         tables = sel_soup.find_all('table')
         results = []
 
-        for element in list(tables[1].tbody)[1:]:
+        for row in tables[1].find_all("tr"):
+            bTags = row.find_all("b")
+            if not bTags[0].text.isalnum():
+                continue
             current_subject = []
             count = 1
-            for table_row in element:
-                for b in table_row:
-                    if type(b) != str and count <= 7:
-                        count += 1
-                        # table_row has 4 elements: subject code, name, grade, credits else
-                        # table_row has 7 elements: subject code, name, internal, external, total grade, credits
-                        current_subject.append(b.text)
+            # table_row has 4 elements: subject code, name, grade, credits else
+            # table_row has 7 elements: subject code, name, internal, external, total grade, credits
+            for b in bTags:
+                if count <= 7:
+                    current_subject.append(b.text)
+                    count += 1
 
             if not current_subject:
                 continue
