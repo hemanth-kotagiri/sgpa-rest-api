@@ -339,7 +339,7 @@ def get_bulk_results():
         return Response(json.dumps(results), mimetype='application/json')
 
     redis_client.set(hallticket_from + hallticket_to + examCode, json.dumps({"result":"loading"}))
-    redis_client.expire(hallticket_from+hallticket_to, timedelta(minutes=10))
+    redis_client.expire(hallticket_from+hallticket_to+examCode, timedelta(minutes=10))
 
     def worker(start, end):
         results = []
@@ -372,6 +372,7 @@ def get_bulk_results():
 
 
         redis_client.set(hallticket_from+hallticket_to+examCode, json.dumps(results))
+        redis_client.expire(hallticket_from+hallticket_to+examCode, timedelta(minutes=10))
 
     threading.Thread(target=worker, args=(start, end)).start()
 
