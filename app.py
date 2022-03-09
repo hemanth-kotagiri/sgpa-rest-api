@@ -14,7 +14,11 @@ from controllers.service import Service
 
 def init_firefox_driver():
     firefox_options = webdriver.FirefoxOptions()
-    driver_file = "drivers/geckodriver" if platform.system() == "Linux" else "drivers/geckodriver.exe"
+    driver_file = (
+        "drivers/geckodriver"
+        if platform.system() == "Linux"
+        else "drivers/geckodriver.exe"
+    )
     # Arguments for Firefox driver
     firefox_options.add_argument("--headless")
     firefox_options.add_argument("--no-sandbox")
@@ -22,7 +26,8 @@ def init_firefox_driver():
 
     # Firefox Driver
     driver = webdriver.Firefox(
-        executable_path=os.path.join(os.getcwd(), driver_file), options=firefox_options)
+        executable_path=os.path.join(os.getcwd(), driver_file), options=firefox_options
+    )
 
     return driver
 
@@ -33,11 +38,12 @@ def init_chrome_driver():
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-dev-shm-usage")
-    chrome_options.binary_location = os.environ.get(
-        "GOOGLE_CHROME_BIN")
+    chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
     # Starting the driver
     driver = webdriver.Chrome(
-        executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+        executable_path=os.environ.get("CHROMEDRIVER_PATH"),
+        chrome_options=chrome_options,
+    )
 
     return driver
 
@@ -53,13 +59,13 @@ old_scrapper = Service(driver)
 new_scrapper = AllResults(driver)
 
 grades = {
-    "O":  10,
+    "O": 10,
     "A+": 9,
-    "A":  8,
+    "A": 8,
     "B+": 7,
-    "B":  6,
-    "C":  5,
-    "F":  0,
+    "B": 6,
+    "C": 5,
+    "F": 0,
     "Ab": 0,
 }
 
@@ -75,11 +81,12 @@ def calculate_sgpa(results_object):
         if not subject["grade_earned"] in grades.keys():
             sgpa = 0
             break
-        sgpa += grades[subject["grade_earned"]] * \
-            float(subject["subject_credits"])
+        sgpa += grades[subject["grade_earned"]] * float(subject["subject_credits"])
 
-    if total_credits == 0: sgpa = 0
-    else: sgpa = round(sgpa/total_credits, 2)
+    if total_credits == 0:
+        sgpa = 0
+    else:
+        sgpa = round(sgpa / total_credits, 2)
     results_object.insert(0, {"SGPA": sgpa if sgpa else "FAIL"})
 
     return results_object
@@ -104,11 +111,11 @@ def routing_path(hallticket, dob, year):
     else:
         result = old_scrapper.get_result(hallticket, dob, year)
         if "error" in result:
-            return Response(json.dumps(result),  mimetype='application/json', status=503)
+            return Response(json.dumps(result), mimetype="application/json", status=503)
         redis_client.set(current_key, json.dumps(result))
         redis_client.expire(current_key, timedelta(minutes=30))
 
-    return Response(json.dumps(result),  mimetype='application/json')
+    return Response(json.dumps(result), mimetype="application/json")
 
 
 @app.route("/calculate/<hallticket>/<dob>/<year>", methods=["GET"])
@@ -121,12 +128,12 @@ def calculate(hallticket, dob, year):
     else:
         result = old_scrapper.get_result(hallticket, dob, year)
         if "error" in result:
-            return Response(json.dumps(result),  mimetype='application/json', status=503)
+            return Response(json.dumps(result), mimetype="application/json", status=503)
         result = calculate_sgpa(result)
         redis_client.set(current_key, json.dumps(result))
         redis_client.expire(current_key, timedelta(minutes=30))
 
-    return Response(json.dumps(result),  mimetype='application/json')
+    return Response(json.dumps(result), mimetype="application/json")
 
 
 @app.route("/result", methods=["GET"])
@@ -143,11 +150,11 @@ def request_param_path():
     else:
         result = old_scrapper.get_result(hallticket, dob, year)
         if "error" in result:
-            return Response(json.dumps(result),  mimetype='application/json', status=503)
+            return Response(json.dumps(result), mimetype="application/json", status=503)
         redis_client.set(current_key, json.dumps(result))
         redis_client.expire(current_key, timedelta(minutes=30))
 
-    return Response(json.dumps(result),  mimetype='application/json')
+    return Response(json.dumps(result), mimetype="application/json")
 
 
 @app.route("/new/all", methods=["GET"])
@@ -162,7 +169,7 @@ def all_results():
         redis_client.set(current_key, json.dumps(all_exams))
         redis_client.expire(current_key, timedelta(minutes=30))
 
-    return Response(json.dumps(all_exams),  mimetype='application/json')
+    return Response(json.dumps(all_exams), mimetype="application/json")
 
 
 @app.route("/new/all/regular", methods=["GET"])
@@ -177,7 +184,7 @@ def all_regular():
         redis_client.set(current_key, json.dumps(regular_exams))
         redis_client.expire(current_key, timedelta(minutes=30))
 
-    return Response(json.dumps(regular_exams),  mimetype='application/json')
+    return Response(json.dumps(regular_exams), mimetype="application/json")
 
 
 @app.route("/new/all/supply", methods=["GET"])
@@ -191,7 +198,7 @@ def all_supply():
         redis_client.set(current_key, json.dumps(supply_exams))
         redis_client.expire(current_key, timedelta(minutes=30))
 
-    return Response(json.dumps(supply_exams),  mimetype='application/json')
+    return Response(json.dumps(supply_exams), mimetype="application/json")
 
 
 @app.route("/api", methods=["GET"])
@@ -202,7 +209,7 @@ def get_specific_result():
     examCode = request.args.get("examCode")
     etype = request.args.get("etype")
     type = request.args.get("type")
-    result = request.args.get("result") or ''
+    result = request.args.get("result") or ""
     print(hallticket, dob, degree, examCode, etype, type, result)
 
     current_key = f"{hallticket}-{degree}-{examCode}-{etype}-{type}-{result}"
@@ -212,13 +219,14 @@ def get_specific_result():
         resp = json.loads(redis_response)
     else:
         resp = old_scrapper.get_result_with_url(
-            hallticket, dob, degree, examCode, etype, type, result)
+            hallticket, dob, degree, examCode, etype, type, result
+        )
         if "error" in resp:
-            return Response(json.dumps(resp),  mimetype='application/json', status=503)
+            return Response(json.dumps(resp), mimetype="application/json", status=503)
         redis_client.set(current_key, json.dumps(resp))
         redis_client.expire(current_key, timedelta(minutes=30))
 
-    return Response(json.dumps(resp),  mimetype='application/json')
+    return Response(json.dumps(resp), mimetype="application/json")
 
 
 @app.route("/api/calculate", methods=["GET"])
@@ -229,7 +237,7 @@ def get_specific_result_with_sgpa():
     examCode = request.args.get("examCode")
     etype = request.args.get("etype")
     type = request.args.get("type")
-    result = request.args.get("result") or ''
+    result = request.args.get("result") or ""
 
     current_key = f"calculate-{hallticket}-{degree}-{examCode}-{etype}-{type}-{result}"
     redis_response = redis_client.get(current_key)
@@ -237,54 +245,56 @@ def get_specific_result_with_sgpa():
         result = json.loads(redis_response)
     else:
         resp = old_scrapper.get_result_with_url(
-            hallticket, dob, degree, examCode, etype, type, result)
+            hallticket, dob, degree, examCode, etype, type, result
+        )
         if "error" in resp:
-            return Response(json.dumps(resp),  mimetype='application/json', status=503)
+            return Response(json.dumps(resp), mimetype="application/json", status=503)
         result = calculate_sgpa(resp)
         redis_client.set(current_key, json.dumps(result))
         redis_client.expire(current_key, timedelta(minutes=30))
 
-    return Response(json.dumps(result),  mimetype='application/json')
+    return Response(json.dumps(result), mimetype="application/json")
 
 
 def get_hallticket_helper(roll_number, i):
-    if (i < 10):
-        hallticket = roll_number + '0' + str(i)
-    elif (i < 100):
+    if i < 10:
+        hallticket = roll_number + "0" + str(i)
+    elif i < 100:
         hallticket = roll_number + str(i)
     elif i > 99 and i < 110:
-        hallticket = roll_number + 'A' + str(i - 100)
+        hallticket = roll_number + "A" + str(i - 100)
     elif i > 109 and i < 120:
-        hallticket = roll_number + 'B' + str(i - 110)
+        hallticket = roll_number + "B" + str(i - 110)
     elif i > 119 and i < 130:
-        hallticket = roll_number + 'C' + str(i - 120)
+        hallticket = roll_number + "C" + str(i - 120)
     elif i > 129 and i < 140:
-        hallticket = roll_number + 'D' + str(i - 130)
+        hallticket = roll_number + "D" + str(i - 130)
     elif i > 139 and i < 150:
-        hallticket = roll_number + 'E' + str(i - 140)
+        hallticket = roll_number + "E" + str(i - 140)
     elif i > 149 and i < 160:
-        hallticket = roll_number + 'F' + str(i - 150)
+        hallticket = roll_number + "F" + str(i - 150)
     elif i > 159 and i < 170:
-        hallticket = roll_number + 'G' + str(i - 160)
+        hallticket = roll_number + "G" + str(i - 160)
     elif i > 169 and i < 180:
-        hallticket = roll_number + 'H' + str(i - 170)
+        hallticket = roll_number + "H" + str(i - 170)
     elif i > 179 and i < 190:
-        hallticket = roll_number + 'j' + str(i - 180)
+        hallticket = roll_number + "j" + str(i - 180)
 
     return hallticket
+
 
 @app.route("/api/bulk/calculate", methods=["GET"])
 def get_bulk_results():
     string_dict = {
-        'A': 0,
-         'B': 1,
-         'C': 2,
-         'D': 3,
-         'E': 4,
-         'F': 5,
-         'G': 6,
-         'H': 7,
-         'J': 8,
+        "A": 0,
+        "B": 1,
+        "C": 2,
+        "D": 3,
+        "E": 4,
+        "F": 5,
+        "G": 6,
+        "H": 7,
+        "J": 8,
     }
     hallticket_from = request.args.get("hallticket_from")
     hallticket_to = request.args.get("hallticket_to")
@@ -293,10 +303,10 @@ def get_bulk_results():
     examCode = request.args.get("examCode")
     etype = request.args.get("etype")
     type = request.args.get("type")
-    result = request.args.get("result") or ''
+    result = request.args.get("result") or ""
     # hallticket = hallticket_from[:-2]
 
-    if(hallticket_from[0:8] != hallticket_to[0:8]):
+    if hallticket_from[0:8] != hallticket_to[0:8]:
         return Exception("Starting and ending hallticket should be same")
 
     roll_number = hallticket_from[0:8]
@@ -311,22 +321,27 @@ def get_bulk_results():
             s1 = str(string_dict[s1[0]]) + str(s1[1])
             s1 = 100 + int(s1)
         return s1
+
     start = test(s1)
     end = test(s2)
 
-    if end-start < 0 or end-start > 210:
+    if end - start < 0 or end - start > 210:
         return Exception("SOMETHING WENT WRONG")
 
-    redis_response = redis_client.get(hallticket_from + hallticket_to + examCode)
+    redis_response = redis_client.get(
+        hallticket_from + hallticket_to + examCode + etype + type
+    )
     if redis_response != None:
-        return Response(redis_response, mimetype='application/json')
+        return Response(redis_response, mimetype="application/json")
 
     # Check if all the halltickets are already cached, if so, return them.
     results = []
-    for i in range(start, end+1):
+    for i in range(start, end + 1):
 
         hallticket = get_hallticket_helper(roll_number, i)
-        current_key = f"calculate-{hallticket}-{degree}-{examCode}-{etype}-{type}-{result}"
+        current_key = (
+            f"calculate-{hallticket}-{degree}-{examCode}-{etype}-{type}-{result}"
+        )
         redis_response = redis_client.get(current_key)
 
         if redis_response != None:
@@ -336,20 +351,27 @@ def get_bulk_results():
             break
     else:
         print("DIDN'T CREATE A NEW KEY, GOT RESULTS FROM HALLTICKETS CACHED")
-        return Response(json.dumps(results), mimetype='application/json')
+        return Response(json.dumps(results), mimetype="application/json")
 
-    redis_client.set(hallticket_from + hallticket_to + examCode, json.dumps({"result":"loading"}))
-    redis_client.expire(hallticket_from+hallticket_to+examCode, timedelta(minutes=10))
+    redis_client.set(
+        hallticket_from + hallticket_to + examCode + etype + type,
+        json.dumps({"result": "loading"}),
+    )
+    redis_client.expire(
+        hallticket_from + hallticket_to + examCode, timedelta(minutes=10)
+    )
 
     def worker(start, end):
         results = []
         print("WORKER IS RUNNING")
         # Start the worker from here
 
-        for i in range(start, end+1):
+        for i in range(start, end + 1):
             hallticket = get_hallticket_helper(roll_number, i)
             print(hallticket)
-            current_key = f"calculate-{hallticket}-{degree}-{examCode}-{etype}-{type}-{result}"
+            current_key = (
+                f"calculate-{hallticket}-{degree}-{examCode}-{etype}-{type}-{result}"
+            )
             redis_response = redis_client.get(current_key)
 
             if redis_response != None:
@@ -359,32 +381,39 @@ def get_bulk_results():
                 # Perform the manaual fetch
                 try:
                     resp = old_scrapper.get_result_with_url(
-                        hallticket, dob, degree, examCode, etype, type, result)
+                        hallticket, dob, degree, examCode, etype, type, result
+                    )
                     new_res = calculate_sgpa(resp)
                     results.append(new_res)
                     redis_client.set(current_key, json.dumps(new_res))
                     redis_client.expire(current_key, timedelta(minutes=30))
                 except Exception as e:
                     print(e)
-                    redis_client.set(
-                        current_key, json.dumps({hallticket: "FALSE"}))
+                    redis_client.set(current_key, json.dumps({hallticket: "FALSE"}))
                     redis_client.expire(current_key, timedelta(minutes=30))
 
-
-        redis_client.set(hallticket_from+hallticket_to+examCode, json.dumps(results))
-        redis_client.expire(hallticket_from+hallticket_to+examCode, timedelta(minutes=10))
+        redis_client.set(
+            hallticket_from + hallticket_to + examCode + etype + type,
+            json.dumps(results),
+        )
+        redis_client.expire(
+            hallticket_from + hallticket_to + examCode + etype + type,
+            timedelta(minutes=10),
+        )
 
     threading.Thread(target=worker, args=(start, end)).start()
 
-
     # This is only going to return in the first call.
-    return Response(redis_client.get(hallticket_from + hallticket_to + examCode),  mimetype='application/json')
+    return Response(
+        redis_client.get(hallticket_from + hallticket_to + examCode + etype + type),
+        mimetype="application/json",
+    )
 
 
 @app.route("/new/", methods=["GET"])
 def all_unordered_results():
     _, _, _, unordered_results = new_scrapper.get_all_results()
-    return Response(json.dumps(unordered_results),  mimetype='application/json')
+    return Response(json.dumps(unordered_results), mimetype="application/json")
 
 
 @app.route("/notifications", methods=["GET"])
@@ -402,7 +431,7 @@ def notifications():
         redis_client.set(current_key, json.dumps(result))
         redis_client.expire(current_key, timedelta(minutes=30))
 
-    return Response(json.dumps(result),   mimetype='application/json')
+    return Response(json.dumps(result), mimetype="application/json")
 
 
 if __name__ == "__main__":
