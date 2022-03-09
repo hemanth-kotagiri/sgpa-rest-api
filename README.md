@@ -28,16 +28,17 @@ out for more information.
 ### Endpoints
 
 ```
-- /                  - This is where you are right now.
-- /result            - A query parameter specific endpoint.
-- /calculate         - Fetch the SGPA along with other details.
-- /new/all           - Fetch all results links (Supplementary and Regular).
-- /new/all/regular   - Fetch all regular results links.
-- /new/all/supply    - Fetch all regular supplementary links.
-- /api               - A Query parameter endpoint to get result of an exam given hallticket, date of birth, degree, examCode, eType, type and result.
-- /api/calculate     - A Query parameter endpoint to get result of an exam given hallticket, date of birth, degree, examCode, eType, type and result with sgpa.
-- /new/              - Returns all results links in unordered fashion
-- /notifications     - Returns all the latest released notifications
+- /                   - This is where you are right now.
+- /result             - A query parameter specific endpoint.
+- /calculate          - Fetch the SGPA along with other details.
+- /new/all            - Fetch all results links (Supplementary and Regular).
+- /new/all/regular    - Fetch all regular results links.
+- /new/all/supply     - Fetch all regular supplementary links.
+- /api                - A Query parameter endpoint to get result of an exam given hallticket, date of birth, degree, examCode, eType, type and result.
+- /api/calculate      - A Query parameter endpoint to get result of an exam given hallticket, date of birth, degree, examCode, eType, type and result with sgpa.
+- /api/bulk/calculate - A Query parameter endpoint to get results of multiple halltickets given other parameters such as degree, examCode, eType, type, result and grade along with SGPA.
+- /new/               - Returns all results links in unordered fashion
+- /notifications      - Returns all the latest released notifications
 ```
 
 Refer to the official documentation for detailed API Reference. Below is
