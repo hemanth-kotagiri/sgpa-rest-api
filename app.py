@@ -278,7 +278,17 @@ def get_hallticket_helper(roll_number, i):
     elif i > 169 and i < 180:
         hallticket = roll_number + "H" + str(i - 170)
     elif i > 179 and i < 190:
-        hallticket = roll_number + "j" + str(i - 180)
+        hallticket = roll_number + "J" + str(i - 180)
+    elif i > 189 and i < 200:
+        hallticket = roll_number + "K" + str(i - 190)
+    elif i > 199 and i < 210:
+        hallticket = roll_number + "L" + str(i - 200)
+    elif i > 209 and i < 220:
+        hallticket = roll_number + "M" + str(i - 210)
+    elif i > 219 and i < 230:
+        hallticket = roll_number + "N" + str(i - 220)
+    elif i > 229 and i < 240:
+        hallticket = roll_number + "P" + str(i - 230)
 
     return hallticket
 
@@ -295,6 +305,11 @@ def get_bulk_results():
         "G": 6,
         "H": 7,
         "J": 8,
+        "K": 9,
+        "L": 10,
+        "M": 11,
+        "N": 12,
+        "P": 13,
     }
     hallticket_from = request.args.get("hallticket_from")
     hallticket_to = request.args.get("hallticket_to")
