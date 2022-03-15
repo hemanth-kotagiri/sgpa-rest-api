@@ -3,6 +3,7 @@ import json
 import os
 import platform
 import threading
+from time import time
 
 from flask import Flask, Response, request, render_template
 import redis
@@ -10,6 +11,7 @@ from selenium import webdriver
 
 from controllers.all_results_service import AllResults
 from controllers.service import Service
+from new import get_results_async
 
 
 def init_firefox_driver():
@@ -48,15 +50,6 @@ def init_chrome_driver():
     return driver
 
 
-# driver = init_firefox_driver()
-# redis_client = redis.Redis(host="localhost", port=6379, db=0)
-driver = init_chrome_driver()
-redis_client = redis.from_url(os.environ.get("REDIS_URL"))
-
-# Initializing the Crawler object from service
-# Injecting the driver dependency
-old_scrapper = Service(driver)
-new_scrapper = AllResults(driver)
 
 grades = {
     "O": 10,
@@ -311,14 +304,14 @@ def get_bulk_results():
         "N": 12,
         "P": 13,
     }
-    hallticket_from = request.args.get("hallticket_from")
-    hallticket_to = request.args.get("hallticket_to")
+    hallticket_from = request.args.get("hallticket_from").upper()
+    hallticket_to = request.args.get("hallticket_to").upper()
     dob = request.args.get("dob")
     degree = request.args.get("degree")
     examCode = request.args.get("examCode")
     etype = request.args.get("etype")
     type = request.args.get("type")
-    result = request.args.get("result") or ""
+    result = request.args.get("result") or "null"
     # hallticket = hallticket_from[:-2]
 
     if hallticket_from[0:8] != hallticket_to[0:8]:
@@ -376,36 +369,9 @@ def get_bulk_results():
         hallticket_from + hallticket_to + examCode, timedelta(minutes=10)
     )
 
-    def worker(start, end):
-        results = []
+    def worker(hallticket_from, hallticket_to):
         print("WORKER IS RUNNING")
-        # Start the worker from here
-
-        for i in range(start, end + 1):
-            hallticket = get_hallticket_helper(roll_number, i)
-            print(hallticket)
-            current_key = (
-                f"calculate-{hallticket}-{degree}-{examCode}-{etype}-{type}-{result}"
-            )
-            redis_response = redis_client.get(current_key)
-
-            if redis_response != None:
-                redis_out = json.loads(redis_response)
-                results.append(redis_out)
-            else:
-                # Perform the manaual fetch
-                try:
-                    resp = old_scrapper.get_result_with_url(
-                        hallticket, dob, degree, examCode, etype, type, result
-                    )
-                    new_res = calculate_sgpa(resp)
-                    results.append(new_res)
-                    redis_client.set(current_key, json.dumps(new_res))
-                    redis_client.expire(current_key, timedelta(minutes=30))
-                except Exception as e:
-                    print(e)
-                    redis_client.set(current_key, json.dumps({hallticket: "FALSE"}))
-                    redis_client.expire(current_key, timedelta(minutes=30))
+        results = get_results_async(hallticket_from, hallticket_to, examCode, etype, type, result, redis_client)
 
         redis_client.set(
             hallticket_from + hallticket_to + examCode + etype + type,
@@ -416,7 +382,7 @@ def get_bulk_results():
             timedelta(minutes=10),
         )
 
-    threading.Thread(target=worker, args=(start, end)).start()
+    threading.Thread(target=worker, args=(hallticket_from, hallticket_to)).start()
 
     # This is only going to return in the first call.
     return Response(
@@ -450,4 +416,14 @@ def notifications():
 
 
 if __name__ == "__main__":
+    driver = init_firefox_driver()
+    redis_client = redis.Redis(host="localhost", port=6379, db=0)
+    # driver = init_chrome_driver()
+    # redis_client = redis.from_url(os.environ.get("REDIS_URL"))
+
+    # Initializing the Crawler object from service
+    # Injecting the driver dependency
+    old_scrapper = Service(driver)
+    new_scrapper = AllResults(driver)
+
     app.run()
