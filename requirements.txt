@@ -19,3 +19,4 @@ toml==0.10.2
 urllib3==1.25.10
 Werkzeug==2.0.1
 redis==4.0.1
+aiohttp==3.8.1
