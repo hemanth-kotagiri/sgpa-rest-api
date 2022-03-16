@@ -267,7 +267,6 @@ def get_results_async(hallticket_from, hallticket_to, examCode, etype, type, res
     start = test(s1)
     end = test(s2)
 
-    redis_client = redis.Redis(host="localhost", port=6379, db=0)
     results = asyncio.run(get_result(roll_number, start, end, f"&examCode={examCode}", f"&etype={etype}", f"&type={type}", f"&result={result}", redis_client))
 
     if results.count(None): results.remove(None)
