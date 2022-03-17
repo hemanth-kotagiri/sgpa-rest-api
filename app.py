@@ -11,6 +11,7 @@ from selenium import webdriver
 from controllers.all_results_service import AllResults
 from controllers.service import Service
 from new import get_results_async
+from utils.utils import calculate_sgpa, get_hallticket_helper
 
 
 def init_firefox_driver():
@@ -48,6 +49,7 @@ def init_chrome_driver():
 
     return driver
 
+
 # driver = init_firefox_driver()
 # redis_client = redis.Redis(host="localhost", port=6379, db=0)
 driver = init_chrome_driver()
@@ -59,46 +61,11 @@ old_scrapper = Service(driver)
 new_scrapper = AllResults(driver)
 
 
-grades = {
-    "O": 10,
-    "A+": 9,
-    "A": 8,
-    "B+": 7,
-    "B": 6,
-    "C": 5,
-    "F": 0,
-    "Ab": 0,
-}
-
-
-def calculate_sgpa(results_object):
-    sgpa = 0
-    total_credits = 0
-    for subject in results_object[1]:
-        total_credits += float(subject["subject_credits"])
-        if subject["grade_earned"] == "F" or subject["grade_earned"] == "-":
-            sgpa = 0
-            break
-        if not subject["grade_earned"] in grades.keys():
-            sgpa = 0
-            break
-        sgpa += grades[subject["grade_earned"]] * float(subject["subject_credits"])
-
-    if total_credits == 0:
-        sgpa = 0
-    else:
-        sgpa = round(sgpa / total_credits, 2)
-    results_object.insert(0, {"SGPA": sgpa if sgpa else "FAIL"})
-
-    return results_object
-
-
 app = Flask(__name__)
 
 
 @app.route("/")
 def index():
-
     return render_template("index.html")
 
 
@@ -257,64 +224,13 @@ def get_specific_result_with_sgpa():
     return Response(json.dumps(result), mimetype="application/json")
 
 
-def get_hallticket_helper(roll_number, i):
-    if i < 10:
-        hallticket = roll_number + "0" + str(i)
-    elif i < 100:
-        hallticket = roll_number + str(i)
-    elif i > 99 and i < 110:
-        hallticket = roll_number + "A" + str(i - 100)
-    elif i > 109 and i < 120:
-        hallticket = roll_number + "B" + str(i - 110)
-    elif i > 119 and i < 130:
-        hallticket = roll_number + "C" + str(i - 120)
-    elif i > 129 and i < 140:
-        hallticket = roll_number + "D" + str(i - 130)
-    elif i > 139 and i < 150:
-        hallticket = roll_number + "E" + str(i - 140)
-    elif i > 149 and i < 160:
-        hallticket = roll_number + "F" + str(i - 150)
-    elif i > 159 and i < 170:
-        hallticket = roll_number + "G" + str(i - 160)
-    elif i > 169 and i < 180:
-        hallticket = roll_number + "H" + str(i - 170)
-    elif i > 179 and i < 190:
-        hallticket = roll_number + "J" + str(i - 180)
-    elif i > 189 and i < 200:
-        hallticket = roll_number + "K" + str(i - 190)
-    elif i > 199 and i < 210:
-        hallticket = roll_number + "L" + str(i - 200)
-    elif i > 209 and i < 220:
-        hallticket = roll_number + "M" + str(i - 210)
-    elif i > 219 and i < 230:
-        hallticket = roll_number + "N" + str(i - 220)
-    elif i > 229 and i < 240:
-        hallticket = roll_number + "P" + str(i - 230)
-
-    return hallticket
-
-
 @app.route("/api/bulk/calculate", methods=["GET"])
 def get_bulk_results():
-    string_dict = {
-        "A": 0,
-        "B": 1,
-        "C": 2,
-        "D": 3,
-        "E": 4,
-        "F": 5,
-        "G": 6,
-        "H": 7,
-        "J": 8,
-        "K": 9,
-        "L": 10,
-        "M": 11,
-        "N": 12,
-        "P": 13,
-    }
+
+    from utils.constants import string_dict
+
     hallticket_from = request.args.get("hallticket_from").upper()
     hallticket_to = request.args.get("hallticket_to").upper()
-    dob = request.args.get("dob")
     degree = request.args.get("degree")
     examCode = request.args.get("examCode")
     etype = request.args.get("etype")
@@ -379,7 +295,9 @@ def get_bulk_results():
 
     def worker(hallticket_from, hallticket_to):
         print("WORKER IS RUNNING")
-        results = get_results_async(hallticket_from, hallticket_to, examCode, etype, type, result, redis_client)
+        results = get_results_async(
+            hallticket_from, hallticket_to, examCode, etype, type, result, redis_client
+        )
 
         redis_client.set(
             hallticket_from + hallticket_to + examCode + etype + type,
