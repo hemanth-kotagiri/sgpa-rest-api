@@ -200,12 +200,16 @@ async def create(session, examCode, etype, type, result, htno, redis_client):
 
                 redis_client.set(current_key, json.dumps(new_result))
                 redis_client.expire(current_key, timedelta(minutes=30))
+
+                return new_result
             except Exception as e:
                 print("INSIDE SOUP",e)
                 redis_client.set(current_key, json.dumps({htno: "FALSE"}))
                 redis_client.expire(current_key, timedelta(minutes=30))
         except Exception as e:
             print("BOTH THE LINKS FAILED TO GET RESULT: ",e)
+            redis_client.set(current_key, json.dumps({htno: "FALSE"}))
+            redis_client.expire(current_key, timedelta(minutes=30))
 
 
 def get_tasks(session, examCode, etype, type, result, roll_number, start, end, redis_client):
