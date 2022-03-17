@@ -21,9 +21,7 @@ async def create(session, examCode, etype, type, result, htno, redis_client):
     try:
         link = "http://results.jntuh.ac.in/results/resultAction?degree=btech"
         resp = await session.get(
-            link + examCode + etype + type + result + "&grad=null" + f"&htno={htno}",
-            timeout=2,
-        )
+            link + examCode + etype + type + result + "&grad=null" + f"&htno={htno}")
         print(link + examCode + etype + type + result + "&grad=null" + f"&htno={htno}")
         if resp.status == 500:
             raise Exception("First link failed to get details")
@@ -55,8 +53,7 @@ async def create(session, examCode, etype, type, result, htno, redis_client):
                 + type
                 + result
                 + "&grad=null"
-                + f"&hallticket={htno}",
-                timeout=2,
+                + f"&hallticket={htno}"
             )
             print(
                 link + examCode + etype + type + result + "&grad=null" + f"&htno={htno}"
