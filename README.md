@@ -47,8 +47,9 @@ just a sample from one endpoint. Please click
 
 ### API Reference
 
-The below example is to fetch results for R-18 (2018) Regular Exams only. To get other
-results, please refer to the api documentation
+The below example is to fetch results for R-18 (2018) Regular Exams only. To
+get other results, please refer to the [API
+Documentation](https://hemanth-kotagiri.github.io/sgpa-rest-api-docs/).
 
 #### Get results and student details
 
