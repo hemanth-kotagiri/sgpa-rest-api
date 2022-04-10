@@ -10,7 +10,7 @@ from selenium import webdriver
 
 from controllers.all_results_service import AllResults
 from controllers.service import Service
-from new import get_results_async
+from controllers.async_service import get_results_async
 from utils.utils import calculate_sgpa, get_hallticket_helper
 
 
