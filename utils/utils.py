@@ -113,7 +113,8 @@ def calculate_sgpa(results_object):
     total_credits = 0
     for subject in results_object[1]:
         total_credits += float(subject["subject_credits"])
-        if subject["grade_earned"] == "F" or subject["grade_earned"] == "-":
+        grade_earned = subject["grade_earned"]
+        if grade_earned == "F" or grade_earned == "-" or grade_earned == "Ab":
             sgpa = 0
             break
         if not subject["grade_earned"] in grades.keys():

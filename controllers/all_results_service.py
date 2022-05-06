@@ -56,7 +56,7 @@ class AllResults:
                 date, description = current.split(" ", 1)
                 date = date.lstrip("*(").rstrip(")")
                 description = description.strip()
-                if not "B.TECH" in description:
+                if not "b.tech" in description.lower():
                     continue
                 notifications.append({
                     "notification_date": date,
