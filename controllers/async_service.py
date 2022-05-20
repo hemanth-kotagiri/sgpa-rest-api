@@ -3,6 +3,7 @@ import aiohttp
 import json
 
 import asyncio
+from aiohttp.client import ClientTimeout
 from bs4 import BeautifulSoup
 from utils.utils import get_hallticket_helper, calculate_sgpa
 from utils.utils import get_results_info, get_student_info
@@ -21,7 +22,9 @@ async def create(session, examCode, etype, type, result, htno, redis_client):
     try:
         link = "http://results.jntuh.ac.in/results/resultAction?degree=btech"
         resp = await session.get(
-            link + examCode + etype + type + result + "&grad=null" + f"&htno={htno}")
+            link + examCode + etype + type + result + "&grad=null" + f"&htno={htno}",
+            timeout=ClientTimeout(total=3.0),
+        )
         print(link + examCode + etype + type + result + "&grad=null" + f"&htno={htno}")
         if resp.status == 500:
             raise Exception("First link failed to get details")
@@ -53,7 +56,8 @@ async def create(session, examCode, etype, type, result, htno, redis_client):
                 + type
                 + result
                 + "&grad=null"
-                + f"&hallticket={htno}"
+                + f"&hallticket={htno}",
+                timeout=ClientTimeout(total=3.0),
             )
             print(
                 link + examCode + etype + type + result + "&grad=null" + f"&htno={htno}"
