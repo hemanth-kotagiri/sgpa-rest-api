@@ -57,7 +57,7 @@ async def create(session, examCode, etype, type, result, htno, redis_client):
                 + result
                 + "&grad=null"
                 + f"&hallticket={htno}",
-                timeout=ClientTimeout(total=3.0),
+                timeout=ClientTimeout(total=4.0),
             )
             print(
                 link + examCode + etype + type + result + "&grad=null" + f"&htno={htno}"
