@@ -23,7 +23,7 @@ async def create(session, examCode, etype, type, result, htno, redis_client):
         link = "http://results.jntuh.ac.in/results/resultAction?degree=btech"
         resp = await session.get(
             link + examCode + etype + type + result + "&grad=null" + f"&htno={htno}",
-            timeout=ClientTimeout(total=3.0),
+            timeout=ClientTimeout(total=5.0),
         )
         print(link + examCode + etype + type + result + "&grad=null" + f"&htno={htno}")
         if resp.status == 500:
@@ -57,7 +57,7 @@ async def create(session, examCode, etype, type, result, htno, redis_client):
                 + result
                 + "&grad=null"
                 + f"&hallticket={htno}",
-                timeout=ClientTimeout(total=4.0),
+                timeout=ClientTimeout(total=5.0),
             )
             print(
                 link + examCode + etype + type + result + "&grad=null" + f"&htno={htno}"
