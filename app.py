@@ -143,9 +143,12 @@ def all_results():
 @app.route("/new/all/regular", methods=["GET"])
 def all_regular():
     current_key = "all_regular"
+    refresh = request.args.get("refresh")
+    if refresh is not None:
+        refresh = True
 
     redis_response = redis_client.get(current_key)
-    if redis_response != None:
+    if redis_response != None and not refresh:
         regular_exams = json.loads(redis_response)
     else:
         _, regular_exams, _, _ = new_scrapper.get_all_results()
@@ -158,8 +161,11 @@ def all_regular():
 @app.route("/new/all/supply", methods=["GET"])
 def all_supply():
     current_key = "all_supply"
+    refresh = request.args.get("refresh")
+    if refresh is not None:
+        refresh = True
     redis_response = redis_client.get(current_key)
-    if redis_response != None:
+    if redis_response != None and not refresh:
         supply_exams = json.loads(redis_response)
     else:
         _, _, supply_exams, _ = new_scrapper.get_all_results()
