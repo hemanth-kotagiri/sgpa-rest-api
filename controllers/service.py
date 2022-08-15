@@ -19,6 +19,7 @@ class Service:
         "3,1": "http://results.jntuh.ac.in/results/resultAction?degree=btech&examCode=1454&etype=r17&type=intgrade&result=null&grad=null",
         "3,2": "http://results.jntuh.ac.in/results/resultAction?degree=btech&examCode=1502&etype=r17&type=intgrade&result=null&grad=null",
         "4,1": "http://results.jntuh.ac.in/results/resultAction?degree=btech&examCode=1545&etype=r17&type=intgrade&result=null&grad=null",
+        "4,2": "http://results.jntuh.ac.in/results/resultAction?degree=btech&examCode=1580&etype=r17&type=intgrade&result=null&grad=null",
     }
 
     urls2 = {
@@ -28,6 +29,7 @@ class Service:
         "2,2": "http://202.63.105.184/results/resultAction?degree=btech&examCode=1437&etype=r17&type=intgrade&type=grade16&result=null&grad=null",
         "3,1": "http://202.63.105.184/results/resultAction?degree=btech&examCode=1454&etype=r17&type=intgrade&type=grade16&result=null&grad=null",
         "4,1": "http://202.63.105.184/results/resultAction?degree=btech&examCode=1545&etype=r17&type=intgrade&type=grade16&result=null&grad=null",
+        "4,2": "http://202.63.105.184/results/resultAction?degree=btech&examCode=1580&etype=r17&type=intgrade&type=grad16&result=null&grad=null",
     }
 
     def __init__(self, driver):
