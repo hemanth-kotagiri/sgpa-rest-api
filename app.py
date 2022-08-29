@@ -9,6 +9,7 @@ import redis
 from selenium import webdriver
 
 from controllers.all_results_service import AllResults
+from controllers.r18_all_results_service import get_r18_results_async
 from controllers.service import Service
 from controllers.async_service import get_results_async
 from utils.utils import calculate_sgpa, get_hallticket_helper
@@ -67,6 +68,12 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     return render_template("index.html")
+
+
+@app.route("/test")
+def testing():
+    results = get_r18_results_async("185u1a0565".upper(), "2-2", None)
+    return Response(json.dumps(results), mimetype="application/json")
 
 
 @app.route("/<hallticket>/<dob>/<year>", methods=["GET"])
@@ -349,4 +356,4 @@ def notifications():
 
 if __name__ == "__main__":
 
-    app.run()
+    app.run(debug=True)
