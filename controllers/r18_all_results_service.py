@@ -5,7 +5,10 @@ from aiohttp.client import ClientTimeout
 from utils.utils import calculate_sgpa
 from utils.utils import get_results_info, get_student_info
 
+# TODO: Create a common metaclass/abstractclass using ABC to have similar async jobs
 
+
+# TODO: Move this to utils
 def exam_codes(code):
 
     arr11 = ["1323", "1358", "1404", "1430", "1467", "1504"]
@@ -38,6 +41,7 @@ def exam_codes(code):
             return []
 
 
+# TODO: Move this to utils
 def invalid_hallticket(sel_soup):
     if sel_soup.find_all(
         lambda tag: tag.name == "div" and "invalid hallticket number" in tag.text
@@ -82,6 +86,7 @@ async def create(session, hallticket, code, redis_client):
             # redis_client.set(current_key, json.dumps({htno: "FALSE"}))
             # redis_client.expire(current_key, timedelta(minutes=30))
 
+    # TODO
     except Exception as e:
         print(e)
         # try:
@@ -148,6 +153,7 @@ async def get_result(hallticket, exam, redis_client):
     return results
 
 
+# TODO: more than one exam -> Remove exam dependency
 def get_r18_results_async(hallticket, exam, redis_client):
 
     results = asyncio.run(
