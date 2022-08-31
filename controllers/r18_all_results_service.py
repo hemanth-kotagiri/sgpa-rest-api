@@ -8,7 +8,7 @@ from utils.utils import get_results_info, get_student_info
 # TODO: Create a common metaclass/abstractclass using ABC to have similar async jobs
 
 
-# TODO: Move this to utils
+# TODO: Move this to utils and don't use match
 def exam_codes(code):
 
     arr11 = ["1323", "1358", "1404", "1430", "1467", "1504"]
