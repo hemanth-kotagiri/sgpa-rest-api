@@ -9,7 +9,7 @@ import redis
 from selenium import webdriver
 
 from controllers.all_results_service import AllResults
-from controllers.r18_all_results_service import get_r18_results_async
+from controllers.r18_all_results_service import get_r18_async_results
 from controllers.service import Service
 from controllers.async_service import get_results_async
 from utils.utils import calculate_sgpa, get_hallticket_helper
@@ -52,10 +52,10 @@ def init_chrome_driver():
 
 
 # TODO: Swap the drivers and redis client
-driver = init_firefox_driver()
-redis_client = redis.Redis(host="localhost", port=6379, db=0)
-# driver = init_chrome_driver()
-# redis_client = redis.from_url(os.environ.get("REDIS_URL"))
+# driver = init_firefox_driver()
+# redis_client = redis.Redis(host="localhost", port=6379, db=0)
+driver = init_chrome_driver()
+redis_client = redis.from_url(os.environ.get("REDIS_URL"))
 
 # Initializing the Crawler object from service
 # Injecting the driver dependency
@@ -71,10 +71,47 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/test")
-def testing():
-    results = get_r18_results_async("185u1a0565".upper(), "2-2", None)
-    return Response(json.dumps(results), mimetype="application/json")
+@app.route("/all-r18/<hallticket>")
+def fetch_all_r18_results(hallticket):
+    current_key = f"r18-{hallticket}"
+
+    redis_response = redis_client.get(current_key)
+    if redis_response != None:
+        data = json.loads(redis_response)
+        return Response(json.dumps(data), mimetype="application/json")
+    results = {}
+    all_results = []
+    from utils.constants import codes
+
+    try:
+        for code in codes:
+            result = get_r18_async_results(hallticket.upper(), code)
+            if not results:
+                results["details"] = result["student_details"]
+            new = {
+                key: value
+                for key, value in result.items()
+                if key != "student_details" and value
+            }
+            if new:
+                all_results.append(new)
+    except Exception as e:
+        print(e)
+        return Response(json.dumps({"error": "something went wrong with server"}))
+    results["results"] = all_results
+    total_gpa = 0
+    for year in results["results"]:
+        if len(year) < 2:
+            total_gpa = 0
+            break
+        total_gpa += float(year["SGPA"])
+    if total_gpa:
+        total_gpa /= len(results["results"])
+        results["overall_gpa"] = total_gpa
+
+    redis_client.set(current_key, json.dumps({"data": results}))
+    redis_client.expire(current_key, timedelta(hours=1))
+    return Response(json.dumps({"data": results}), mimetype="application/json")
 
 
 @app.route("/<hallticket>/<dob>/<year>", methods=["GET"])
@@ -357,4 +394,4 @@ def notifications():
 
 if __name__ == "__main__":
 
-    app.run(debug=True)
+    app.run()

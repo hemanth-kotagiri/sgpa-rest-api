@@ -1,170 +1,107 @@
-from bs4 import BeautifulSoup
 import asyncio
 import aiohttp
-from aiohttp.client import ClientTimeout
-from utils.utils import calculate_sgpa
-from utils.utils import get_results_info, get_student_info
-
-# TODO: Create a common metaclass/abstractclass using ABC to have similar async jobs
+from bs4 import BeautifulSoup
+from utils.constants import payloads, grades, headers
+from utils.utils import exam_codes, get_student_info
 
 
-# TODO: Move this to utils and don't use match
-def exam_codes(code):
+class Results:
+    def __init__(self):
+        self.data = {}
+        self.data.clear()
+        self.tasks = []
 
-    arr11 = ["1323", "1358", "1404", "1430", "1467", "1504"]
-    arr12 = ["1356", "1381", "1435", "1448", "1481", "1503"]
-    arr21 = ["1391", "1425", "1449", "1496", "1560"]
-    arr22 = ["1437", "1447", "1476", "1501", "1565"]
-    arr31 = ["1454", "1491", "1550"]
-    arr32 = ["1502", "1555"]
-    arr41 = ["1545"]
-    arr42 = ["1580"]
+    def get_tasks(self, session, codes, roll):
+        url = "http://results.jntuh.ac.in/resultAction"
+        for payload in payloads:
+            for code in codes:
+                payload_data = "degree=btech&examCode=" + str(code) + payload + roll
+                self.tasks.append(
+                    session.post(url, data=payload_data, headers=headers, ssl=False)
+                )
+        return self.tasks
 
-    match code:
-        case "1-1":
-            return arr11
-        case "1-2":
-            return arr12
-        case "2-1":
-            return arr21
-        case "2-2":
-            return arr22
-        case "3-1":
-            return arr31
-        case "3-2":
-            return arr32
-        case "4-1":
-            return arr41
-        case "4-2":
-            return arr42
-        case default:
-            return []
-
-
-# TODO: Move this to utils
-def invalid_hallticket(sel_soup):
-    if sel_soup.find_all(
-        lambda tag: tag.name == "div" and "invalid hallticket number" in tag.text
-    ):
-        return True
-    return False
-
-
-async def create(session, hallticket, code, redis_client):
-    # Else, do some async stuff
-    try:
-        link = "http://results.jntuh.ac.in/results/resultAction?degree=btech"
-        resp = await session.get(
-            link
-            + f"&examCode={code}"
-            + "&etype=r17"
-            + "&type=intgrade"
-            + "&result=null"
-            + "&grad=null"
-            + f"&htno={hallticket}",
-            timeout=ClientTimeout(total=5.0),
-        )
-        if resp.status == 500:
-            raise Exception("First link failed to get details")
-        html = await resp.text()
+    def grade_calculate(self, value):
         try:
-            sel_soup = BeautifulSoup(html, "html.parser")
-            if invalid_hallticket(sel_soup):
-                return None
-            student = get_student_info(sel_soup)
-            results = get_results_info(sel_soup)
+            total, cr = 0, 0
+            for data in value:
+                if "student_details" in data:
+                    pass
+                else:
+                    if (
+                        value[data]["subject_grade"] == "F"
+                        or value[data]["subject_grade"] == "Ab"
+                    ):
+                        return ""
+                    total = total + int(grades[value[data]["subject_grade"]]) * float(
+                        value[data]["subject_credits"]
+                    )
+                    cr = cr + float(value[data]["subject_credits"])
+            self.data["SGPA"] = "{0:.2f}".format(round(total / cr, 2))
+        except:
+            pass
 
-            new_result = calculate_sgpa([student, results])
-            # Now, cache it with the current_key in the redis client and the return
+    def worker(self, code, soup):
+        try:
+            table = soup.find_all("table")
+            table2 = table[1].find_all("tr")
+            table2 = table2[1:]
 
-            # redis_client.set(current_key, json.dumps(new_result))
-            # redis_client.expire(current_key, timedelta(minutes=30))
+            for row in table2:
+                bTags = row.find_all("b")
+                if not bTags[0].text.isalnum():
+                    continue
+                current_subject = []
+                count = 1
 
-            return new_result
-        except Exception as e:
-            print("INSIDE SOUP: ", e)
-            # redis_client.set(current_key, json.dumps({htno: "FALSE"}))
-            # redis_client.expire(current_key, timedelta(minutes=30))
+                for b in bTags:
+                    if count <= 7:
+                        current_subject.append(b.text)
+                        count += 1
 
-    # TODO
-    except Exception as e:
-        print(e)
-        # try:
-        #     link = "http://202.63.105.184/results/resultAction?degree=btech"
-        #     resp = await session.get(
-        #         link
-        #         + examCode
-        #         + etype
-        #         + type
-        #         + result
-        #         + "&grad=null"
-        #         + f"&hallticket={htno}",
-        #         timeout=ClientTimeout(total=5.0),
-        #     )
-        #     print(
-        #         link + examCode + etype + type + result + "&grad=null" + f"&htno={htno}"
-        #     )
-        #     if resp.status == 500:
-        #         raise Exception("Second link also failed to get details")
-        #     html = await resp.text()
-        #     try:
-        #         sel_soup = BeautifulSoup(html, "html.parser")
-        #         student = get_student_info(sel_soup)
-        #         results = get_results_info(sel_soup)
-        #
-        #         new_result = calculate_sgpa([student, results])
-        #         # Now, cache it with the current_key in the redis client and the return
-        #
-        #         # redis_client.set(current_key, json.dumps(new_result))
-        #         # redis_client.expire(current_key, timedelta(minutes=30))
-        #
-        #         return new_result
-        #     except Exception as e:
-        #         print("INSIDE SOUP", e)
-        #         # redis_client.set(current_key, json.dumps({htno: "FALSE"}))
-        #         # redis_client.expire(current_key, timedelta(minutes=30))
-        # except Exception as e:
-        #     print("BOTH THE LINKS FAILED TO GET RESULT: ", e)
-        #     # redis_client.set(current_key, json.dumps({htno: "FALSE"}))
-        #     # redis_client.expire(current_key, timedelta(minutes=30))
+                if not current_subject:
+                    continue
+                try:
+                    if self.data[code][current_subject[0]]["subject_grade"] != "F":
+                        continue
+                except:
+                    pass
+                subject_code = current_subject[0]
+                if current_subject:
+                    self.data[code][subject_code] = {}
+                    self.data[code][subject_code]["subject_code"] = current_subject[0]
+                    self.data[code][subject_code]["subject_name"] = current_subject[1]
+                    self.data[code][subject_code]["internal_marks"] = current_subject[2]
+                    self.data[code][subject_code]["external_marks"] = current_subject[3]
+                    self.data[code][subject_code]["total_marks"] = current_subject[4]
+                    self.data[code][subject_code]["subject_grade"] = current_subject[5]
+                    self.data[code][subject_code]["subject_credits"] = current_subject[
+                        6
+                    ]
 
+            self.data["student_details"] = get_student_info(soup)
+        except:
+            pass
 
-def get_tasks(session, hallticket, codes, redis_client):
-    tasks = []
-    for code in codes:
-        tasks.append(
-            asyncio.create_task(
-                create(session, hallticket, code, redis_client=redis_client)
-            )
-        )
+    async def get_results(self, code, roll):
+        codes = exam_codes(code)
+        async with aiohttp.ClientSession() as session:
+            tasks = self.get_tasks(session, codes, roll)
+            responses = await asyncio.gather(*tasks)
+            self.data[code] = {}
+            for response in responses:
+                r = await response.text()
+                soup = BeautifulSoup(r, "html.parser")
+                self.worker(code, soup)
 
-    return tasks
+        self.grade_calculate(self.data[code])
 
-
-async def get_result(hallticket, exam, redis_client):
-    results = []
-    codes = exam_codes(exam)
-    async with aiohttp.ClientSession() as session:
-        tasks = get_tasks(session, hallticket, codes, redis_client)
-        responses = await asyncio.gather(*tasks)
-        for result in responses:
-            if result:
-                results.append(result)
-    return results
+        return self.data
 
 
-# TODO: more than one exam -> Remove exam dependency
-def get_r18_results_async(hallticket, exam, redis_client):
-
-    results = asyncio.run(
-        get_result(
-            hallticket,
-            exam,
-            redis_client,
-        )
-    )
-
-    if results.count(None):
-        results.remove(None)
-
-    return results
+# Function called from views
+def get_r18_async_results(roll, code):
+    worker_obj = Results()
+    result = asyncio.run(worker_obj.get_results(code, roll))
+    del worker_obj
+    return result
