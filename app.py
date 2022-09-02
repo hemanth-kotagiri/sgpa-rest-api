@@ -97,7 +97,10 @@ def fetch_all_r18_results(hallticket):
                 all_results.append(new)
     except Exception as e:
         print(e)
-        return Response(json.dumps({"error": "something went wrong with server"}))
+        return Response(
+            json.dumps({"error": "something went wrong with server"}),
+            mimetype="application/json",
+        )
     results["results"] = all_results
     total_gpa = 0
     for year in results["results"]:
@@ -107,7 +110,7 @@ def fetch_all_r18_results(hallticket):
         total_gpa += float(year["SGPA"])
     if total_gpa:
         total_gpa /= len(results["results"])
-        results["overall_gpa"] = total_gpa
+        results["overall_gpa"] = round(total_gpa, 2)
 
     redis_client.set(current_key, json.dumps({"data": results}))
     redis_client.expire(current_key, timedelta(hours=1))
