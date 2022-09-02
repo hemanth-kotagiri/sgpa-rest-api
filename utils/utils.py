@@ -129,3 +129,45 @@ def calculate_sgpa(results_object):
     results_object.insert(0, {"SGPA": sgpa if sgpa else "FAIL"})
 
     return results_object
+
+
+# TODO: Add Docstrings
+def exam_codes(code: str):
+
+    arr11 = ["1323", "1358", "1404", "1430", "1467", "1504"]
+    arr12 = ["1356", "1381", "1435", "1448", "1481", "1503"]
+    arr21 = ["1391", "1425", "1449", "1496", "1560"]
+    arr22 = ["1437", "1447", "1476", "1501", "1565"]
+    arr31 = ["1454", "1491", "1550"]
+    arr32 = ["1502", "1555"]
+    arr41 = ["1545"]
+    arr42 = ["1580"]
+
+    if code == "1-1":
+        return arr11
+    elif code == "1-2":
+        return arr12
+    elif code == "2-1":
+        return arr21
+    elif code == "2-2":
+        return arr22
+    elif code == "3-1":
+        return arr31
+    elif code == "3-2":
+        return arr32
+    elif code == "4-1":
+        return arr41
+    elif code == "4-2":
+        return arr42
+    elif code == "all":
+        return [*arr11, *arr12, *arr21, *arr22, *arr31, *arr32, *arr41, *arr42]
+    else:
+        return []
+
+
+def invalid_hallticket(sel_soup):
+    if sel_soup.find_all(
+        lambda tag: tag.name == "div" and "invalid hallticket number" in tag.text
+    ):
+        return True
+    return False

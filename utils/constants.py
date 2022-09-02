@@ -25,3 +25,16 @@ string_dict = {
     "N": 12,
     "P": 13,
 }
+
+payloads = [
+    "&etype=r17&result=null&grad=null&type=intgrade&htno=",
+    "&etype=r17&result=gradercrv&grad=null&type=rcrvintgrade&htno=",
+]
+
+headers = {
+    "Upgrade-Insecure-Requests": "1",
+    "Content-Type": "application/x-www-form-urlencoded",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+}
+
+codes = ["1-1", "1-2", "2-1", "2-2", "3-1", "3-2", "4-1", "4-2"]
