@@ -29,11 +29,11 @@ class Results:
                     pass
                 else:
                     if (
-                        value[data]["subject_grade"] == "F"
-                        or value[data]["subject_grade"] == "Ab"
+                        value[data]["grade_earned"] == "F"
+                        or value[data]["grade_earned"] == "Ab"
                     ):
                         return ""
-                    total = total + int(grades[value[data]["subject_grade"]]) * float(
+                    total = total + int(grades[value[data]["grade_earned"]]) * float(
                         value[data]["subject_credits"]
                     )
                     cr = cr + float(value[data]["subject_credits"])
