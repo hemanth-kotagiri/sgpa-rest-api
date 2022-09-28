@@ -43,6 +43,7 @@ class Results:
 
     def worker(self, code, soup):
         if invalid_hallticket(soup):
+            print("INVALID HALLTICKET")
             return []
         try:
             table = soup.find_all("table")
@@ -64,10 +65,10 @@ class Results:
                 if not current_subject:
                     continue
                 try:
-                    if self.data[code][current_subject[0]]["subject_grade"] != "F":
+                    if self.data[code][current_subject[0]]["grade_earned"] != "F":
                         continue
-                except:
-                    pass
+                except Exception as e:
+                    print("EXCEPTION: ", e)
                 subject_code = current_subject[0]
                 if current_subject:
                     self.data[code][subject_code] = {}
