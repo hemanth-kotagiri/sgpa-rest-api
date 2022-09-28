@@ -2,7 +2,7 @@ import asyncio
 import aiohttp
 from bs4 import BeautifulSoup
 from utils.constants import payloads, grades, headers
-from utils.utils import exam_codes, get_student_info
+from utils.utils import exam_codes, get_student_info, invalid_hallticket
 
 
 class Results:
@@ -42,6 +42,8 @@ class Results:
             pass
 
     def worker(self, code, soup):
+        if invalid_hallticket(soup):
+            return []
         try:
             table = soup.find_all("table")
             table2 = table[1].find_all("tr")

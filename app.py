@@ -3,6 +3,7 @@ import json
 import os
 import platform
 import threading
+from async_test import get_all
 
 from flask import Flask, Response, request, render_template
 import redis
@@ -81,11 +82,13 @@ def fetch_all_r18_results(hallticket):
         return Response(json.dumps(data), mimetype="application/json")
     results = {}
     all_results = []
-    from utils.constants import codes
-
     try:
-        for code in codes:
-            result = get_r18_async_results(hallticket.upper(), code)
+        async_results = get_all(hallticket)
+        for result in async_results:
+            # checking if the dictionary has empty value
+            if not list(result.values())[0]:
+                print(result)
+                continue
             if not results:
                 results["details"] = result["student_details"]
             new = {
@@ -96,7 +99,7 @@ def fetch_all_r18_results(hallticket):
             if new:
                 all_results.append(new)
     except Exception as e:
-        print(e)
+        print("EXCEPTION", e)
         return Response(
             json.dumps({"error": "something went wrong with server"}),
             mimetype="application/json",
