@@ -74,7 +74,7 @@ class Results:
                     self.data[code][subject_code]["internal_marks"] = current_subject[2]
                     self.data[code][subject_code]["external_marks"] = current_subject[3]
                     self.data[code][subject_code]["total_marks"] = current_subject[4]
-                    self.data[code][subject_code]["subject_grade"] = current_subject[5]
+                    self.data[code][subject_code]["grade_earned"] = current_subject[5]
                     self.data[code][subject_code]["subject_credits"] = current_subject[
                         6
                     ]
