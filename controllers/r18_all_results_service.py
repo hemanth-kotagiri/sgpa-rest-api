@@ -65,7 +65,10 @@ class Results:
                 if not current_subject:
                     continue
                 try:
-                    if self.data[code][current_subject[0]]["grade_earned"] != "F":
+                    if (
+                        self.data[code][current_subject[0]]["grade_earned"] != "F"
+                        and self.data[code][current_subject[0]]["grade_earned"] != "Ab"
+                    ):
                         continue
                 except Exception as e:
                     print("EXCEPTION: ", e)
