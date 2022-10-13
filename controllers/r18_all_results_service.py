@@ -12,7 +12,7 @@ class Results:
         self.tasks = []
 
     def get_tasks(self, session, codes, roll):
-        url = "http://202.63.105.184/resultAction"
+        url = "http://results.jntuh.ac.in/results/resultAction"
         for payload in payloads:
             for code in codes:
                 payload_data = "degree=btech&examCode=" + str(code) + payload + roll

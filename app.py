@@ -115,8 +115,10 @@ def fetch_all_r18_results(hallticket):
         total_gpa /= len(results["results"])
         results["overall_gpa"] = round(total_gpa, 2)
 
-    redis_client.set(current_key, json.dumps({"data": results}))
-    redis_client.expire(current_key, timedelta(hours=24))
+    # Cache only if results exist
+    if results['results']:
+        redis_client.set(current_key, json.dumps({"data": results}))
+        redis_client.expire(current_key, timedelta(hours=3))
     return Response(json.dumps({"data": results}), mimetype="application/json")
 
 
