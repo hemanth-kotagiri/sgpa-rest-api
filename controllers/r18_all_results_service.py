@@ -68,6 +68,7 @@ class Results:
                     if (
                         self.data[code][current_subject[0]]["grade_earned"] != "F"
                         and self.data[code][current_subject[0]]["grade_earned"] != "Ab"
+                        and self.data[code][current_subject[0]]["grade_earned"] != "-"
                     ):
                         continue
                 except Exception as e:
