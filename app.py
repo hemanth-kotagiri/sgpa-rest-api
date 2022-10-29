@@ -74,7 +74,7 @@ def index():
 
 @app.route("/all-r18/<hallticket>")
 def fetch_all_r18_results(hallticket):
-    current_key = f"r18-{hallticket}"
+    current_key = f"r18-{hallticket.lower()}"
 
     redis_response = redis_client.get(current_key)
     if redis_response != None:
