@@ -55,13 +55,16 @@ def init_chrome_driver():
 # TODO: Swap the drivers and redis client
 # driver = init_firefox_driver()
 # redis_client = redis.Redis(host="localhost", port=6379, db=0)
-driver = init_chrome_driver()
-redis_client = redis.from_url(os.environ.get("REDIS_URL"))
+# driver = init_chrome_driver()
+# redis_client = redis.from_url(os.environ.get("REDIS_URL"))
+redis_client = redis.Redis(
+    host=os.environ.get("REDISHOST"), port=os.environ.get("REDISPORT")
+)
 
 # Initializing the Crawler object from service
 # Injecting the driver dependency
-old_scrapper = Service(driver)
-new_scrapper = AllResults(driver)
+old_scrapper = Service()
+new_scrapper = AllResults()
 
 
 app = Flask(__name__)
@@ -116,7 +119,7 @@ def fetch_all_r18_results(hallticket):
         results["overall_gpa"] = round(total_gpa, 2)
 
     # Cache only if results exist
-    if results['results']:
+    if results["results"]:
         redis_client.set(current_key, json.dumps({"data": results}))
         redis_client.expire(current_key, timedelta(hours=3))
     return Response(json.dumps({"data": results}), mimetype="application/json")
@@ -205,8 +208,9 @@ def all_regular():
         regular_exams = json.loads(redis_response)
     else:
         _, regular_exams, _, _ = new_scrapper.get_all_results()
-        redis_client.set(current_key, json.dumps(regular_exams))
-        redis_client.expire(current_key, timedelta(minutes=30))
+        if regular_exams:
+            redis_client.set(current_key, json.dumps(regular_exams))
+            redis_client.expire(current_key, timedelta(minutes=30))
 
     return Response(json.dumps(regular_exams), mimetype="application/json")
 
@@ -222,8 +226,9 @@ def all_supply():
         supply_exams = json.loads(redis_response)
     else:
         _, _, supply_exams, _ = new_scrapper.get_all_results()
-        redis_client.set(current_key, json.dumps(supply_exams))
-        redis_client.expire(current_key, timedelta(minutes=30))
+        if supply_exams:
+            redis_client.set(current_key, json.dumps(supply_exams))
+            redis_client.expire(current_key, timedelta(minutes=30))
 
     return Response(json.dumps(supply_exams), mimetype="application/json")
 

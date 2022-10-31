@@ -32,10 +32,6 @@ class Service:
         "4,2": "http://202.63.105.184/results/resultAction?degree=btech&examCode=1580&etype=r17&type=intgrade&type=grad16&result=null&grad=null",
     }
 
-    def __init__(self, driver):
-        self.driver = driver
-        self.driver.set_page_load_timeout(10)
-
     def helper(self, url: str, hallticket: str, dob: str) -> list:
 
         url = url + f"f&htno={hallticket}"
@@ -47,7 +43,6 @@ class Service:
         # Calling get student and results functions
         student = self.get_student_info(sel_soup)
         results = self.get_results_info(sel_soup)
-        # self.driver.back()
 
         return [student, results]
 
