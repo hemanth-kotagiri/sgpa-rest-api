@@ -7,7 +7,6 @@
 <div align="left">
   <img width=100 src="https://img.shields.io/badge/flask-black.svg?style=for-the-badge&logo=flask" alt="">
   <img width=110 src="https://img.shields.io/badge/python-black.svg?style=for-the-badge&logo=python" alt="">
-  <img width=120 src="https://img.shields.io/badge/selenium-black.svg?style=for-the-badge&logo=selenium" alt="">
   <img width=100 src="https://img.shields.io/badge/redis-black.svg?style=for-the-badge&logo=redis" alt="">
 </div>
 
@@ -16,6 +15,8 @@ developed. Feel free to use this irrespective of the mobile-app, with which
 you can integrate into your own applications/projects to get the data. This
 RestAPI provides the results for all regulations, and of all types (
 regular and supplementary ).
+
+**Visit the endpoint homepage at [here](https://results-restapi.up.railway.app).**
 
 ### Documentation
 
@@ -29,6 +30,7 @@ out for more information.
 
 ```
 - /                   - This is where you are right now.
+- /all-r18            - Fetch all semester results of R18 batch students
 - /result             - A query parameter specific endpoint.
 - /calculate          - Fetch the SGPA along with other details.
 - /new/all            - Fetch all results links (Supplementary and Regular).
@@ -110,12 +112,12 @@ And, this is a response object containing an 8 tuple schema.
 
 ### Usage
 
-1. You are here : https://results-restapi.herokuapp.com
+1. You are here : https://results-restapi.up.railway.app
 
 2. As the above parameters have been mentioned, form the endpoint as such:
 
    ```
-   https://results-restapi.herokuapp.com/hallticket-number/date-of-birth/year
+   https://results-restapi.up.railway.app/hallticket-number/date-of-birth/year
    ```
 
 3. Substitute your identification values in the above parameters and the
@@ -128,7 +130,7 @@ You could use Postman or any other service as you wish to test the RestAPI.
 Copy and paste this url in a new tab:
 
 ```
-  https://results-restapi.herokuapp.com/185U1A0565/2001-04-03/1,1
+  https://results-restapi.up.railway.app/185U1A0565/2001-04-03/1,1
 ```
 
 and it shall trigger the endpoint with the below response. Now, all you need to
@@ -201,7 +203,7 @@ You would obtain the response object as follows:
 In the case of the calculate endpoint, form the url as such:
 
 ```
-https://results-restapi.herokuapp.com/calculate/hallticket-number/date-of-birth/year
+https://results-restapi.up.railway.app/calculate/185U1A0565/2001-04-03/1,1
 ```
 
 This will add an additional object as such:
