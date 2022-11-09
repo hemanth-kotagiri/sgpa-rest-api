@@ -1,4 +1,4 @@
-<h1 align="center">RestAPI for <a href="https://github.com/hemanth-kotagiri/sgpa-calculator" target="_blank">SGPA-Calcluator</a></h1>
+<h1 align="center"><a href="http://results.jntuh.ac.in/" target="_blank">JNTUH</a> Engineering Results REST-API</h1>
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/9ca1efa8af8a450abe751428a6fbbbf1)](https://app.codacy.com/gh/hemanth-kotagiri/sgpa-rest-api?utm_source=github.com&utm_medium=referral&utm_content=hemanth-kotagiri/sgpa-rest-api&utm_campaign=Badge_Grade_Settings)
 ![License](https://img.shields.io/github/license/hemanth-kotagiri/sgpa-rest-api)
@@ -11,7 +11,7 @@
   <img width=100 src="https://img.shields.io/badge/redis-black.svg?style=for-the-badge&logo=redis" alt="">
 </div>
 
-This has been specifically built to suppliment the mobile application that I have
+This has been specifically built to suppliment the <a href="https://github.com/hemanth-kotagiri/sgpa-calculator" target="_blank">mobile application</a> that I have
 developed. Feel free to use this irrespective of the mobile-app, with which
 you can integrate into your own applications/projects to get the data. This
 RestAPI provides the results for all regulations, and of all types (
