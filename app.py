@@ -1,65 +1,19 @@
 from datetime import timedelta
 import json
 import os
-import platform
 import threading
 from async_test import get_all
 
 from flask import Flask, Response, request, render_template
 import redis
-from selenium import webdriver
 
 from controllers.all_results_service import AllResults
-from controllers.r18_all_results_service import get_r18_async_results
 from controllers.service import Service
 from controllers.async_service import get_results_async
 from utils.utils import calculate_sgpa, get_hallticket_helper
 
-
-def init_firefox_driver():
-    firefox_options = webdriver.FirefoxOptions()
-    driver_file = (
-        "drivers/geckodriver"
-        if platform.system() == "Linux"
-        else "drivers/geckodriver.exe"
-    )
-    # Arguments for Firefox driver
-    firefox_options.add_argument("--headless")
-    firefox_options.add_argument("--no-sandbox")
-    firefox_options.add_argument("--disable-dev-shm-usage")
-
-    # Firefox Driver
-    driver = webdriver.Firefox(
-        executable_path=os.path.join(os.getcwd(), driver_file), options=firefox_options
-    )
-
-    return driver
-
-
-def init_chrome_driver():
-    chrome_options = webdriver.ChromeOptions()
-    # Specifying the driver options for chrome
-    chrome_options.add_argument("--headless")
-    chrome_options.add_argument("--no-sandbox")
-    chrome_options.add_argument("--disable-dev-shm-usage")
-    chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-    # Starting the driver
-    driver = webdriver.Chrome(
-        executable_path=os.environ.get("CHROMEDRIVER_PATH"),
-        chrome_options=chrome_options,
-    )
-
-    return driver
-
-
-# TODO: Swap the drivers and redis client
-# driver = init_firefox_driver()
 # redis_client = redis.Redis(host="localhost", port=6379, db=0)
-# driver = init_chrome_driver()
-# redis_client = redis.from_url(os.environ.get("REDIS_URL"))
-redis_client = redis.Redis(
-    host=os.environ.get("REDISHOST"), port=os.environ.get("REDISPORT")
-)
+redis_client = redis.from_url(os.environ.get("REDISURL"))
 
 # Initializing the Crawler object from service
 # Injecting the driver dependency
