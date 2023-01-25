@@ -58,7 +58,7 @@ def fetch_all_r18_results(hallticket):
     except Exception as e:
         print("EXCEPTION", e)
         return Response(
-            json.dumps({"error": "something went wrong with server" + e}),
+            json.dumps({"error": "something went wrong with server" + str(e)}),
             mimetype="application/json",
         )
     results["results"] = all_results
