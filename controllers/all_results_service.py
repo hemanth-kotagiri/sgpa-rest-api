@@ -30,6 +30,7 @@ class AllResults:
             notifications = []
             for each in soup.findAll("h3"):
                 current = each.getText()
+                current = current[current.find('('):]
                 date, description = current.split(" ", 1)
                 date = date.lstrip("*(").rstrip(")")
                 description = description.strip()
